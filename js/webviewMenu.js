@@ -138,6 +138,13 @@ var webviewMenu = {
       }
     }))
 
+    menu.append(new MenuItem({
+      label: 'Inspect Browser',
+      click: function (item, focusedWindow) {
+        if (focusedWindow) focusedWindow.toggleDevTools()
+      }
+    }))
+
     menu.popup(remote.getCurrentWindow())
   },
   /* cxevent: a contextmenu event. Can be a jquery event or a regular event. */

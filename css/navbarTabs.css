@@ -1,32 +1,43 @@
-.tab-group {
+.page-tabs {
 	/* make room for the window controls */
-	padding-left: 75px;
 	display: flex;
-	height: 2.3333em;
-	align-items: center;
-	transition: 0.2s background-color;
-	max-width: 100vw;
+	-webkit-backface-visibility:hidden;
+	height: 35px;
+	/*align-items: center;*/
+	/*transition: 0.2s background-color;*/
+	width: 100%;
 	-webkit-user-select: none;
 	position: relative;
 	outline: none;
-	-webkit-app-region: drag;
+	background-color: #f4f7fb;
+	z-index: 1;
+	/*box-shadow: 0px 6px 7px -7px rgba(0,0,0,.5);*/
+	/*-webkit-app-region: drag;*/
+}
+
+.tab-controls {
+	width: 200px;
 }
 
 /* there are no window controls in fullscreen, so we don't need any padding */
 
-body.fullscreen .tab-group,
-body.notMac .tab-group {
+body.fullscreen {
+	/*border: 1px solid #000;*/
+}
+
+body.fullscreen .page-tabs,
+body.notMac .page-tabs {
 	padding-left: 0;
 }
 
-/* when the tab-group is white, we need a line to separate it from the webviews */
+/* when the page-tabs is white, we need a line to separate it from the webviews */
 
-.tab-group:before {
+.page-tabs:before {
 	content: "";
-	width: 100vw;
+	width: 100%;
 	height: 1px;
 	position: absolute;
-	bottom: 0;
+	bottom: 0px;
 	left: 0;
 	background: rgba(0, 0, 0, 0.075);
 	transition: 0.2s;
@@ -34,34 +45,89 @@ body.notMac .tab-group {
 
 /* dark colors don't need to be darkened as much for contrast */
 
-.dark-theme .tab-group:before {
-	background: rgba(0, 0, 0, 0.04);
+.dark-theme .page-tabs:before {
+	/*background: rgba(0, 0, 0, 0.04);*/
 }
-.dark-theme.is-edit-mode .tab-group:before {
-	background: none;
+.dark-theme.is-edit-mode .page-tabs:before {
+	/*background: none;*/
+}
+
+.tabs {
+	display: flex;
+	width: calc(100% - 200px);
+}
+.tabs div {
+	flex: 1 0 0;
 }
 
 /* tab layout */
 
-.tab-group #tabs {
-	display: flex;
-	flex: 1;
-	overflow: auto;
+/*.page-tabs #tabs {*/
+	/*display: flex;*/
+	/*flex: 1;*/
+	/*!*overflow: hidden;*!*/
+/*}*/
+
+@media all and (min-width: 481px) and (max-width: 1379px) {
+
+	.tab-item:nth-child(n + 6) {
+		display: none;
+	}
+
 }
+
+@media all and (min-width: 1380px) {
+
+	.tab-item:nth-child(n + 10) {
+		display: none;
+	}
+
+}
+
 .tab-item {
-	flex: 1;
-	min-width: 125px;
-	transition: .15s min-width, 0.2s transform;
-	padding: 0 1em;
-	font-size: 0.8em;
-	line-height: 36px;
-	height: 36px;
-	overflow: hidden;
+	flex: 1 0 0;
+	/*max-width: 10%;*/
+	transition: .10s all;
 	word-break: break-all;
+	padding: 0;
+	line-height: 34px;
+	height: 34px;
+	overflow: hidden;
+	position: relative;
+	border-radius: 2px;
+	/*border: 1px solid transparent;*/
+	-webkit-app-region: no-drag;
+	z-index: 1000;
+	/*box-shadow: 0px 0px 0 0 rgba(39,170,225,0);*/
 }
-.tab-item:not(.active):hover {
-	background-color: rgba(255, 255, 255, 0.1);
+
+.tab-item.active {
+	flex: 2 0 0;
+	/*max-width: 20%;*/
+	background: #fff;
+	/*border: 1px solid rgba(39,170,225,0.25);*/
+	/*box-shadow: 0px 0px 26px -9px rgba(39,170,225,0.65);*/
 }
+/*.tab-item.active:hover {*/
+	/*!*cursor: text;*!*/
+/*}*/
+	/*.tab-item.active::after {*/
+	/*content: '';*/
+	/*height:2px;*/
+	/*background-color: darkcyan;*/
+	/*position: absolute;*/
+	/*bottom: 0px;*/
+	/*left: 0;*/
+	/*right: 0;*/
+/*}*/
+
+.tab-item *:hover {
+	cursor: pointer !important;
+}
+
+/*.tab-item:not(.active):hover {*/
+	/*background-color: rgba(255, 255, 255, 0.1);*/
+/*}*/
 
 /* icons */
 
@@ -69,55 +135,37 @@ body.notMac .tab-group {
 	float: right;
 }
 .tab-item i {
-	font-size: 0.8em;
-	padding: 0 0.66em;
+	font-size: 0.7em;
+	padding: 11px 0.66em;
 	vertical-align: middle;
-	width: 1em;
 	box-sizing: content-box;
+	color: hsla(214,31%,87%,1);
 }
 .tab-item.active:not(:only-child) {
-	background: rgba(0, 0, 0, 0.05);
+	/*background: rgba(0, 0, 0, 0.05);*/
 }
 .dark-theme .tab-item.active:not(:only-child) {
-	background: rgba(255, 255, 255, 0.2);
+	/*background: rgba(255, 255, 255, 0.2);*/
 }
 .tab-item.selected {
-	min-width: 100%;
+	/*min-width: 100%;*/
 	/* remove the white transparent-ness */
-	background: none;
-	padding-left: 9px;
+	/*background: none;*/
+	/*padding-left: 9px;*/
 }
 .tab-item.fade {
 	opacity: 0.5;
 }
 
-/* style tab scrollbar */
-
-.tab-group #tabs::-webkit-scrollbar {
-	height: 0.2em;
-}
-.tab-group #tabs::-webkit-scrollbar-track {
-	background-color: rgba(0, 0, 0, 0.1);
-}
-.tab-group #tabs::-webkit-scrollbar-thumb {
-	background-color: rgba(0, 0, 0, 0.3);
-}
-.dark-theme .tab-group #tabs::-webkit-scrollbar-track {
-	background-color: rgba(255, 255, 255, 0.3);
-}
-.dark-theme .tab-group #tabs::-webkit-scrollbar-thumb {
-	background-color: rgba(255, 255, 255, 0.8);
-}
-
 /* when an input is selected, hide other tabs */
 
 .is-edit-mode .tab-item:not(.selected) {
-	min-width: 0;
-	max-width: 0;
-	width: 0;
-	height: 0;
-	padding: 0;
-	overflow: hidden;
+	/*min-width: 0;*/
+	/*max-width: 0;*/
+	/*width: 0;*/
+	/*height: 0;*/
+	/*padding: 0;*/
+	/*overflow: hidden;*/
 }
 
 /* the background isn't necessary when there is only one tab */
@@ -145,13 +193,13 @@ body.notMac .tab-group {
 .tab-item .tab-input {
 	line-height: 1.15em;
 	font-size: 1.15em;
-	-webkit-appearance: none;
 	background: none;
 	border: none;
 	color: inherit;
 	flex: 1;
 	height: 1.5em;
 	outline: none;
+	-webkit-appearance: none;
 	-webkit-user-select: auto;
 	-webkit-app-region: no-drag;
 }
@@ -167,7 +215,17 @@ body.notMac .tab-group {
 	display: none;
 }
 .tab-item .tab-view-contents .title {
-	font-size: 15px;
+	font-family: "PT Sans Caption", sans-serif;
+	font-size: 11px;
+	text-transform: capitalize;
+	word-break: break-all;
+}
+
+.tab-item.active .tab-view-contents .title {
+	font-weight: bold;
+	font-family: "PT Sans", sans-serif;
+	font-size: 13px;
+	letter-spacing: 0.02em;
 }
 
 /* buttons */
@@ -198,10 +256,16 @@ body.notMac .tab-group {
 	display: none;
 }
 .tab-item .tab-close-button {
-	display: none;
+	opacity: 0;
+	transition: all .2s;
 }
-.tab-item.jshover .tab-close-button {
-	display: inline-block;
+.tab-item:hover .tab-close-button {
+	opacity: .1;
+	color: #000;
+}
+
+.tab-item .tab-close-button:hover {
+	opacity: .5;
 }
 
 /* hide other tabs in focus mode */
@@ -217,4 +281,17 @@ body.is-focus-mode .navbar-action-button {
 
 body.is-focus-mode .tab-item {
 	background: none !important;
+}
+
+
+/* favicon */
+.favicon {
+	width: 16px;
+	height: 16px;
+	display: block;
+	background: #fff;
+	margin: 8px 6px 0 9px;
+	float: left;
+	border: 1px solid #ddd;
+	border-radius: 2px;
 }

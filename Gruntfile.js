@@ -18,6 +18,8 @@ module.exports = function (grunt) {
 						"js/util/defaultKeyMap.js",
 						"js/util/settings.js",
 						"js/util/searchEngine.js",
+						"js/window-controls.js",
+						"js/browserControls.js",
 						"js/menuBarVisibility.js",
 						 "js/tabState.js",
 						"js/util/urlParser.js",
@@ -69,7 +71,7 @@ module.exports = function (grunt) {
 			main: {
 				src: [
 						"main/main.js",
-					"main/filtering.js",
+					"main/filtering.js"
 						 ],
 				dest: 'main.build.js'
 			}
@@ -85,7 +87,7 @@ module.exports = function (grunt) {
 			webview: {
 				src: 'dist/webview.js',
 				dest: 'dist/webview.min.js'
-			},
+			}
 		},
 		electron: {
 			osxBuild: {
@@ -107,21 +109,21 @@ module.exports = function (grunt) {
 					}, {
 						name: "File",
 						schemes: ["file"]
-					}],
+					}]
 				}
 			},
 			windowsBuild: {
 				options: {
-					name: 'Min',
+					name: 'Miniature',
 					dir: __dirname,
 					out: 'dist/app',
 					version: electronVersion,
 					'app-version': version,
 					platform: 'win32',
 					arch: 'all',
-					ignore: 'dist/app',
-					prune: true,
-					overwrite: true,
+					ignore: 'dist/app; node_modules/.bin',
+					// prune: true,
+					overwrite: true
 				}
 			},
 			linuxBuild: {

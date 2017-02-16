@@ -76,11 +76,20 @@ function createWindowWithBounds (bounds, shouldMaximize) {
     height: bounds.height,
     x: bounds.x,
     y: bounds.y,
-    minWidth: 320,
+    minWidth: 620,
     minHeight: 500,
-    titleBarStyle: 'hidden-inset',
-    icon: __dirname + '/icons/icon256.png'
+    // titleBarStyle: 'hidden-inset',
+    frame: false,
+    icon: __dirname + '/icons/icon256.png',
+    plugins: true,
+    experimentalFeatures: true,
+    experimentalCanvasFeatures: true,
+    webPreferences: {
+      blinkFeatures: 'overlayScrollbars'
+    }
   })
+
+  mainWindow.setResizable(true)
 
   // and load the index.html of the app.
   mainWindow.loadURL(browserPage)
@@ -376,13 +385,19 @@ function createAppMenu () {
       submenu: [
         {
           label: 'Reload Browser',
-          accelerator: undefined,
+          accelerator: 'F5',
           click: function (item, focusedWindow) {
             if (focusedWindow) focusedWindow.reload()
           }
         },
         {
           label: 'Inspect browser',
+          accelerator: (function () {
+            if (process.platform == 'darwin')
+              return 'Cmd+Alt+B'
+            else
+              return 'Ctrl+Shift+B'
+          })(),
           click: function (item, focusedWindow) {
             if (focusedWindow) focusedWindow.toggleDevTools()
           }

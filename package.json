@@ -1,8 +1,8 @@
 {
-  "name": "min",
-  "productName": "Min",
-  "version": "1.5.0",
-  "electronVersion": "1.4.3",
+  "name": "miniature",
+  "productName": "Miniature",
+  "version": "0.1",
+  "electronVersion": "1.4.10",
   "main": "main.build.js",
   "dependencies": {
     "dexie": "^1.2.0",
@@ -12,11 +12,12 @@
     "string_score": "^0.1.22"
   },
   "devDependencies": {
+    "electron-connect": "^0.6.1",
     "grunt": "^0.4.5",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-uglify": "^0.10.0",
     "grunt-electron": "^4.0.0",
-    "grunt-electron-installer-debian": "^0.3.0",
+    "gulp": "^3.9.1",
     "standard": "^7.1.0"
   },
   "license": "Apache-2.0",

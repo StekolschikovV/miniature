@@ -38,6 +38,8 @@ function pagePermissionRequestHandler (webContents, permission, callback) {
 // called whenever the page url changes
 
 function onPageLoad (e) {
+
+
   var tab = this.getAttribute('data-tab')
   var url = this.getAttribute('src') // src attribute changes whenever a page is loaded
 
@@ -73,6 +75,7 @@ bindWebviewIPC('pageData', function (webview, tabId, arguments) {
 
 remote.session.defaultSession.setPermissionRequestHandler(pagePermissionRequestHandler)
 
+
 function getWebviewDom (options) {
   var w = document.createElement('webview')
   w.setAttribute('preload', 'dist/webview.min.js')
@@ -80,7 +83,7 @@ function getWebviewDom (options) {
   if (options.url) {
     w.setAttribute('src', urlParser.parse(options.url))
   }
-
+  w.setAttribute('blinkfeatures', 'OverlayScrollbars')
   w.setAttribute('data-tab', options.tabId)
 
   // if the tab is private, we want to partition it. See http://electron.atom.io/docs/v0.34.0/api/web-view-tag/#partition
@@ -106,10 +109,7 @@ function getWebviewDom (options) {
     w.addEventListener(i.event, i.fn)
   })
 
-  w.addEventListener('page-favicon-updated', function (e) {
-    var id = this.getAttribute('data-tab')
-    updateTabColor(e.favicons, id)
-  })
+  
 
   w.addEventListener('page-title-set', function (e) {
     var tab = this.getAttribute('data-tab')

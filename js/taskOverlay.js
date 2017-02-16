@@ -21,9 +21,27 @@ addTaskButton.addEventListener('click', function (e) {
   taskOverlay.hide()
 })
 
-navbar.addEventListener('click', function () {
-  taskOverlay.hide()
+// navbar.addEventListener('click', function () {
+//   overlay.hide()
+// })
+
+
+var webviews = document.getElementById("webviews")
+
+
+taskSwitcherButton.addEventListener('click', function () {
+
+  if ( overlay.style.opacity != '1' ) {
+    overlay.style.opacity = "1"
+  }
+
+  else if ( overlay.style.opacity != '0' ) {
+    overlay.style.opacity = "0"
+  }
+
+
 })
+
 
 function getTaskOverlayTabElement (tab, task) {
   var item = createSearchbarItem({
@@ -115,7 +133,7 @@ function getTaskElement (task, taskIndex) {
         switchToTask(this.getAttribute('data-task'))
         switchToTab(this.getAttribute('data-tab'))
 
-        taskOverlay.hide()
+        // taskOverlay.hide()
       })
 
       tabContainer.appendChild(el)

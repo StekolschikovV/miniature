@@ -1,0 +1,60 @@
+
+.browser-controls {
+    width: 200px;
+    display: flex;
+    /*-webkit-app-region: auto;*/
+}
+
+.browser-controls div {
+    flex: 1 0 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.browser-controls div:hover {
+    background-color: cornsilk;
+}
+
+.browser-controls svg {
+    position: absolute;
+    left:9px;
+    top:7px;
+}
+
+.browser-controls svg use {
+    fill: rgba(0, 20, 4, 0.13);
+}
+
+.collection-tabs {
+    display: flex;
+    height: 34px;
+    z-index: 1;
+    position: relative;
+    /*top: 2px;*/
+    width: 100%;
+    background-color:#e0e6f0;
+    /*-webkit-appearance: none;*/
+    /*-webkit-user-select: auto;*/
+    /*-webkit-app-region: drag;*/
+    align-items: stretch;
+}
+
+.collection-tabs .tabs {
+    align-items: center;
+}
+
+.collection-tabs .tabs div {
+    padding: 9px 0 9px 30px;
+    font-family: "PT Sans Caption", sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    color: #888;
+}
+
+.collection-tabs .tabs .active-tab {
+    background: #ecf1f8;
+    font-family: "PT Sans", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}

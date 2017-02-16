@@ -1,16 +1,92 @@
-* {
+/* css reset */
+
+html {
+	-webkit-text-size-adjust: 100%;
+	box-sizing: border-box;
+	height:100%;
+
+}
+
+
+body {
+	margin: 0;
+	font: 16px/1 sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4,
+p,
+blockquote,
+figure,
+ol,
+ul {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
-	font-size: 16px;
-	font-family: '.SFNSText-Regular', 'Helvetica Neue', 'Arial', sans-serif;
 }
+main,
+li {
+	display: block;
+}
+h1,
+h2,
+h3,
+h4 {
+	font-size: inherit;
+}
+strong {
+	font-weight: bold;
+}
+a,
+
+a {
+	text-decoration: none;
+}
+button {
+	overflow: visible;
+	border: 0;
+	font: inherit;
+	-webkit-font-smoothing: inherit;
+	letter-spacing: inherit;
+	/*background: none;*/
+	cursor: pointer;
+}
+::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+:focus {
+	outline: 0;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	border: 0;
+}
+
+
 [hidden] {
 	display: none !important;
 }
-body,
-html {
-	height: 100%;
-	overflow: hidden;
-	-webkit-user-select: none;
+
+/* window controls */
+
+#title-bar-btns {
+	-webkit-app-region: no-drag;
+	position: fixed;
+	width: 100px;
+	display: flex;
+	top: 0px;
+	right: 0px;
+	z-index:2;
 }
+
+#min-btn,
+#max-btn,
+#close-btn {}
+
+#min-btn {flex: 1 0 0;}
+#max-btn {flex: 1 0 0;}
+#close-btn {flex: 2 0 0;}
+

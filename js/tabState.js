@@ -17,11 +17,11 @@ var tabPrototype = {
       title: tab.title || '',
       id: tabId,
       lastActivity: tab.lastActivity || Date.now(),
-      secure: tab.secure,
+      // secure: tab.secure,
       private: tab.private || false,
-      readerable: tab.readerable || false,
-      backgroundColor: tab.backgroundColor,
-      foregroundColor: tab.foregroundColor,
+      // readerable: tab.readerable || false,
+      // backgroundColor: tab.backgroundColor,
+      // foregroundColor: tab.foregroundColor,
       selected: tab.selected || false
     }
 

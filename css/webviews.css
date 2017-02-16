@@ -1,6 +1,9 @@
 #webviews {
-	height: calc(100vh - 2.25em);
-	position: relative;
+	height: calc(100vh - 70px);
+	width: 100%;
+	/*transition: all .3s;*/
+	position: absolute;
+	right: 0;
 }
 #webviews webview {
 	height: 100%;
@@ -16,13 +19,12 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100vw;
-	height: 100vh;
+	height: 100%;
 	z-index: 99;
 }
 
 /* hack to work around display: none issues with webviews */
 
-#webviews webview.hidden {
+#webviews.hidden {
 	visibility: hidden;
 }

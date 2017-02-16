@@ -1,4 +1,4 @@
-var tabContainer = document.getElementsByClassName('tab-group')[0]
+var tabContainer = document.getElementsByClassName('page-tabs')[0]
 var tabGroup = tabContainer.querySelector('#tabs') // TODO these names are confusing
 
 /* tab events */
@@ -53,7 +53,7 @@ function leaveTabEditMode (options) {
 }
 
 function enterEditMode (tabId) {
-  taskOverlay.hide()
+  // taskOverlay.hide()
 
   var tabEl = getTabElement(tabId)
   var webview = getWebview(tabId)
@@ -92,6 +92,7 @@ function rerenderTabstrip () {
 }
 
 function rerenderTabElement (tabId) {
+
   var tabEl = getTabElement(tabId)
   var tabData = tabs.get(tabId)
 
@@ -103,14 +104,14 @@ function rerenderTabElement (tabId) {
 
   var secIcon = tabEl.getElementsByClassName('icon-tab-not-secure')[0]
 
-  if (tabData.secure === false) {
-    if (!secIcon) {
-      var iconArea = tabEl.querySelector('.tab-icon-area')
-      iconArea.insertAdjacentHTML('beforeend', "<i class='fa fa-unlock icon-tab-not-secure tab-info-icon' title='Your connection to this website is not secure.'></i>")
-    }
-  } else if (secIcon) {
-    secIcon.parentNode.removeChild(secIcon)
-  }
+  // if (tabData.secure === false) {
+  //   if (!secIcon) {
+  //     var iconArea = tabEl.querySelector('.tab-icon-area')
+  //     iconArea.insertAdjacentHTML('beforeend', "<i class='fa fa-unlock icon-tab-not-secure tab-info-icon' title='Your connection to this website is not secure.'></i>")
+  //   }
+  // } else if (secIcon) {
+  //   secIcon.parentNode.removeChild(secIcon)
+  // }
 
   // update the star to reflect whether the page is bookmarked or not
   bookmarks.renderStar(tabId)
@@ -118,7 +119,39 @@ function rerenderTabElement (tabId) {
 
 function createTabElement (data) {
   var url = urlParser.parse(data.url)
+  w.addEventListener('page-favicon-updated', function (e) {
+    var id = this.getAttribute('data-tab')
+    getFavicon = function () {
+      let favicon
+      const nodeList = document.getElementsByTagName('link')
+      for (var i = 0; i < nodeList.length; i++) {
+        if ((nodeList[i].getAttribute('rel') === 'icon') || (nodeList[i].getAttribute('rel') === 'shortcut icon')) {
+          favicon = nodeList[i].getAttribute('href')
+        }
+      }
+      return favicon
+    }
 
+// set favicon as a data url because chrome-extension urls don't work correctly
+    if (getFavicon()) {
+      let img = new window.Image()
+      img.onload = function () {
+        let canvas = document.createElement('CANVAS')
+        const ctx = canvas.getContext('2d')
+        canvas.height = this.height
+        canvas.width = this.width
+        ctx.drawImage(this, 0, 0)
+        const dataURL = canvas.toDataURL()
+        const docHead = document.getElementsByTagName('head')[0]
+        const newLink = document.createElement('link')
+        newLink.rel = 'shortcut icon'
+        newLink.href = dataURL
+        docHead.appendChild(newLink)
+        canvas = null
+      }
+      img.src = 'img/favicon.ico'
+    }
+  })
   var tabEl = document.createElement('div')
   tabEl.className = 'tab-item'
   tabEl.setAttribute('data-tab', data.id)
@@ -147,7 +180,7 @@ function createTabElement (data) {
 
   var vc = document.createElement('div')
   vc.className = 'tab-view-contents'
-  vc.appendChild(readerView.getButton(data.id))
+  // vc.appendChild(readerView.getButton(data.id))
 
   // icons
 
@@ -157,7 +190,7 @@ function createTabElement (data) {
   var closeTabButton = document.createElement('i')
   closeTabButton.classList.add('tab-close-button')
   closeTabButton.classList.add('fa')
-  closeTabButton.classList.add('fa-times-circle')
+  closeTabButton.classList.add('fa-close')
 
   closeTabButton.addEventListener('click', function (e) {
     closeTab(data.id)
@@ -175,15 +208,23 @@ function createTabElement (data) {
 
   vc.appendChild(iconArea)
 
+  // favicon
+
+  var favicon = document.createElement('span')
+  favicon.className = 'favicon'
+
+  vc.appendChild(favicon)
+
   // title
 
   var title = document.createElement('span')
   title.className = 'title'
-  title.textContent = data.title || 'New Tab'
+  title.textContent = data.title || '...'
 
   vc.appendChild(title)
 
   tabEl.appendChild(vc)
+
 
   /* events */
 
@@ -248,24 +289,24 @@ function createTabElement (data) {
     }
   })
 
-  tabEl.addEventListener('mousewheel', function (e) {
-    if (e.deltaY > 65 && e.deltaX < 10 && Date.now() - lastTabDeletion > 650) { // swipe up to delete tabs
-      lastTabDeletion = Date.now()
-
-      /* tab deletion is disabled in focus mode */
-      if (isFocusMode) {
-        showFocusModeError()
-        return
-      }
-
-      var tab = this.getAttribute('data-tab')
-      this.style.transform = 'translateY(-100%)'
-
-      setTimeout(function () {
-        closeTab(tab)
-      }, 150) // wait until the animation has completed
-    }
-  })
+  // tabEl.addEventListener('mousewheel', function (e) {
+  //   if (e.deltaY > 65 && e.deltaX < 10 && Date.now() - lastTabDeletion > 650) { // swipe up to delete tabs
+  //     lastTabDeletion = Date.now()
+  //
+  //     /* tab deletion is disabled in focus mode */
+  //     if (isFocusMode) {
+  //       showFocusModeError()
+  //       return
+  //     }
+  //
+  //     var tab = this.getAttribute('data-tab')
+  //     this.style.transform = 'translateY(-100%)'
+  //
+  //     setTimeout(function () {
+  //       closeTab(tab)
+  //     }, 150) // wait until the animation has completed
+  //   }
+  // })
 
   return tabEl
 }
@@ -309,7 +350,7 @@ function addTab (tabId, options) {
 
   var tabEl = createTabElement(tab)
 
-  tabGroup.insertBefore(tabEl, tabGroup.childNodes[index])
+  tabGroup.insertBefore(tabEl, tabGroup.childNodes[0])
 
   addWebview(tabId)
 
@@ -326,6 +367,7 @@ function addTab (tabId, options) {
   if (options.enterEditMode !== false) {
     enterEditMode(tabId)
   }
+
 }
 
 // startup state is created in sessionRestore.js

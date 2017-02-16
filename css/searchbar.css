@@ -1,18 +1,20 @@
 #searchbar {
 	z-index: 99;
 	position: fixed;
-	top: 2.25em;
-	left: 0;
-	width: 100%;
+	top: 5em;
+	left: 5%;
+	width: 90%;
 	background: #fff;
 	color: #000;
-	padding-left: 75px;
-	padding-right: 82px;
+
+
+	box-shadow: 0px 1px 5px 0px rgba(39,170,225,0.25);
 	/* align with window controls */
 	-webkit-user-select: none;
 	max-height: calc(100% - 75px);
 	overflow-y: auto;
 	will-change: display;
+
 }
 
 /* the navbar gets moved over in fullscreen, but the searchbar still needs to be aligned with it */
@@ -189,7 +191,7 @@ body.is-edit-mode webview {
 	padding-right: 1em;
 }
 .searchbar-item.tag .title {
-	max-width: 100%;
+	/*max-width: 100%;*/
 }
 .searchbar-item.tag:focus {
 	background: rgba(0, 0, 0, 0.08);
