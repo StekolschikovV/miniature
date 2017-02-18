@@ -184,15 +184,26 @@ module.exports = function (grunt) {
 				src: 'dist/app/Min-linux-x64',
 				dest: 'dist/app/linux'
 			}
-		}
+		},
+        watch: {
+            scripts: {
+                files: ['js/**.js', 'css/**.css', 'index.html'],
+                tasks: ['concat:browser', 'concat:webview', 'concat:main'],
+                options: {
+                    spawn: false,
+                },
+            },
+        }
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-electron');
 	grunt.loadNpmTasks('grunt-electron-installer-debian');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('default', ['concat:browser', 'uglify:browser', 'concat:webview', 'uglify:webview', 'concat:main']);
+	grunt.registerTask('dev', ['concat:browser', 'concat:webview', 'concat:main', 'watch']);
 	grunt.registerTask('browser', ['concat:browser', 'uglify:browser']);
 	grunt.registerTask('webview', ['concat:webview', 'uglify:webview']);
 
