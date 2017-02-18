@@ -13,6 +13,7 @@ module.exports = function (grunt) {
 			},
 			browser: {
 				src: [
+                    	"js/collectionTabs.js",
 						"js/default.js",
 						"js/util/database.js",
 						"js/util/defaultKeyMap.js",
@@ -196,6 +197,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('webview', ['concat:webview', 'uglify:webview']);
 
 	grunt.registerTask('macBuild', ['concat:browser', 'uglify:browser', 'concat:webview', 'uglify:webview', 'concat:main', 'electron:osxBuild'])
+	grunt.registerTask('macBuildDev', ['concat:browser', 'concat:webview', 'concat:main', 'electron:osxBuild'])
 	grunt.registerTask('linuxBuild', ['concat:browser', 'uglify:browser', 'concat:webview', 'uglify:webview', 'concat:main', 'electron:linuxBuild', 'electron-installer-debian:linux32', 'electron-installer-debian:linux64'])
 	grunt.registerTask('windowsBuild', ['concat:browser', 'uglify:browser', 'concat:webview', 'uglify:webview', 'concat:main',  'electron:windowsBuild'])
 };
