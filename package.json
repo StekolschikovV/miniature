@@ -1,7 +1,8 @@
 {
   "name": "miniature",
   "productName": "Miniature",
-  "electronVersion": "1.4.15",
+  "version": "0.1.0",
+  "electronVersion": "1.4.10",
   "main": "main.build.js",
   "dependencies": {
     "dexie": "^1.2.0",
@@ -15,6 +16,7 @@
     "grunt": "^0.4.5",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-uglify": "^0.10.0",
+    "grunt-contrib-watch": "^1.0.0",
     "grunt-electron": "^4.0.0",
     "gulp": "^3.9.1",
     "standard": "^7.1.0"

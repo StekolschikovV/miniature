@@ -112,7 +112,7 @@ function switchToTab (id, options) {
       tabs.update(id, {
         lastActivity: Date.now()
       })
-      tabActivity.refresh()
+      // if(tabActivity) tabActivity.refresh()
     }
   }, 2500)
 

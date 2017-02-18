@@ -21,7 +21,7 @@ module.exports = function (grunt) {
 						"js/window-controls.js",
 						"js/browserControls.js",
 						"js/menuBarVisibility.js",
-						 "js/tabState.js",
+						"js/tabState.js",
 						"js/util/urlParser.js",
 						"js/filteringRenderer.js",
 						"js/webviews.js",
@@ -45,6 +45,7 @@ module.exports = function (grunt) {
 						 "js/navbar/navbarTabs.js",
 							"js/taskOverlay.js",
 							"js/navbar/addTabButton.js",
+						 "js/collectionTabs.js",
 						 "js/keybindings.js",
 						 "js/fileDownloadManager.js",
 						 "js/findinpage.js",
@@ -92,10 +93,10 @@ module.exports = function (grunt) {
 		electron: {
 			osxBuild: {
 				options: {
-					name: 'Miniature',
+					name: 'Miniatiure',
 					dir: __dirname,
 					out: 'dist/app',
-					version: '1.4.15',
+					version: electronVersion,
 					'app-version': version,
 					platform: 'darwin',
 					arch: 'x64',
@@ -117,8 +118,8 @@ module.exports = function (grunt) {
 					name: 'Miniature',
 					dir: __dirname,
 					out: 'dist/app',
-					version: '1.4.15',
-					'app-version': '0.1',
+					version: electronVersion,
+					'app-version': version,
 					platform: 'win32',
 					arch: 'all',
 					ignore: 'dist/app; node_modules/.bin',
@@ -128,10 +129,10 @@ module.exports = function (grunt) {
 			},
 			linuxBuild: {
 				options: {
-					name: 'Miniature',
+					name: 'min',
 					dir: __dirname,
 					out: 'dist/app',
-					version: '1.4.15',
+					version: electronVersion,
 					'app-version': version,
 					platform: 'linux',
 					arch: 'all',
@@ -143,9 +144,9 @@ module.exports = function (grunt) {
 		},
 		'electron-installer-debian': {
 			options: {
-				productName: "Miniature",
+				productName: "Min",
 				genericName: "Web Browser",
-				version: '1.4.15',
+				version: version,
 				section: "web",
 				homepage: "https://palmeral.github.io/min/",
 				icon: "icons/icon256.png",
@@ -183,19 +184,31 @@ module.exports = function (grunt) {
 				src: 'dist/app/Min-linux-x64',
 				dest: 'dist/app/linux'
 			}
-		}
+		},
+        watch: {
+            scripts: {
+                files: ['js/**.js', 'css/**.css', 'index.html'],
+                tasks: ['concat:browser', 'concat:webview', 'concat:main'],
+                options: {
+                    spawn: false,
+                },
+            },
+        }
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-electron');
 	grunt.loadNpmTasks('grunt-electron-installer-debian');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('default', ['concat:browser', 'uglify:browser', 'concat:webview', 'uglify:webview', 'concat:main']);
+	grunt.registerTask('dev', ['concat:browser', 'concat:webview', 'concat:main', 'watch']);
 	grunt.registerTask('browser', ['concat:browser', 'uglify:browser']);
 	grunt.registerTask('webview', ['concat:webview', 'uglify:webview']);
 
 	grunt.registerTask('macBuild', ['concat:browser', 'uglify:browser', 'concat:webview', 'uglify:webview', 'concat:main', 'electron:osxBuild'])
+	grunt.registerTask('macBuildDev', ['concat:browser', 'concat:webview', 'concat:main', 'electron:osxBuild'])
 	grunt.registerTask('linuxBuild', ['concat:browser', 'uglify:browser', 'concat:webview', 'uglify:webview', 'concat:main', 'electron:linuxBuild', 'electron-installer-debian:linux32', 'electron-installer-debian:linux64'])
 	grunt.registerTask('windowsBuild', ['concat:browser', 'uglify:browser', 'concat:webview', 'uglify:webview', 'concat:main',  'electron:windowsBuild'])
 };

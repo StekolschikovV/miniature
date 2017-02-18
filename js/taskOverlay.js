@@ -44,6 +44,7 @@ taskSwitcherButton.addEventListener('click', function () {
 
 
 function getTaskOverlayTabElement (tab, task) {
+  console.log('getTaskOverlayTabElement')
   var item = createSearchbarItem({
     title: tab.title || 'New Tab',
     secondaryText: urlParser.removeProtocol(tab.url),
