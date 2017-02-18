@@ -15,3 +15,9 @@ forward.addEventListener('click', function () {
 refresh.addEventListener('click', function () {
     getWebview(tabs.getSelected()).reload()
 })
+
+menu.addEventListener('click', function () {
+  getScreen(function(image) {
+    console.log('image', image)
+  })
+})
