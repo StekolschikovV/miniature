@@ -90,3 +90,7 @@ img {
 #max-btn {flex: 1 0 0;}
 #close-btn {flex: 2 0 0;}
 
+.btn{
+	background: none;
+	border: none;
+}

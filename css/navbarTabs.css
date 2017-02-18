@@ -17,8 +17,14 @@
 
 .tab-controls {
 	width: 200px;
-}
+	padding-top: 7px;
+	padding-right: 10px;
 
+}
+#add-tab-button{
+	position: relative;
+	top: 2px;
+}
 /* there are no window controls in fullscreen, so we don't need any padding */
 
 body.fullscreen {
