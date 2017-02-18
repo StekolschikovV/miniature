@@ -13,7 +13,6 @@ module.exports = function (grunt) {
 			},
 			browser: {
 				src: [
-                    	"js/collectionTabs.js",
 						"js/default.js",
 						"js/util/database.js",
 						"js/util/defaultKeyMap.js",
@@ -22,7 +21,7 @@ module.exports = function (grunt) {
 						"js/window-controls.js",
 						"js/browserControls.js",
 						"js/menuBarVisibility.js",
-						 "js/tabState.js",
+						"js/tabState.js",
 						"js/util/urlParser.js",
 						"js/filteringRenderer.js",
 						"js/webviews.js",
@@ -46,6 +45,7 @@ module.exports = function (grunt) {
 						 "js/navbar/navbarTabs.js",
 							"js/taskOverlay.js",
 							"js/navbar/addTabButton.js",
+						 "js/collectionTabs.js",
 						 "js/keybindings.js",
 						 "js/fileDownloadManager.js",
 						 "js/findinpage.js",
@@ -93,7 +93,7 @@ module.exports = function (grunt) {
 		electron: {
 			osxBuild: {
 				options: {
-					name: 'Min',
+					name: 'Miniatiure',
 					dir: __dirname,
 					out: 'dist/app',
 					version: electronVersion,

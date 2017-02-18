@@ -29,14 +29,14 @@ var readerView = {
   updateButton: function (tabId) {
     var button = document.querySelector('.reader-button[data-tab="{id}"]'.replace('{id}', tabId))
     var tab = tabs.get(tabId)
-
+    if (!button) return;
     if (tab.isReaderView) {
-      button.classList.add('is-reader')
-      button.setAttribute('title', 'Exit reader view')
-      return
+        button.classList.add('is-reader')
+        button.setAttribute('title', 'Exit reader view')
+        return
     } else {
-      button.classList.remove('is-reader')
-      button.setAttribute('title', 'Enter reader view')
+        button.classList.remove('is-reader')
+        button.setAttribute('title', 'Enter reader view')
     }
 
     if (tab.readerable) {
