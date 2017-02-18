@@ -92,10 +92,10 @@ module.exports = function (grunt) {
 		electron: {
 			osxBuild: {
 				options: {
-					name: 'Min',
+					name: 'Miniature',
 					dir: __dirname,
 					out: 'dist/app',
-					version: electronVersion,
+					version: '1.4.15',
 					'app-version': version,
 					platform: 'darwin',
 					arch: 'x64',
@@ -117,8 +117,8 @@ module.exports = function (grunt) {
 					name: 'Miniature',
 					dir: __dirname,
 					out: 'dist/app',
-					version: electronVersion,
-					'app-version': version,
+					version: '1.4.15',
+					'app-version': '0.1',
 					platform: 'win32',
 					arch: 'all',
 					ignore: 'dist/app; node_modules/.bin',
@@ -128,10 +128,10 @@ module.exports = function (grunt) {
 			},
 			linuxBuild: {
 				options: {
-					name: 'min',
+					name: 'Miniature',
 					dir: __dirname,
 					out: 'dist/app',
-					version: electronVersion,
+					version: '1.4.15',
 					'app-version': version,
 					platform: 'linux',
 					arch: 'all',
@@ -143,9 +143,9 @@ module.exports = function (grunt) {
 		},
 		'electron-installer-debian': {
 			options: {
-				productName: "Min",
+				productName: "Miniature",
 				genericName: "Web Browser",
-				version: version,
+				version: '1.4.15',
 				section: "web",
 				homepage: "https://palmeral.github.io/min/",
 				icon: "icons/icon256.png",

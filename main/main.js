@@ -80,6 +80,8 @@ function createWindowWithBounds (bounds, shouldMaximize) {
     minHeight: 500,
     // titleBarStyle: 'hidden-inset',
     frame: false,
+    hasShadow: false,
+    thickFrame: false,
     icon: __dirname + '/icons/icon256.png',
     plugins: true,
     experimentalFeatures: true,

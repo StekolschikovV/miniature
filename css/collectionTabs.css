@@ -2,7 +2,7 @@
 .browser-controls {
     width: 200px;
     display: flex;
-    /*-webkit-app-region: auto;*/
+    -webkit-app-region: no-drag;
 }
 
 .browser-controls div {
@@ -25,6 +25,43 @@
     fill: rgba(0, 20, 4, 0.13);
 }
 
+.tab-controls {
+    width: 200px;
+}
+
+#add-tab-button {
+    height: 100%;
+    cursor: pointer;
+    width: 60px;
+    float: left;
+    position: relative;
+}
+#add-tab-button svg {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+}
+
+#switch-task-button {
+    height: 100%;
+    cursor: pointer;
+    width: 140px;
+    color: dodgerblue;
+    position: relative;
+    float: left;
+}
+#switch-task-button span {
+    font-family: "PT Sans", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px; left: 9px;
+}
+
+#switch-task-button.active {
+    color: lightskyblue;
+}
+
 .collection-tabs {
     display: flex;
     height: 34px;
@@ -41,10 +78,11 @@
 
 .collection-tabs .tabs {
     align-items: center;
+    -webkit-app-region: drag;
 }
 
 .collection-tabs .tabs div {
-    padding: 9px 0 9px 30px;
+    padding: 9px 0 9px 33px;
     font-family: "PT Sans Caption", sans-serif;
     font-size: 12px;
     letter-spacing: 0.03em;

@@ -119,39 +119,39 @@ function rerenderTabElement (tabId) {
 
 function createTabElement (data) {
   var url = urlParser.parse(data.url)
-  w.addEventListener('page-favicon-updated', function (e) {
-    var id = this.getAttribute('data-tab')
-    getFavicon = function () {
-      let favicon
-      const nodeList = document.getElementsByTagName('link')
-      for (var i = 0; i < nodeList.length; i++) {
-        if ((nodeList[i].getAttribute('rel') === 'icon') || (nodeList[i].getAttribute('rel') === 'shortcut icon')) {
-          favicon = nodeList[i].getAttribute('href')
-        }
-      }
-      return favicon
-    }
-
-// set favicon as a data url because chrome-extension urls don't work correctly
-    if (getFavicon()) {
-      let img = new window.Image()
-      img.onload = function () {
-        let canvas = document.createElement('CANVAS')
-        const ctx = canvas.getContext('2d')
-        canvas.height = this.height
-        canvas.width = this.width
-        ctx.drawImage(this, 0, 0)
-        const dataURL = canvas.toDataURL()
-        const docHead = document.getElementsByTagName('head')[0]
-        const newLink = document.createElement('link')
-        newLink.rel = 'shortcut icon'
-        newLink.href = dataURL
-        docHead.appendChild(newLink)
-        canvas = null
-      }
-      img.src = 'img/favicon.ico'
-    }
-  })
+//   w.addEventListener('page-favicon-updated', function (e) {
+//     var id = this.getAttribute('data-tab')
+//     getFavicon = function () {
+//       let favicon
+//       const nodeList = document.getElementsByTagName('link')
+//       for (var i = 0; i < nodeList.length; i++) {
+//         if ((nodeList[i].getAttribute('rel') === 'icon') || (nodeList[i].getAttribute('rel') === 'shortcut icon')) {
+//           favicon = nodeList[i].getAttribute('href')
+//         }
+//       }
+//       return favicon
+//     }
+//
+// // set favicon as a data url because chrome-extension urls don't work correctly
+//     if (getFavicon()) {
+//       let img = new window.Image()
+//       img.onload = function () {
+//         let canvas = document.createElement('CANVAS')
+//         const ctx = canvas.getContext('2d')
+//         canvas.height = this.height
+//         canvas.width = this.width
+//         ctx.drawImage(this, 0, 0)
+//         const dataURL = canvas.toDataURL()
+//         const docHead = document.getElementsByTagName('head')[0]
+//         const newLink = document.createElement('link')
+//         newLink.rel = 'shortcut icon'
+//         newLink.href = dataURL
+//         docHead.appendChild(newLink)
+//         canvas = null
+//       }
+//       img.src = 'img/favicon.ico'
+//     }
+//   })
   var tabEl = document.createElement('div')
   tabEl.className = 'tab-item'
   tabEl.setAttribute('data-tab', data.id)

@@ -15,10 +15,6 @@
 	/*-webkit-app-region: drag;*/
 }
 
-.tab-controls {
-	width: 200px;
-}
-
 /* there are no window controls in fullscreen, so we don't need any padding */
 
 body.fullscreen {
@@ -71,12 +67,13 @@ body.notMac .page-tabs {
 @media all and (min-width: 481px) and (max-width: 1379px) {
 
 	.tab-item:nth-child(n + 6) {
-		display: none;
+		/*display: none;*/
+
 	}
 
 }
 
-@media all and (min-width: 1380px) {
+@media all and (min-width: 680px) {
 
 	.tab-item:nth-child(n + 10) {
 		display: none;

@@ -8,15 +8,6 @@
 	z-index: 1;
 	border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
 }
-#switch-task-button {
-	/*position: absolute;*/
-	/*top: -0.375em;*/
-	/*right: 0;*/
-	/*z-index: 9;*/
-}
-#switch-task-button.active {
-	color: royalblue !important;
-}
 #task-overlay {
 	transition: all .3s;
 	position: absolute;
