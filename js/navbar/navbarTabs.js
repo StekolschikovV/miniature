@@ -85,9 +85,13 @@ function enterEditMode (tabId) {
 
 // redraws all of the tabs in the tabstrip
 function rerenderTabstrip () {
-  empty(tabGroup)
+  // console.log('rerenderTabstrip')
+  tabGroup.className = tabGroup.className.replace(/tabs\d+/, '')
+
+    empty(tabGroup)
   for (var i = 0; i < tabs.length; i++) {
     tabGroup.appendChild(createTabElement(tabs[i]))
+    tabGroup.classList.add('tabs' + tabs.length)
   }
 }
 
@@ -251,7 +255,11 @@ function createTabElement (data) {
   for (var i = 0, len = sites.length; i < len; i++) {
     if (data.url.indexOf(sites[i]) > -1 ) {
       favicon.src = 'temp/30sites/icons/' + sites[i] + '.png'
-      favicon.preview = 'temp/30sites/' + sites[i] + '.png'
+      //preview.src = 'temp/30sites/' + sites[i] + '.jpg'
+      //preview.style = 'position: absolute; width: 100px';
+      //var webviews = document.querySelector('.webviews')
+      vc.dataset.preview = 'temp/30sites/' + sites[i] + '.jpg'
+
     }
   }
 

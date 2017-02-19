@@ -5,6 +5,14 @@
 	position: absolute;
 	right: 0;
 }
+#webpreview {
+	display: none;
+	height: calc(100vh - 70px);
+	width: 100%;
+	/*transition: all .3s;*/
+	position: absolute;
+	right: 0;
+}
 #webviews webview {
 	height: 100%;
 	width: 100%;
