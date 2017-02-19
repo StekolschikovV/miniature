@@ -11,8 +11,12 @@
     cursor: pointer;
 }
 
-.browser-controls div:hover {
-    background-color: cornsilk;
+#refresh svg {
+    margin-top: -1px;
+}
+
+.browser-controls div:hover svg use {
+    /*fill: ;*/
 }
 
 .browser-controls svg {
@@ -41,10 +45,11 @@
 
 .collection-tabs .tabs {
     align-items: center;
+    -webkit-app-region: drag;
 }
 
 .collection-tabs .tabs div {
-    padding: 9px 0 9px 30px;
+    padding: 10px 0 9px 30px;
     font-family: "PT Sans Caption", sans-serif;
     font-size: 12px;
     letter-spacing: 0.03em;
