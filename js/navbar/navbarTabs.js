@@ -216,12 +216,45 @@ function createTabElement (data) {
   var preview = document.createElement('img')
   preview.className = 'preview'
   // favicon.src = 'temp/30sites/icons/FireShot Capture 001 - Trending - YouTube - https___www.youtube.com_feed_trending.png'
-  [''].forEeach(function(site) {
-    if (data.url.indexOf(site) > -1 ){
-        favicon.src = 'temp/30sites/icons/' + site + '.png'
-        favicon.preview = 'temp/30sites/' + site + '.png'
+  var sites = [
+    'youtube',
+    'wikipedia',
+    'amazon',
+    'twitter',
+    'instagram',
+    'reddit',
+    'linkedin',
+    'ebay',
+    'aliexpress',
+    'netflix',
+    'apple',
+    'imdb',
+    'pinterest',
+    'paypal',
+    'twitch',
+    'adobe',
+    'dropbox',
+    'nytimes',
+    'espn',
+    'cnn',
+    'booking',
+    'samsung',
+    'whatsapp',
+    'bbc',
+    'coursera',
+    'dezeen',
+    'architectmagazine',
+    'design-milk',
+    'behance',
+    'msn'
+  ];
+  for (var i = 0, len = sites.length; i < len; i++) {
+    if (data.url.indexOf(sites[i]) > -1 ) {
+      favicon.src = 'temp/30sites/icons/' + sites[i] + '.png'
+      favicon.preview = 'temp/30sites/' + sites[i] + '.png'
     }
-  })
+  }
+
   vc.appendChild(favicon)
   vc.appendChild(preview)
 
