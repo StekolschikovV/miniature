@@ -23,7 +23,7 @@ function collectionTabs (){
         var tabActive = document.querySelector('.active-tab.collection-tab')
         e.target.classList.add('active-tab')
 
-        tabActive.classList.remove('active-tab')
+        if (tabActive) tabActive.classList.remove('active-tab')
         tab.click();
 
     })
