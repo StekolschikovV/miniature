@@ -2,7 +2,7 @@
 .browser-controls {
     width: 200px;
     display: flex;
-    -webkit-app-region: no-drag;
+    /*-webkit-app-region: auto;*/
 }
 
 .browser-controls div {
@@ -11,8 +11,12 @@
     cursor: pointer;
 }
 
-.browser-controls div:hover {
-    background-color: cornsilk;
+#refresh svg {
+    margin-top: -1px;
+}
+
+.browser-controls div:hover svg use {
+    /*fill: ;*/
 }
 
 .browser-controls svg {
@@ -23,43 +27,6 @@
 
 .browser-controls svg use {
     fill: rgba(0, 20, 4, 0.13);
-}
-
-.tab-controls {
-    width: 200px;
-}
-
-#add-tab-button {
-    height: 100%;
-    cursor: pointer;
-    width: 60px;
-    float: left;
-    position: relative;
-}
-#add-tab-button svg {
-    position: absolute;
-    left: 20px;
-    top: 10px;
-}
-
-#switch-task-button {
-    height: 100%;
-    cursor: pointer;
-    width: 140px;
-    color: dodgerblue;
-    position: relative;
-    float: left;
-}
-#switch-task-button span {
-    font-family: "PT Sans", sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    position: absolute;
-    top: 10px; left: 9px;
-}
-
-#switch-task-button.active {
-    color: lightskyblue;
 }
 
 .collection-tabs {
@@ -82,7 +49,7 @@
 }
 
 .collection-tabs .tabs div {
-    padding: 9px 0 9px 33px;
+    padding: 10px 0 9px 30px;
     font-family: "PT Sans Caption", sans-serif;
     font-size: 12px;
     letter-spacing: 0.03em;

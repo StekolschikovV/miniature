@@ -210,10 +210,20 @@ function createTabElement (data) {
 
   // favicon
 
-  var favicon = document.createElement('span')
+  var favicon = document.createElement('img')
   favicon.className = 'favicon'
 
+  var preview = document.createElement('img')
+  preview.className = 'preview'
+  // favicon.src = 'temp/30sites/icons/FireShot Capture 001 - Trending - YouTube - https___www.youtube.com_feed_trending.png'
+  [''].forEeach(function(site) {
+    if (data.url.indexOf(site) > -1 ){
+        favicon.src = 'temp/30sites/icons/' + site + '.png'
+        favicon.preview = 'temp/30sites/' + site + '.png'
+    }
+  })
   vc.appendChild(favicon)
+  vc.appendChild(preview)
 
   // title
 

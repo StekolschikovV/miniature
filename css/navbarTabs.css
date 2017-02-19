@@ -15,6 +15,24 @@
 	/*-webkit-app-region: drag;*/
 }
 
+.tab-controls {
+	width: 200px;
+
+}
+#add-tab-button{
+	height: 100%;
+	position: relative;
+	padding: 2px 10px 0 10px;
+}
+
+#add-tab-button svg {
+
+}
+
+#add-tab-button svg use {
+	fill: rgba(0, 20, 4, 0.13);
+}
+
 /* there are no window controls in fullscreen, so we don't need any padding */
 
 body.fullscreen {
@@ -67,13 +85,12 @@ body.notMac .page-tabs {
 @media all and (min-width: 481px) and (max-width: 1379px) {
 
 	.tab-item:nth-child(n + 6) {
-		/*display: none;*/
-
+		display: none;
 	}
 
 }
 
-@media all and (min-width: 680px) {
+@media all and (min-width: 1380px) {
 
 	.tab-item:nth-child(n + 10) {
 		display: none;
@@ -287,7 +304,7 @@ body.is-focus-mode .tab-item {
 	height: 16px;
 	display: block;
 	background: #fff;
-	margin: 8px 6px 0 9px;
+	margin: 8px 6px 0 7px;
 	float: left;
 	border: 1px solid #ddd;
 	border-radius: 2px;

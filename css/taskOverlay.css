@@ -8,6 +8,21 @@
 	z-index: 1;
 	border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
 }
+#switch-task-button {
+	height: 100%;
+	padding: 0 78px 0 9px;
+	font-family: "PT Sans", sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	letter-spacing: .03em;
+}
+#switch-task-button span {
+	position: relative;
+	top: -2px;
+}
+#switch-task-button.active {
+	color: royalblue !important;
+}
 #task-overlay {
 	transition: all .3s;
 	position: absolute;
@@ -16,7 +31,7 @@
 	box-sizing: border-box;
 	left: 0;
 	height: calc(100% - 70px);
-	/*border-right: 1px solid #c2ccd1;*/
+	border-right: 1px solid #c2ccd1;
 	background-color: #fff;
 	/*padding: 0;*/
 	white-space: nowrap;
@@ -24,6 +39,7 @@
 	opacity: 1;
 	z-index: 100;
 }
+
 #task-overlay[hidden] {
 	opacity: 0;
 }
