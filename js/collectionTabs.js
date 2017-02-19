@@ -32,7 +32,7 @@ function collectionTabs (){
 
   tabsContainer.addEventListener('mouseover', function (e) {
        // var tabId = tabState.tasks[taskIndex].tabs[0].id;
-      var url = e.target.parentNode.dataset.preview
+      var url = e.target.dataset.preview
 
 
 
@@ -41,7 +41,7 @@ function collectionTabs (){
           console.log(url)
           webpreviewContainer.style.backgroundImage = 'url('+url+')'
           webpreviewContainer.style.display = 'block'
-        }, 400)
+        }, 200)
 
 
       }
