@@ -1,3 +1,6 @@
+#webpreview {
+
+}
 #webviews {
 	height: calc(100vh - 70px);
 	width: 100%;
@@ -11,7 +14,9 @@
 	width: 100%;
 	/*transition: all .3s;*/
 	position: absolute;
-	right: 0;
+	right: 0; left: 0;
+	background-position: 50% 0;
+	background-size: 100% auto;
 }
 #webviews webview {
 	height: 100%;

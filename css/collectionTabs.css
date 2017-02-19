@@ -45,6 +45,7 @@
 
 .collection-tabs .tabs {
     align-items: center;
+    cursor: pointer;
     /*-webkit-app-region: drag;*/
 }
 

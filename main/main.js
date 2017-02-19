@@ -71,25 +71,25 @@ function createWindow (cb) {
 }
 
 function createWindowWithBounds (bounds, shouldMaximize) {
-  mainWindow = new BrowserWindow({
-    width: bounds.width,
-    height: bounds.height,
-    x: bounds.x,
-    y: bounds.y,
-    minWidth: 620,
-    minHeight: 500,
-    // titleBarStyle: 'hidden-inset',
-    frame: false,
-    hasShadow: false,
-    thickFrame: false,
-    icon: __dirname + '/icons/icon256.png',
-    plugins: true,
-    experimentalFeatures: true,
-    experimentalCanvasFeatures: true,
-    webPreferences: {
-      blinkFeatures: 'overlayScrollbars'
-    }
-  })
+    mainWindow = new BrowserWindow({
+        width: bounds.width,
+        height: bounds.height,
+        x: bounds.x,
+        y: bounds.y,
+        minWidth: 620,
+        minHeight: 500,
+        // titleBarStyle: 'hidden-inset',
+        frame: false,
+        hasShadow: false,
+        thickFrame: false,
+        icon: __dirname + '/icons/icon256.png',
+        plugins: true,
+        experimentalFeatures: true,
+        experimentalCanvasFeatures: true,
+        webPreferences: {
+            blinkFeatures: 'overlayScrollbars'
+        }
+    })
 
   mainWindow.setResizable(true)
 
@@ -444,25 +444,25 @@ function createAppMenu () {
         {
           label: 'Keyboard Shortcuts',
           click: function () {
-            openTabInWindow('https://github.com/minbrowser/min/wiki#keyboard-shortcuts')
+            openTabInWindow('https://duckduckgo.com')
           }
         },
         {
           label: 'Report a Bug',
           click: function () {
-            openTabInWindow('https://github.com/minbrowser/min/issues/new')
+            openTabInWindow('https://duckduckgo.com')
           }
         },
         {
           label: 'Take a Tour',
           click: function () {
-            openTabInWindow('https://minbrowser.github.io/min/tour/')
+            openTabInWindow('https://duckduckgo.com')
           }
         },
         {
           label: 'View on GitHub',
           click: function () {
-            openTabInWindow('https://github.com/minbrowser/min')
+            openTabInWindow('https://duckduckgo.com')
           }
         }
       ]
