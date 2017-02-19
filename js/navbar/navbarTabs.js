@@ -251,7 +251,11 @@ function createTabElement (data) {
   for (var i = 0, len = sites.length; i < len; i++) {
     if (data.url.indexOf(sites[i]) > -1 ) {
       favicon.src = 'temp/30sites/icons/' + sites[i] + '.png'
-      favicon.preview = 'temp/30sites/' + sites[i] + '.png'
+      //preview.src = 'temp/30sites/' + sites[i] + '.jpg'
+      //preview.style = 'position: absolute; width: 100px';
+      //var webviews = document.querySelector('.webviews')
+      vc.dataset.preview = 'temp/30sites/' + sites[i] + '.jpg'
+
     }
   }
 

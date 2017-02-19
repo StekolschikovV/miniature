@@ -1,7 +1,12 @@
 function collectionTabs (){
     var collectionTabsContainer = document.getElementById('collection-tabs')
+    var webpreviewContainer = document.getElementById('webpreview')
+    var tabsContainer = document.getElementById('tabs')
+
+
     var btnSwitchTask = document.getElementById('switch-task-button')
     var taskOverlay = document.getElementById('task-overlay')
+
 
     taskOverlay.style.display = 'none'
     btnSwitchTask.click()
@@ -22,6 +27,36 @@ function collectionTabs (){
         tab.click();
 
     })
+
+  var timeout
+
+  tabsContainer.addEventListener('mouseover', function (e) {
+       // var tabId = tabState.tasks[taskIndex].tabs[0].id;
+      var url = e.target.parentNode.dataset.preview
+
+
+
+      if (url) {
+        timeout = setTimeout(function () {
+          console.log(url)
+          webpreviewContainer.style.backgroundImage = 'url('+url+')'
+          webpreviewContainer.style.display = 'block'
+        }, 400)
+
+
+      }
+
+
+    });
+
+
+  tabsContainer.addEventListener('mouseleave', function (e) {
+    webpreviewContainer.style.backgroundImage = ''
+    webpreviewContainer.style.display = 'none'
+
+    clearTimeout(timeout)
+  });
+
     return {
         render: function () {
             var collectionTabsHTML = [];
