@@ -122,7 +122,7 @@ module.exports = function (grunt) {
 					version: electronVersion,
 					'app-version': version,
 					platform: 'win32',
-					arch: 'all',
+					arch: 'ia32', //'all',
 					ignore: 'dist/app; node_modules/.bin',
 					// prune: true,
 					overwrite: true
