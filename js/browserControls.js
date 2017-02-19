@@ -17,7 +17,7 @@ refresh.addEventListener('click', function () {
 })
 
 menu.addEventListener('click', function () {
-  getScreen(function(image) {
+  /*getScreen(function(image) {
     console.log('image', image)
-  })
+  })*/
 })
