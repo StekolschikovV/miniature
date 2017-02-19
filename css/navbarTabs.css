@@ -83,21 +83,15 @@ body.notMac .page-tabs {
 	/*!*overflow: hidden;*!*/
 /*}*/
 
-@media all and (min-width: 481px) and (max-width: 1379px) {
+@media all and (max-width: 1500px) {
 
-	.tab-item:nth-child(n + 6) {
-		/*display: none;*/
+	.tabs18 .tab-item:not(.active) .title {
+		display: none;
 	}
 
 }
 
-.tabs6 {}
-.tabs9 {}
-.tabs18 {}
-.tabs36 {}
-.tabs60 {}
 
-.tabs6 {}
 .tabs6 .tab-item:nth-child(n + 6) {
 	display: none;
 }
@@ -105,7 +99,6 @@ body.notMac .page-tabs {
 	flex: 1 0 0;
 }
 
-.tabs9 {}
 .tabs9 .tab-item:nth-child(n + 10) {
 	display: none;
 }
@@ -113,7 +106,6 @@ body.notMac .page-tabs {
 	flex: 2 0 0;
 }
 
-.tabs18 {}
 .tabs18 .tab-item:nth-child(n + 19) {
 	display: none;
 }
@@ -121,8 +113,11 @@ body.notMac .page-tabs {
 	flex: 4 0 0;
 }
 
-.tabs36 {}
-.tabs36 .tab-item:nth-child(n + 37) {
+.tabs18 .tab-icon-area {
+	display: none;
+}
+
+.tabs36 .tab-item:nth-child(n + 22) {
 	display: none;
 }
 .tabs36 .tab-icon-area {
@@ -135,8 +130,7 @@ body.notMac .page-tabs {
 	flex: 8.75 0 0;
 }
 
-.tabs60 {}
-.tabs60 .tab-item:nth-child(n + 37) {
+.tabs60 .tab-item:nth-child(n + 22) {
 	display: none;
 }
 .tabs60 .tab-icon-area {
