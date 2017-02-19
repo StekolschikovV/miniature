@@ -85,9 +85,13 @@ function enterEditMode (tabId) {
 
 // redraws all of the tabs in the tabstrip
 function rerenderTabstrip () {
-  empty(tabGroup)
+  // console.log('rerenderTabstrip')
+  tabGroup.className = tabGroup.className.replace(/tabs\d+/, '')
+
+    empty(tabGroup)
   for (var i = 0; i < tabs.length; i++) {
     tabGroup.appendChild(createTabElement(tabs[i]))
+    tabGroup.classList.add('tabs' + tabs.length)
   }
 }
 

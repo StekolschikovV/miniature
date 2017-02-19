@@ -303,9 +303,9 @@ body.is-focus-mode .tab-item {
 	width: 16px;
 	height: 16px;
 	display: block;
-	background: #fff;
+	/*background: #fff;*/
 	margin: 8px 6px 0 7px;
 	float: left;
-	border: 1px solid #ddd;
+	/*border: 1px solid #ddd;*/
 	border-radius: 2px;
 }

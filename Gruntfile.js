@@ -46,13 +46,14 @@ module.exports = function (grunt) {
 						 "js/navbar/navbarTabs.js",
 							"js/taskOverlay.js",
 							"js/navbar/addTabButton.js",
-						 "js/collectionTabs.js",
 						 "js/keybindings.js",
 						 "js/fileDownloadManager.js",
 						 "js/findinpage.js",
 							"js/sessionRestore.js",
 							"js/focusMode.js",
-							"js/util/theme.js"
+							"js/util/theme.js",
+						"js/collectionTabs.js"
+
 
 						 ],
 				dest: 'dist/build.js'
