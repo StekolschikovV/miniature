@@ -81,7 +81,7 @@ function createWindowWithBounds (bounds, shouldMaximize) {
         // titleBarStyle: 'hidden-inset',
         frame: false,
         hasShadow: false,
-        thickFrame: false,
+        thickFrame: true,
         icon: __dirname + '/icons/icon256.png',
         plugins: true,
         experimentalFeatures: true,
