@@ -7,7 +7,6 @@
 	/*transition: 0.2s background-color;*/
 	width: 100%;
 	-webkit-user-select: none;
-	position: relative;
 	outline: none;
 	background-color: #f4f7fb;
 	z-index: 1;

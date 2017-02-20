@@ -24,15 +24,15 @@
 	color: royalblue !important;
 }
 #task-overlay {
-	transition: all .3s;
+	/*transition: all .3s;*/
 	position: absolute;
-	width: calc(20% + 100px);
-	min-width: 580px;
+	width: 545px;
+	/*min-width: 580px;*/
 	box-sizing: border-box;
 	left: 0;
 	height: calc(100% - 70px);
 	border-right: 1px solid #c2ccd1;
-	background-color: #fff;
+	background-color: rgba(255,255,255, .9);
 	/*padding: 0;*/
 	white-space: nowrap;
 	overflow: auto;
@@ -44,7 +44,7 @@
 	opacity: 0;
 }
 #task-overlay:not(.notMac):not(.fullscreen) {
-	padding-top: 40px;
+	/*padding-top: 40px;*/
 }
 .task-container + .task-container {
 	padding-top: 0.75em;
@@ -55,6 +55,8 @@
 .task-name {
 	-webkit-appearance: none;
 	appearance: none;
+	font-family: 'PT Sans';
+	font-weight: bold;
 	flex: 1;
 	font-size: 1.2em;
 	color: inherit;
@@ -71,7 +73,6 @@
 	/*position: fixed;*/
 	/*top: 0;*/
 	/*left: 10%;*/
-	width: 100%;
 	padding: 1.25em;
 	text-align: center;
 	color: inherit;
