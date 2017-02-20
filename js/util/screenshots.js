@@ -8,7 +8,7 @@ function getScreen(callback) {
     // console.log('stream',stream)
     // Create hidden video tag
     var video = document.createElement('video')
-    video.style.cssText = 'position:absolutetop:-10000pxleft:-10000px'
+    video.style.cssText = 'position:absolute;top:-10000px;left:-10000px'
     // Event connected to stream
     video.onloadedmetadata = function () {
       // Set video ORIGINAL height (screenshot)

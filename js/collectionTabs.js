@@ -30,31 +30,38 @@ function collectionTabs (){
 
   var timeout
 
-  tabsContainer.addEventListener('mouseover', function (e) {
-       // var tabId = tabState.tasks[taskIndex].tabs[0].id;
-      var url = e.target.dataset.preview
-
-
-
-      if (url) {
-        timeout = setTimeout(function () {
-          console.log(url)
-          webpreviewContainer.style.backgroundImage = 'url('+url+')'
-          webpreviewContainer.style.display = 'block'
-        }, 200)
-
-
-      }
-
-
-    });
+  // tabsContainer.addEventListener('mouseover', function (e) {
+  //      // var tabId = tabState.tasks[taskIndex].tabs[0].id;
+  //     var url = e.target.dataset.preview
+  //
+  //
+  //
+  //     if (url) {
+  //
+  //             console.log(url)
+  //             webpreviewContainer.style.backgroundImage = 'url('+url+')'
+  //             webpreviewContainer.style.opacity = '1'
+  //
+  //
+  //
+  //       //   timeout = setTimeout(function () {
+  //       //   console.log(url)
+  //       //   webpreviewContainer.style.backgroundImage = 'url('+url+')'
+  //       //   webpreviewContainer.style.opacity = '1'
+  //       // }, 0)
+  //
+  //
+  //     }
+  //
+  //
+  //   });
 
 
   tabsContainer.addEventListener('mouseleave', function (e) {
-    webpreviewContainer.style.backgroundImage = ''
-    webpreviewContainer.style.display = 'none'
+    // webpreviewContainer.style.backgroundImage = ''
+    webpreviewContainer.style.opacity = '0'
 
-    clearTimeout(timeout)
+    // clearTimeout(timeout)
   });
 
     return {
