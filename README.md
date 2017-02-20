@@ -1,6 +1,8 @@
-## Installing
+![Miniature](https://i.imgur.com/A82rMdt.png)
 
-To run Miniature, you can download binaries (not yet available)
+As for now project is in demo mode, that means when you install it you will see UI features in demo mode, hardcoded.
+
+## Installing
 
 If you want to develop Miniature:
 
