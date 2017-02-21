@@ -1,6 +1,9 @@
 ![Miniature](https://i.imgur.com/A82rMdt.png)
 ![Miniature mockup](https://i.imgur.com/FJYTweW.png)
 
+Live screenshot:
+![Miniature live](https://i.imgur.com/o0zeQz7.png)
+
 As for now project is in demo mode, that means when you install it you will see UI features in demo mode, hardcoded.
 
 ## Installing
