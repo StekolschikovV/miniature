@@ -1,4 +1,4 @@
-![Miniature](https://i.imgur.com/JCRQxnQ.png)
+![Miniature](https://i.imgur.com/28KNEif.png)
 
 Developers:
 
