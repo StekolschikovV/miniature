@@ -24,16 +24,14 @@
 	color: royalblue !important;
 }
 #task-overlay {
-	/*transition: all .3s;*/
 	position: absolute;
 	width: 545px;
-	/*min-width: 580px;*/
+	top: 70px;
 	box-sizing: border-box;
 	left: 0;
 	height: calc(100% - 70px);
 	border-right: 1px solid #c2ccd1;
 	background-color: rgba(255,255,255, .9);
-	/*padding: 0;*/
 	white-space: nowrap;
 	overflow: auto;
 	opacity: 1;

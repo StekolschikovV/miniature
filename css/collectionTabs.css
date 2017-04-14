@@ -30,17 +30,17 @@
 }
 
 .collection-tabs {
+    position: absolute;
+    top:0;
     display: flex;
     height: 34px;
-    z-index: 1;
-    position: relative;
+    z-index: 1111;
     /*top: 2px;*/
     width: 100%;
     background-color:#e0e6f0;
     /*-webkit-appearance: none;*/
     /*-webkit-user-select: auto;*/
     /*-webkit-app-region: drag;*/
-    /*align-items: stretch;*/
 }
 
 .collection-tabs .tabs {
@@ -50,18 +50,21 @@
 }
 
 .collection-tabs .tabs div {
+    box-sizing: border-box;
     padding: 10px 0 9px 30px;
-    font-family: "PT Sans Caption", sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.03em;
-    color: #888;
-    transition: none;
+    font-family: "PT Sans", sans-serif;
+    font-size: 13px;
+    max-width: 20%;
+
+    color: #000;
+
 }
 
 .collection-tabs .tabs .active-tab {
     background: #ecf1f8;
     font-family: "PT Sans", sans-serif;
-    font-size: 13px;
+    font-size: 14px;
+    max-width: 20%;
     font-weight: bold;
-    color: #000;
+
 }

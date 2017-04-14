@@ -1,20 +1,17 @@
 #webpreview {
-
 }
 #webviews {
 	height: calc(100vh - 70px);
 	width: 100%;
-	/*transition: all .3s;*/
 	position: absolute;
-	right: 0;
+	top:70px;
 }
 #webpreview {
 	opacity: 0;
 	height: calc(100vh - 70px);
 	width: 100%;
-	/*transition: all .3s;*/
 	position: absolute;
-	right: 0; left: 0;
+	top: 70px;
 	background-position: 50% 0;
 	background-size: 100% auto;
 	transition: 0.4s opacity 0.25s ease-in-out;
@@ -23,18 +20,18 @@
 	height: 100%;
 	width: 100%;
 	outline: none;
-	position: absolute;
+	/*position: absolute;*/
 }
 #webviews webview[hidden] {
-	display: flex !important;
-	visibility: hidden;
+	/*display: flex !important;*/
+	/*visibility: hidden;*/
 }
 #webviews webview.fullscreen {
 	position: fixed;
 	top: 0;
 	left: 0;
 	height: 100%;
-	z-index: 99;
+	z-index: 2299;
 }
 
 /* hack to work around display: none issues with webviews */
