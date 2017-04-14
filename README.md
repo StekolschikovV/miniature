@@ -2,6 +2,8 @@
 
 Develop:
 
+[Join](mailto:doreminiature@gmail.com?subject=Joining Miniature development") operations @ trello and slack decks.
+
 * [Node](https://nodejs.org) and [Grunt](http://gruntjs.com).
 * Clone repo.
 * Go to /dev/ and `npm install` then `grunt dev`.
