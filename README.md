@@ -2,7 +2,7 @@
 
 Develop:
 
-[Join](mailto:doreminiature@gmail.com?subject=Joining Miniature development") operations @ trello and slack decks.
+[Join](mailto:doreminiature@gmail.com?subject=Joining Miniature development&body=Helo, send me an invitation to join Miniature development") operations @ trello and slack decks.
 
 * [Node](https://nodejs.org) and [Grunt](http://gruntjs.com).
 * Clone repo.
