@@ -71,6 +71,7 @@ body.notMac .page-tabs {
 .tabs div {
 	flex: 1 0 0;
 	cursor: pointer;
+	transition: all .3s ease;
 }
 
 /* tab layout */
@@ -146,6 +147,7 @@ body.notMac .page-tabs {
 
 .tabs36 .tab-item {
 	min-width: 2.777%;
+
 }
 
 .tabs36 .tab-item.active {

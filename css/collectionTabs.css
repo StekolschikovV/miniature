@@ -45,7 +45,7 @@
 
 .collection-tabs .tabs {
     align-items: center;
-    cursor: pointer;
+
     /*-webkit-app-region: drag;*/
 }
 
@@ -55,7 +55,8 @@
     font-family: "PT Sans", sans-serif;
     font-size: 13px;
     max-width: 20%;
-
+    cursor: pointer;
+    transition: none;
     color: #000;
 
 }
@@ -63,7 +64,7 @@
 .collection-tabs .tabs .active-tab {
     background: #ecf1f8;
     font-family: "PT Sans", sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     max-width: 20%;
     font-weight: bold;
 
