@@ -9,7 +9,7 @@
 	right: 0;
 }
 #webpreview {
-	display: none;
+	opacity: 0;
 	height: calc(100vh - 70px);
 	width: 100%;
 	/*transition: all .3s;*/

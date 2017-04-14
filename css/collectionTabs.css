@@ -40,7 +40,7 @@
     /*-webkit-appearance: none;*/
     /*-webkit-user-select: auto;*/
     /*-webkit-app-region: drag;*/
-    align-items: stretch;
+    /*align-items: stretch;*/
 }
 
 .collection-tabs .tabs {
@@ -55,12 +55,13 @@
     font-size: 12px;
     letter-spacing: 0.03em;
     color: #888;
+    transition: none;
 }
 
 .collection-tabs .tabs .active-tab {
     background: #ecf1f8;
     font-family: "PT Sans", sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     color: #000;
 }
