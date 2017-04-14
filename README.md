@@ -2,7 +2,7 @@
 
 Develop:
 
-[Join](mailto:doreminiature@gmail.com?subject=Joining%Miniature%20development&body=Applying%20for%20trello%20and%20slack%20invitations.") operations @ trello and slack decks.
+[Join](mailto:doreminiature@gmail.com?subject=Joining%20Miniature%20development&body=Applying%20for%20trello%20and%20slack%20invitations.) operations @ trello and slack decks.
 
 * [Node](https://nodejs.org) and [Grunt](http://gruntjs.com).
 * Clone repo.
