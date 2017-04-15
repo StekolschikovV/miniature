@@ -1,4 +1,4 @@
-![Miniature](https://i.imgur.com/zEiDuPp.png)
+![Miniature](https://i.imgur.com/XfS2iRr.png)
 
 Develop:
 
