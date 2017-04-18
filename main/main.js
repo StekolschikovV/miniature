@@ -387,7 +387,7 @@ function createAppMenu () {
       submenu: [
         {
           label: 'Reload Browser',
-          accelerator: 'F5',
+          accelerator: 'F6',
           click: function (item, focusedWindow) {
             if (focusedWindow) focusedWindow.reload()
           }

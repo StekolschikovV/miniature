@@ -13,7 +13,7 @@ var defaultKeyMap = {
   'switchToNextTab': ['option+mod+right', 'ctrl+tab', 'shift+mod+pagedown'],
   'switchToPreviousTab': ['option+mod+left', 'shift+ctrl+tab', 'shift+mod+pageup'],
   'closeAllTabs': 'shift+mod+n',
-  'reload': 'mod+r',
+  'reload': 'F5',
   'showAndHideMenuBar': 'alt'
 }
 /* Utility function to override default mapping with user settings */
