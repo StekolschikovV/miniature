@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/webviews.css"/>
     <link rel="stylesheet" href="css/searchbar.css"/>
     <link rel="stylesheet" href="css/findinpage.css"/>
+    <link rel="stylesheet" href="css/windowControls.css"/>
     <link rel="stylesheet" href="ext/font-awesome-4.4.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="node_modules/dragula/dist/dragula.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption|PT+Sans:400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext"
@@ -116,9 +117,21 @@
 
 
 <div id="title-bar-btns">
-    <button id="min-btn">-</button>
-    <button id="max-btn">+</button>
-    <button id="close-btn">x</button>
+    <button id="min-btn">
+        <svg width="12px" height="3px">
+            <use xlink:href="icons/svg/miniature-controls.svg#minimize"></use>
+        </svg>
+    </button>
+    <button id="max-btn">
+        <svg width="12.7px" height="10.6px">
+            <use xlink:href="icons/svg/miniature-controls.svg#maximize"></use>
+        </svg>
+    </button>
+    <button id="close-btn">
+        <svg width="11.1px" height="11.1px">
+            <use xlink:href="icons/svg/miniature-controls.svg#close"></use>
+        </svg>
+    </button>
 </div>
 
 <!-- add scripts in Gruntfile.js -->

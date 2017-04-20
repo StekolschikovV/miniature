@@ -37,7 +37,7 @@
     height: 34px;
     z-index: 1111;
     width: 100%;
-    background-color:#e0e6f0;
+    background-color:#DBE5F6;
     /*-webkit-appearance: none;*/
     /*-webkit-user-select: auto;*/
     /*-webkit-app-region: drag;*/
@@ -53,18 +53,19 @@
     flex: 0 0 20%;
     /*-webkit-app-region: drag;*/
     box-sizing: border-box;
-    padding: 10px 0 9px 30px;
+    padding: 11px 0 9px 30px;
     font-family: "PT Sans", sans-serif;
     font-size: 13px;
     max-width: 20%;
     cursor: pointer;
     transition: none;
-    color: #000;
+    color: #555;
 
 }
 
 #collection-tabs > div.active-tab {
-    background: #ecf1f8;
+    background: #E7F1FE;
+    color: #000;
     font-family: "PT Sans", sans-serif;
     font-size: 13px;
     max-width: 20%;

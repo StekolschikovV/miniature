@@ -44,8 +44,16 @@
         <rect x="1" y="3.4" fill="#FFFFFF" stroke="#D1D3D4" stroke-width="2" stroke-miterlimit="10" width="8.4" height="6.1"/>
     </symbol>
 
-    <symbol id="maximize" viewBox="0 0 12.7 10.6">
-        <rect x="1" y="1" fill="#FFFFFF" stroke="#D1D3D4" stroke-width="2" stroke-miterlimit="10" width="8.4" height="6.1"/>
+    <symbol id="maximize" viewBox="0 0 12.2 11.2">
+        <g>
+            <g>
+                <path d="M12.2,8.1H1.7V0h10.4V8.1z M3.7,6.1h6.4V2H3.7V6.1z"/>
+            </g>
+            <g>
+                <rect fill="#DBE5F6" x="1" y="4.7" width="5.8" height="5.5"/>
+                <path d="M7.8,11.2H0V3.7h7.8V11.2z M2,9.2h3.8V5.7H2V9.2z"/>
+            </g>
+        </g>
     </symbol>
 
     <symbol id="close" viewBox="0 0 11.1 11.1">
