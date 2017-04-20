@@ -37,9 +37,9 @@
     height: 34px;
     z-index: 1111;
     width: 100%;
-    background-color:#DBE5F6;
+    background-color: #dee7f7;
     /*-webkit-appearance: none;*/
-    /*-webkit-user-select: auto;*/
+    -webkit-user-select: auto;
     /*-webkit-app-region: drag;*/
 }
 

@@ -1,4 +1,4 @@
-![Miniature](https://i.imgur.com/XfS2iRr.png)
+![Miniature](https://i.imgur.com/9Rshss4.png)
 
 Develop:
 
@@ -8,8 +8,8 @@ Develop:
 * Install [Node](https://nodejs.org) and [Grunt](http://gruntjs.com).
 * Clone Miniature repoository.
 * `npm install`.
-* Build: 'grunt build`. Default path: miniature/dist
-* Run `/Path/To/Electron /Path/To/Miniature`.
+* Build: 'grunt build`. Builds to miniature/dist
+* Run: `/Path/To/Electron /Path/To/Miniature`.
 * Develop: `grunt dev`. F6 to reload browser chrome.
 
 If you are using OS X, install [Homebrew](http://brew.sh), then run `brew install fakeroot dpkg`.

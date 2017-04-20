@@ -1,17 +1,17 @@
 #webpreview {
 }
 #webviews {
-	height: calc(100vh - 70px);
+	height: calc(100vh - 69px);
 	width: 100%;
 	position: absolute;
-	top:70px;
+	top: 69px;
 }
 #webpreview {
 	opacity: 0;
-	height: calc(100vh - 70px);
+	height: calc(100vh - 69px);
 	width: 100%;
 	position: absolute;
-	top: 70px;
+	top: 69px;
 	background-position: 50% 0;
 	background-size: 100% auto;
 	transition: 0.4s opacity 0.25s ease-in-out;
