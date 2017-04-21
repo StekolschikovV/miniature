@@ -6,9 +6,9 @@ Develop:
 
 * Download [Electron](https://github.com/electron/electron/releases).
 * Install [Node](https://nodejs.org) and [Grunt](http://gruntjs.com).
-* Clone Miniature repoository.
+* Clone Miniature repository.
 * `npm install`.
-* Build: 'grunt build`. Builds to miniature/dist
+* Build: `grunt build`. Builds to miniature/dist.
 * Run: `/Path/To/Electron /Path/To/Miniature`.
 * Develop: `grunt dev`. F6 to reload browser chrome.
 
