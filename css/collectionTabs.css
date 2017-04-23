@@ -60,7 +60,10 @@
     cursor: pointer;
     transition: none;
     color: #555;
+}
 
+#collection-tabs > div:nth-child(n + 6) {
+    display: none;
 }
 
 #collection-tabs > div.active-tab {
