@@ -1,30 +1,46 @@
 #webpreview {
 }
 #webviews {
-	height: calc(100vh - 69px);
-	width: 100%;
+	height: calc(100vh - 66px);
+	/*width: 100%;*/
+	left: 0;
+	right: 0;
 	position: absolute;
-	top: 69px;
+	top: 66px;
+	transition: all .3s ease;
+}
+#webviews.active{
+	/*width: calc(100%);*/
+	left: calc(20% + 159px);
+	right: 0;
 }
 #webpreview {
 	opacity: 0;
 	height: calc(100vh - 69px);
-	width: 100%;
+	left: 0;
 	position: absolute;
 	top: 69px;
-	background-position: 50% 0;
-	background-size: 100% auto;
-	transition: 0.4s opacity 0.25s ease-in-out;
+	/*background-position: 50% 0;*/
+	/*background-size: 100% auto;*/
+	/*transition: 0.3s opacity 0.25s ease-in-out;*/
 }
 #webviews webview {
 	height: 100%;
-	width: 100%;
+	left:0;
+	right: 0;
 	outline: none;
-	/*position: absolute;*/
+	position: absolute;
+	display: flex;
+	transition: all .3s ease;
+}
+#webviews.active webview {
+	/*right: 0;*/
+	/*left: calc(20% + 158px);*/
 }
 #webviews webview[hidden] {
 	/*display: flex !important;*/
 	/*visibility: hidden;*/
+	display: none;
 }
 #webviews webview.fullscreen {
 	position: fixed;

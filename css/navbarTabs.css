@@ -2,13 +2,13 @@
 	display: flex;
 	height: 35px;
 	position: absolute;
-	top:34px;
+	top: 31px;
 	width: 100%;
 	-webkit-user-select: none;
 	-webkit-backface-visibility:hidden;
 	background-color: #F0F7FF;
 	z-index: 1000;
-	/*box-shadow: 0px 5px 5px -7px rgba(0,0,0,.5)*/
+	box-shadow: 0px 1px 5px -4px rgba(0,0,0,1);
 	/*-webkit-app-region: drag;*/
 }
 
@@ -88,20 +88,21 @@ body.notMac .page-tabs {
 	/*}*/
 /*}*/
 
-.tabs .tab-item:nth-child(n + 10) {
-	display: none;
-}
+/*.tabs .tab-item:nth-child(n + 7) {*/
+	/*display: none;*/
+/*}*/
 /*.tabs .tab-item:nth-child(n - 6) {*/
 	/*flex: 0 0 20% !important;*/
 /*}*/
-.tabs .tab-item:nth-child(n - 10) {
-	flex: 0 0 10%;
-}
-.tabs .tab-item:nth-child(n - 10) {
-	flex: 0 0 10%;
-}
+/*.tabs .tab-item:nth-child(n - 10) {*/
+	/*flex: 0 0 10%;*/
+/*}*/
+/*.tabs .tab-item:nth-child(n - 10) {*/
+	/*flex: 0 0 10%;*/
+/*}*/
 .tabs .tab-item.active {
 	flex: 0 0 20%;
+	/*order: 0;*/
 }
 
 .tabs .tab-item {
@@ -177,6 +178,56 @@ body.notMac .page-tabs {
 	/*min-width: 29px;*/
 /*}*/
 
+.tabs9 .tab-item {
+	flex: 0 0 10%;
+}
+
+.tabs9 .tab-item:nth-child(n + 10) {
+	display: none;
+}
+
+.tabs18 .tab-item {
+	flex: 0 0 5%;
+}
+
+.tabs18 .tab-item:nth-child(n + 19) {
+	display: none;
+}
+
+.tabs36 .tab-item {
+	flex: 0 0 3.4%;
+}
+
+.tabs36 .tab-item:nth-child(n + 37) {
+	display: none;
+}
+
+.tabs36 .tab-item:not(.active) .title {
+	display: none;
+}
+
+.tabs60 .tab-item {
+	flex: 0 0 26px;
+}
+
+.tabs60 .tab-item:nth-child(6n+6) {
+	margin-right: 20px;
+}
+
+.tabs60 .tab-item:nth-child(n + 61) {
+	display: none;
+}
+
+.tabs60 .tab-item:not(.active) .title {
+	display: none;
+}
+
+.tabs60 .tab-item:not(.active) .tab-icon-area {
+	display: none;
+}
+
+
+
 
 .tab-item {
 	flex: 0 0 20%;
@@ -185,7 +236,7 @@ body.notMac .page-tabs {
 	word-break: break-all;
 	outline: 1px dotted transparent;
 	padding: 0;
-	line-height: 34px;
+	line-height: 33px;
 	height: 34px;
 	overflow: hidden;
 	position: relative;
@@ -311,8 +362,9 @@ body.notMac .page-tabs {
 }
 
 .tab-item .tab-view-contents .title {
-	font-family: "PT Sans Caption", sans-serif;
+	font-family: "PT Sans", sans-serif;
 	font-size: 12px;
+	letter-spacing: 0.5px;
 	text-transform: capitalize;
 	word-break: break-all;
 }
@@ -320,8 +372,7 @@ body.notMac .page-tabs {
 .tab-item.active .tab-view-contents .title {
 	font-weight: bold;
 	font-family: "PT Sans", sans-serif;
-	font-size: 13px;
-	/*letter-spacing: 0.02em;*/
+	font-size: 12px;
 }
 
 /* buttons */

@@ -1,9 +1,8 @@
 function addTaskFromOverlay () {
   tasks.setSelected(tasks.add())
-  taskOverlay.hide()
-
-  rerenderTabstrip()
   addTab()
+  rerenderTabstrip()
+    // taskOverlay.hide()
 }
 
 var overlay = document.getElementById('task-overlay')
@@ -18,7 +17,8 @@ taskSwitcherButton.addEventListener('click', function () {
 
 addTaskButton.addEventListener('click', function (e) {
   switchToTask(tasks.add())
-  taskOverlay.hide()
+  collectionTabs().render()
+  // taskOverlay.hide()
 })
 
 // navbar.addEventListener('click', function () {
@@ -33,10 +33,6 @@ taskSwitcherButton.addEventListener('click', function () {
 
   if ( overlay.style.opacity != '1' ) {
     overlay.style.opacity = "1"
-  }
-
-  else if ( overlay.style.opacity != '0' ) {
-    overlay.style.opacity = "0"
   }
 
 
@@ -188,6 +184,9 @@ var taskOverlay = {
     // un-hide the overlay
 
     overlay.hidden = false
+      taskSwitcherButton.classList.add('active')
+      webviews.classList.add('active')
+
   },
   hide: function () {
     if (taskOverlay.isShown) {
@@ -212,8 +211,8 @@ var taskOverlay = {
 
         switchToTask(recentTaskList[0].id)
       }
-
-      taskSwitcherButton.classList.remove('active')
+        taskSwitcherButton.classList.remove('active')
+        webviews.classList.remove('active')
     }
   },
   toggle: function () {

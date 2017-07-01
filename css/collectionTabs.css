@@ -34,8 +34,8 @@
     position: absolute;
     top:0;
     display: flex;
-    height: 34px;
-    z-index: 1111;
+    height: 31px;
+    z-index: 10;
     width: 100%;
     background-color: #dee7f7;
     /*-webkit-appearance: none;*/
@@ -53,13 +53,14 @@
     flex: 0 0 20%;
     /*-webkit-app-region: drag;*/
     box-sizing: border-box;
-    padding: 11px 0 9px 30px;
+    padding: 11px 0 9px 29px;
     font-family: "PT Sans", sans-serif;
-    font-size: 13px;
+    font-size: 12px;
+    letter-spacing: .5px;
     max-width: 20%;
     cursor: pointer;
     transition: none;
-    color: #555;
+    color: #6b6b6b;
 }
 
 #collection-tabs > div:nth-child(n + 6) {
@@ -70,7 +71,7 @@
     background: #E7F1FE;
     color: #000;
     font-family: "PT Sans", sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     max-width: 20%;
     font-weight: bold;
 
