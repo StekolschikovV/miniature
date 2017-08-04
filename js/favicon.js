@@ -24,6 +24,7 @@ let favicon = {
       let tabFavicon = document.querySelector('.tab-item[data-tab="' + tabs[i].id + '"] img')
       let tabUrl = new URL(tabs[i].url, location)
       let url = 'http://' + tabUrl.hostname + '/favicon.ico'
+
       try {
         req.open("GET", url, false)
         req.send("")
@@ -31,17 +32,9 @@ let favicon = {
         tabFavicon.src = ''
         tabFavicon.removeAttribute('src')
       }
-
-
-        // let http = new XMLHttpRequest()
-        // http.open('HEAD', url, false)
-        // http.send()
-        // if(http.status !== 404) {
-        //   tabFavicon.src = 'http://' + tabUrl.hostname + '/favicon.ico'
-        // }
-
-      if(tabUrl.hostname !== '')
+      if (tabUrl.hostname !== '') {
         tabFavicon.src = url
+      }
     }
   }
 }

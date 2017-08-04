@@ -149,6 +149,10 @@ registerSearchbarPlugin('readingList', {
 // update the reader button on page load
 
 bindWebviewEvent('did-finish-load', function (e) {
+  // eventEmitter
+  eventEmitter.emit('loadFinish')
+  console.warn("eventEmitter", "loadFinish")
+  // eventEmitter //
   var tab = this.getAttribute('data-tab')
   var url = this.getAttribute('src')
 

@@ -2,6 +2,7 @@
 .npm
 dist
 main.build.js
+.idea
 .idea/miniature.iml
 .idea/modules.xml
 .idea/workspace.xml
