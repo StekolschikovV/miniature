@@ -27,7 +27,9 @@ addTaskButton.addEventListener('click', function (e) {
 
 
 var webviews = document.getElementById("webviews")
-
+// webviews.addEventListener('page-favicon-updated', function (e) {
+//   console.log("!!!", webviews)
+// })
 
 taskSwitcherButton.addEventListener('click', function () {
 

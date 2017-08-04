@@ -3,6 +3,10 @@ window.ipc = electron.ipcRenderer
 window.remote = electron.remote
 window.Dexie = require('dexie')
 
+var events = require('events')
+var eventEmitter = new events.EventEmitter() // openPage
+
+
 // disable dragdrop, since it currently doesn't work
 window.addEventListener('drop', function (e) {
   e.preventDefault()
@@ -22,4 +26,5 @@ window.addEventListener('load', function (e) {
   if (navigator.platform !== 'MacIntel') {
     document.body.classList.add('notMac')
   }
+
 })

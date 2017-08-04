@@ -27,6 +27,11 @@ var readerView = {
     return item
   },
   updateButton: function (tabId) {
+    // eventEmitter
+    eventEmitter.emit('openPage')
+    console.warn("eventEmitter", "openPage")
+    // eventEmitter //
+
     var button = document.querySelector('.reader-button[data-tab="{id}"]'.replace('{id}', tabId))
     var tab = tabs.get(tabId)
     if (!button) return;
@@ -46,6 +51,7 @@ var readerView = {
     }
   },
   enter: function (tabId) {
+
     navigate(tabId, readerView.readerURL + '?url=' + tabs.get(tabId).url)
     tabs.update(tabId, {
       isReaderView: true

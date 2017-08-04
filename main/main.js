@@ -90,8 +90,9 @@ function createWindowWithBounds (bounds, shouldMaximize) {
             blinkFeatures: 'overlayScrollbars'
         }
     })
-
+  mainWindow.webContents.openDevTools();
   mainWindow.setResizable(true)
+
 
   // and load the index.html of the app.
   mainWindow.loadURL(browserPage)

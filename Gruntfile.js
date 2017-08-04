@@ -14,6 +14,9 @@ module.exports = function (grunt) {
 			browser: {
 				src: [
 						"js/default.js",
+						"js/events.js",
+          	"js/util/jquery-3.2.1.min.js",
+          	"js/util/favicon.js",
 						"js/util/database.js",
 						"js/util/defaultKeyMap.js",
 						"js/util/settings.js",
@@ -52,7 +55,8 @@ module.exports = function (grunt) {
 							"js/sessionRestore.js",
 							"js/focusMode.js",
 							"js/util/theme.js",
-						"js/collectionTabs.js"
+						"js/collectionTabs.js",
+						"js/favicon.js"
 
 
 						 ],

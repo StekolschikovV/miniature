@@ -1,4 +1,5 @@
 var findinpage = {
+
   container: document.getElementById('findinpage-bar'),
   isEnabled: false,
   start: function (options) {

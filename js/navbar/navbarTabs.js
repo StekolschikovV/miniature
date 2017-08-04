@@ -123,6 +123,9 @@ function rerenderTabElement (tabId) {
 
 function createTabElement (data) {
   var url = urlParser.parse(data.url)
+  // w.addEventListener('page-favicon-updated', function (e) {
+  //   console.log("!!!", e)
+  // })
 //   w.addEventListener('page-favicon-updated', function (e) {
 //     var id = this.getAttribute('data-tab')
 //     getFavicon = function () {
