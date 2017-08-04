@@ -4,7 +4,7 @@ window.remote = electron.remote
 window.Dexie = require('dexie')
 
 var events = require('events')
-var eventEmitter = new events.EventEmitter() // openPage, loadFinish
+var eventEmitter = new events.EventEmitter() // openPage, loadFinish, back,  forward
 
 
 // disable dragdrop, since it currently doesn't work
