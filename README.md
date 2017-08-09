@@ -1,17 +1,22 @@
 ![Miniature](https://i.imgur.com/9Rshss4.png)
 ![Miniature](https://i.imgur.com/FJYTweW.png)
 
-About:
+Miniature —
 
-Miniature
-* a web browser
-* with improved UI
-* that helps navigate faster
-* and organize pages better
-* it solves information overload dilemma
-* connecting you to the best knowledge on the web
+ a web browser
 
-Develop:
+ with improved UI
+
+ that helps navigate faster
+
+ and organize pages better
+
+ it solves information overload dilemma
+
+ connecting you to the best knowledge on the web\
+
+
+**Develop**:
 
 [Join](mailto:doreminiature@gmail.com?subject=Joining%20Miniature%20development&body=Applying%20for%20trello%20and%20slack%20invitations.) operations @ trello and slack decks.
 
