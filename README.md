@@ -1,4 +1,15 @@
 ![Miniature](https://i.imgur.com/9Rshss4.png)
+![Miniature](https://i.imgur.com/FJYTweW.png)
+
+About:
+
+Miniature
+* a web browser
+* with improved UI
+* that helps navigate faster
+* and organize pages better
+* it solves information overload dilemma
+* connecting you to the best knowledge on the web
 
 Develop:
 
