@@ -4,12 +4,16 @@
 Miniature —
 
  a web browser
- with improved UI
- that helps navigate faster
- and organize pages better
- it solves information overload dilemma
- connecting you to the best knowledge on the web\
 
+ with improved UI
+
+ that helps navigate faster
+
+ and organize pages better
+
+ it solves information overload dilemma
+
+ connecting you to the best knowledge on the web
 
 **Developers, Developers, Developers**:
 
