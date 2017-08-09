@@ -3,12 +3,17 @@
 
 Miniature —
 
-⋅⋅⋅a web browser
-⋅⋅⋅with improved UI
-⋅⋅⋅that helps navigate faster
-⋅⋅⋅and organize pages better
-⋅⋅⋅it solves information overload dilemma
-⋅⋅⋅connecting you to the best knowledge on the web
+:sparkles: a web browser
+
+:sparkles: with improved UI
+
+:sparkles: that helps navigate faster
+
+:sparkles: and organize pages better
+
+:sparkles: it solves information overload dilemma
+
+:sparkles: connecting you to the best knowledge on the web
 
 
 
