@@ -3,19 +3,17 @@
 
 Miniature —
 
- a web browser
+⋅⋅⋅a web browser
+⋅⋅⋅with improved UI
+⋅⋅⋅that helps navigate faster
+⋅⋅⋅and organize pages better
+⋅⋅⋅it solves information overload dilemma
+⋅⋅⋅connecting you to the best knowledge on the web
 
- with improved UI
 
- that helps navigate faster
 
- and organize pages better
-
- it solves information overload dilemma
-
- connecting you to the best knowledge on the web
-
-**Developers, Developers, Developers**:
+Developers, Developers, Developers:
+------
 
 [Join](mailto:doreminiature@gmail.com?subject=Joining%20Miniature%20development&body=Applying%20for%20trello%20and%20slack%20invitations.) operations @ trello and slack decks.
 
