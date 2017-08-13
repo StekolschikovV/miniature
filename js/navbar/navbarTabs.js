@@ -122,6 +122,7 @@ function rerenderTabElement (tabId) {
 }
 
 function createTabElement (data) {
+
   var url = urlParser.parse(data.url)
   // w.addEventListener('page-favicon-updated', function (e) {
   //   console.log("!!!", e)
@@ -219,55 +220,7 @@ function createTabElement (data) {
 
   var favicon = document.createElement('img')
   favicon.className = 'favicon'
-
-  var preview = document.createElement('img')
-  preview.className = 'preview'
-  // favicon.src = 'temp/30sites/icons/FireShot Capture 001 - Trending - YouTube - https___www.youtube.com_feed_trending.png'
-  var sites = [
-    'youtube',
-    'wikipedia',
-    'amazon',
-    'twitter',
-    'instagram',
-    'reddit',
-    'linkedin',
-    'ebay',
-    'aliexpress',
-    'netflix',
-    'apple',
-    'imdb',
-    'pinterest',
-    'paypal',
-    'twitch',
-    'adobe',
-    'dropbox',
-    'nytimes',
-    'espn',
-    'cnn',
-    'booking',
-    'samsung',
-    'whatsapp',
-    'bbc',
-    'coursera',
-    'dezeen',
-    'architectmagazine',
-    'design-milk',
-    'behance',
-    'msn'
-  ];
-  for (var i = 0, len = sites.length; i < len; i++) {
-    if (data.url.indexOf(sites[i]) > -1 ) {
-      favicon.src = 'temp/30sites/icons/' + sites[i] + '.png'
-      //preview.src = 'temp/30sites/' + sites[i] + '.jpg'
-      //preview.style = 'position: absolute; width: 100px';
-      //var webviews = document.querySelector('.webviews')
-      vc.dataset.preview = 'temp/30sites/' + sites[i] + '.jpg'
-
-    }
-  }
-
   vc.appendChild(favicon)
-  vc.appendChild(preview)
 
   // title
 
@@ -363,6 +316,7 @@ function createTabElement (data) {
   // })
 
   return tabEl
+
 }
 
 function addTab (tabId, options) {
@@ -421,6 +375,8 @@ function addTab (tabId, options) {
   if (options.enterEditMode !== false) {
     enterEditMode(tabId)
   }
+
+    // rerenderTabstrip()
 
 }
 

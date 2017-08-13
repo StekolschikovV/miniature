@@ -22,7 +22,8 @@ function collectionTabs (){
         let tabActive = document.querySelector('.active-tab.collection-tab')
         e.target.classList.add('active-tab')
         tabActive.classList.remove('active-tab')
-        tab.click();
+        tab.click()
+
 
     })
     
@@ -32,7 +33,7 @@ function collectionTabs (){
             let collectionTabsHTML = [];
 
             tasks.get().forEach(function( task, i ) {
-                let title = task.name || 'Task ' + (i + 1);
+                let title = task.name || 'Collection ' + (i + 1);
                 collectionTabsHTML.push('<div class="collection-tab ' + ( i == 0 ? 'active-tab' : '') + ' " data-task-id="' + task.id + ' " data-index="' + i + '">' + title + '</div>')
             })
 

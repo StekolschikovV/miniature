@@ -100,10 +100,10 @@ body.notMac .page-tabs {
 /*.tabs .tab-item:nth-child(n - 10) {*/
 	/*flex: 0 0 10%;*/
 /*}*/
-.tabs .tab-item.active {
-	flex: 0 0 20%;
-	/*order: 0;*/
-}
+/*.tabs .tab-item.active {*/
+	/*flex: 0 0 20%;*/
+	/*!*order: 0;*!*/
+/*}*/
 
 .tabs .tab-item {
 	/*min-width: calc(11.111% - 20px);*/
@@ -230,8 +230,7 @@ body.notMac .page-tabs {
 
 
 .tab-item {
-	flex: 0 0 20%;
-	max-width: 20%;
+	flex: 0 0 5%;
 	transition: all 1.3s ease;
 	word-break: break-all;
 	outline: 1px dotted transparent;

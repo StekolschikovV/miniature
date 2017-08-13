@@ -193,7 +193,7 @@ module.exports = function (grunt) {
 		},
         watch: {
             scripts: {
-                files: ['js/**.js', 'css/**.css', 'index.html'],
+                files: ['js/**/*.js', 'css/**/*.css', 'index.html'],
                 tasks: ['concat:browser', 'concat:webview', 'concat:main'],
                 options: {
                     spawn: false,
