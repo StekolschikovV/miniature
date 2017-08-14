@@ -15,8 +15,7 @@ module.exports = function (grunt) {
 				src: [
 						"js/default.js",
 						"js/events.js",
-          	"js/util/jquery-3.2.1.min.js",
-          	"js/util/favicon.js",
+          				"js/util/favicon.js",
 						"js/util/database.js",
 						"js/util/defaultKeyMap.js",
 						"js/util/settings.js",
@@ -78,7 +77,7 @@ module.exports = function (grunt) {
 			main: {
 				src: [
 						"main/main.js",
-					"main/filtering.js"
+						"main/filtering.js"
 						 ],
 				dest: 'main.build.js'
 			}
@@ -135,7 +134,7 @@ module.exports = function (grunt) {
 			},
 			linuxBuild: {
 				options: {
-					name: 'min',
+					name: 'Miniature',
 					dir: __dirname,
 					out: 'dist/app',
 					version: electronVersion,
@@ -150,16 +149,16 @@ module.exports = function (grunt) {
 		},
 		'electron-installer-debian': {
 			options: {
-				productName: "Min",
+				productName: "Miniature",
 				genericName: "Web Browser",
 				version: version,
 				section: "web",
-				homepage: "https://palmeral.github.io/min/",
+				homepage: "https://github.com/doreminiature/miniature",
 				icon: "icons/icon256.png",
 				categories: ["Network", "WebBrowser"],
 				mimeType: ["x-scheme-handler/http", "x-scheme-handler/https", "text/html"],
-				maintainer: "Min Developers <280953907a@zoho.com>",
-				description: "Min is a faster, smarter web browser.",
+				maintainer: "doreminiature@gmail.com",
+				description: "Miniature — web browsing reinvented.",
 				depends: [
 				'gconf2',
 				'gconf-service',
@@ -180,14 +179,14 @@ module.exports = function (grunt) {
 				options: {
 					arch: 'i386'
 				},
-				src: 'dist/app/Min-linux-ia32',
+				src: 'dist/app/Miniature-linux-ia32',
 				dest: 'dist/app/linux'
 			},
 			linux64: {
 				options: {
 					arch: 'amd64'
 				},
-				src: 'dist/app/Min-linux-x64',
+				src: 'dist/app/Miniature-linux-x64',
 				dest: 'dist/app/linux'
 			}
 		},
