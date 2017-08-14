@@ -1,9 +1,9 @@
 ![Miniature](https://i.imgur.com/9Rshss4.png)
 ![Miniature](https://i.imgur.com/FJYTweW.png)
 
-:sparkles: :sparkles: :sparkles: :sparkles: :sparkles:
+:sparkles: Miniature —
 
-:sparkles: web browser
+:sparkles: a web browser
 
 :sparkles: with improved UI
 
