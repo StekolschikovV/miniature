@@ -1,9 +1,9 @@
 ![Miniature](https://i.imgur.com/9Rshss4.png)
 ![Miniature](https://i.imgur.com/FJYTweW.png)
 
-Miniature —
+:sparkles: :sparkles: :sparkles: :sparkles: :sparkles:
 
-:sparkles: a web browser
+:sparkles: web browser
 
 :sparkles: with improved UI
 
@@ -26,8 +26,8 @@ Developers, Developers, Developers:
 * Install [Node](https://nodejs.org) and [Grunt](http://gruntjs.com).
 * Clone Miniature repository.
 * `npm install`.
-* Build: `grunt build`. Builds to miniature/dist.
+* Build: `grunt windowsBuild` `grunt linuxBuild`. Builds to miniature/dist.
 * Run: `/Path/To/Electron /Path/To/Miniature`.
-* Develop: `grunt dev`. F6 to reload browser chrome.
+* Develop: `grunt watch`. F6 to reload browser chrome.
 
 If you are using OS X, install [Homebrew](http://brew.sh), then run `brew install fakeroot dpkg`.
