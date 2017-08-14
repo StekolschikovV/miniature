@@ -23,7 +23,7 @@ var sessionRestore = {
       tasks.setSelected(tasks.add()) // create a new task
 
       var newTab = currentTask.tabs.add({
-        url: 'https://github.com/doremininiature/miniature'
+        url: 'https://github.com/doreminiature/miniature'
       })
       addTab(newTab, {
         enterEditMode: true
