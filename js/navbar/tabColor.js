@@ -87,6 +87,7 @@ setInterval(function () {
 }, 4 * 60 * 1000)
 
 function updateTabColor (favicons, tabId) {
+
   // special color scheme for private tabs
   if (tabs.get(tabId).private === true) {
     tabs.update(tabId, {

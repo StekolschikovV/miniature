@@ -50,7 +50,8 @@
 }
 
 #collection-tabs > div  {
-    flex: 0 0 20%;
+    /*flex: 0 0 20%;*/
+    flex: 0 0 18.57%;
     /*-webkit-app-region: drag;*/
     box-sizing: border-box;
     padding: 11px 0 9px 29px;
@@ -61,6 +62,18 @@
     cursor: pointer;
     transition: none;
     color: #6b6b6b;
+    background: #f7f9fc;
+}
+
+#collection-tabs > div svg {
+    width: 100%;
+    fill: #eeeff8;
+}
+
+#collection-tabs > div input{
+    background: transparent;
+    border: 0;
+    margin-top: -20px;
 }
 
 #collection-tabs > div:nth-child(n + 6) {

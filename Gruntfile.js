@@ -55,7 +55,8 @@ module.exports = function (grunt) {
 							"js/focusMode.js",
 							"js/util/theme.js",
 						"js/collectionTabs.js",
-						"js/favicon.js"
+						"js/favicon.js",
+						"js/collection.js"
 
 
 						 ],
@@ -192,7 +193,7 @@ module.exports = function (grunt) {
 		},
         watch: {
             scripts: {
-                files: ['js/**/*.js', 'css/**/*.css', 'index.html'],
+                files: ['js/**/*.js', 'main/*', 'css/**/*.css', 'index.html'],
                 tasks: ['concat:browser', 'concat:webview', 'concat:main'],
                 options: {
                     spawn: false,

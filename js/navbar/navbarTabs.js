@@ -57,6 +57,11 @@ function enterEditMode (tabId) {
 
   var tabEl = getTabElement(tabId)
   var webview = getWebview(tabId)
+  // webview.addEventListener('page-favicon-updated', function (e) {
+  //   console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+  // })
+  //
+  // console.log("-----------------------------------------")
 
   var currentURL = tabs.get(tabId).url
 
@@ -320,6 +325,11 @@ function createTabElement (data) {
 }
 
 function addTab (tabId, options) {
+
+  console.log("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
+  console.log(  )
+
+
   /*
   options
 

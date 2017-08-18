@@ -34,6 +34,10 @@ var tabPrototype = {
     return tabId
   },
   update: function (id, data) {
+
+    eventEmitter.emit('updatePage')
+    console.warn("eventEmitter", "updatePage")
+
     if (!this.get(id)) {
       throw new ReferenceError('Attempted to update a tab that does not exist.')
     }

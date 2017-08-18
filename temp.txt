@@ -1,0 +1,61 @@
+// console.log('--- --- --- Events --- --- ---')
+// app.on('ready', function () { console.log('1 ready')})
+// app.on('before-quit', function () { console.log('2 before-quit')})
+// app.on('will-quit’', function () { console.log('3 will-quit’')})
+// app.on('quit', function () { console.log('4 quit')})
+// app.on('open-file', function () { console.log('5 open-file')})
+// app.on('open-url', function () { console.log('6 open-url')})
+// app.on('activate', function () { console.log('7  activate')})
+// app.on('continue-activity', function () { console.log('8 continue-activity')})
+// app.on('new-window-for-tab', function () { console.log('9 new-window-for-tab')})
+// app.on('browser-window-blur', function () { console.log('10 browser-window-blur')})
+// app.on('browser-window-focus', function () { console.log('11 browser-window-focus')})
+// app.on('browser-window-created', function () { console.log('12 browser-window-created')})
+// app.on('web-contents-created', function () { console.log('13 web-contents-created')})
+// app.on('certificate-error', function () { console.log('14 certificate-error')})
+// app.on('select-client-certificate', function () { console.log('15 select-client-certificate')})
+// app.on('logine', function () { console.log('16 login')})
+// app.on('gpu-process-crashed', function () { console.log('17 gpu-process-crashed')})
+// app.on('accessibility-support-changed', function () { console.log('18 accessibility-support-changed')})
+//
+//
+// console.log('--- --- --- Methods --- --- ---')
+//
+// console.log(app.getName())
+// console.log(app.getVersion())
+// console.log(app.getLocale())
+// console.log(app.getJumpListSettings())
+
+
+
+
+
+
+
+
+
+
+
+
+// const {ipcMain} = require('electron')
+// let e
+//
+// ipcMain.on('asynchronous-message', (event, arg) => {
+//   console.log(arg)  // prints "ping"
+//   e = event
+// })
+// setInterval(function () {
+//   e.sender.send('asynchronous-reply', 'pong')
+// }, 5000)
+
+
+
+
+
+
+
+
+db.history.clear()
+
+tasks.add()
+collectionTabs().render()

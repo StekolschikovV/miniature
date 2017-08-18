@@ -90,8 +90,12 @@ function createWindowWithBounds (bounds, shouldMaximize) {
             blinkFeatures: 'overlayScrollbars'
         }
     })
-
+  mainWindow.webContents.openDevTools();
   mainWindow.setResizable(true)
+
+  mainWindow.once('did-finish-load', () => {
+    console.log('did-finish-load')
+  })
 
 
   // and load the index.html of the app.
@@ -114,7 +118,7 @@ function createWindowWithBounds (bounds, shouldMaximize) {
     mainWindow = null
   })
 
-  /* handle pdf downloads - ipc recieved in fileDownloadManager.js */
+
 
   mainWindow.webContents.session.on('will-download', function (event, item, webContents) {
     var itemURL = item.getURL()
@@ -146,8 +150,13 @@ function createWindowWithBounds (bounds, shouldMaximize) {
     }
   })
 
-  // prevent remote pages from being loaded using drag-and-drop, since they would have node access
+
+
+
+
+
   mainWindow.webContents.on('will-navigate', function (e, url) {
+    console.log('will-navigate')
     if (url !== browserPage) {
       e.preventDefault()
     }
@@ -177,6 +186,7 @@ app.on('ready', function () {
 
     if (process.argv && process.argv[1] && process.argv[1].toLowerCase() !== __dirname.toLowerCase() && process.argv[1].indexOf('://') !== -1) {
       mainWindow.webContents.on('did-finish-load', function () {
+        console.log('111')
         sendIPCToWindow(mainWindow, 'addTab', {
           url: process.argv[1]
         })
@@ -217,6 +227,7 @@ app.on('activate', function ( /* e, hasVisibleWindows */) {
     createWindow()
   }
 })
+
 
 function createAppMenu () {
   // create the menu. based on example from http://electron.atom.io/docs/v0.34.0/api/menu/

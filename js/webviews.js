@@ -80,6 +80,7 @@ function getWebviewDom (options) {
   var w = document.createElement('webview')
   w.setAttribute('preload', 'dist/webview.min.js')
 
+
   if (options.url) {
     w.setAttribute('src', urlParser.parse(options.url))
   }
@@ -257,5 +258,6 @@ function destroyWebview (id) {
 }
 
 function getWebview (id) {
+  // console.log('-----------------------------------------')
   return document.querySelector('webview[data-tab="{id}"]'.replace('{id}', id))
 }

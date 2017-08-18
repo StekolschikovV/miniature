@@ -28,8 +28,10 @@ ipc.on('showReadingList', function () {
   readerView.showReadingList()
 })
 
+
 ipc.on('addTab', function (e, data) {
   /* new tabs can't be created in focus mode */
+
   if (isFocusMode) {
     showFocusModeError()
     return
@@ -46,6 +48,7 @@ ipc.on('addTab', function (e, data) {
 })
 
 ipc.on('saveCurrentPage', function () {
+
   var currentTab = tabs.get(tabs.getSelected())
 
   // new tabs cannot be saved
