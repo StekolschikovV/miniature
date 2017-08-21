@@ -17,12 +17,17 @@ collection = {
     $('.collection-tab').hover(function () {
       dataIndex = $(this).data('index')
       nameInDB = tabState.tasks[dataIndex].name
+      if(nameInDB == undefined || nameInDB == null || nameInDB == 'null')
+        nameInDB = ''
       t = this
 
       $(this).find('svg').remove()
       $(this).text('')
 
-      $(this).append('<input type="text" value="' + tabState.tasks[dataIndex].name + '">')
+
+      console.log(nameInDB)
+
+      $(this).append('<input type="text" value="' + nameInDB + '">')
     })
     $('.collection-tab').mouseout(function () {
       if($(this).find('input').val() != undefined || $(this).find('input').val() != null){
