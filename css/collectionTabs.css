@@ -50,8 +50,8 @@
 }
 
 #collection-tabs > div  {
-    /*flex: 0 0 20%;*/
-    flex: 0 0 18.57%;
+    flex: 0 0 20%;
+    /*flex: 0 0 18.57%;*/
     /*-webkit-app-region: drag;*/
     box-sizing: border-box;
     padding: 11px 0 9px 29px;
@@ -62,7 +62,7 @@
     cursor: pointer;
     transition: none;
     color: #6b6b6b;
-    background: #f7f9fc;
+    /*background: #f7f9fc;*/
 }
 
 #collection-tabs > div svg {
@@ -72,7 +72,10 @@
 
 #collection-tabs > div input{
     background: transparent;
+    font-family: "PT Sans Caption", sans-serif;
+    font-size: 12px;
     border: 0;
+    cursor: pointer;
     margin-top: -20px;
     width: calc(100% - 29px);
 }
