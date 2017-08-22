@@ -372,9 +372,10 @@ CT = {
         // tabPrototype.update('25364096370747724', {lastActivity: 1503388921587})
 
         // TODO: NEED HELP - We added the data to the tabState object. How to call saving from tabState in the database?
-        document.querySelector('#add-tab-button').click()
-        document.querySelector('.tabs :first-child .tab-view-contents .tab-icon-area i').click()
-        document.querySelector('.tabs :first-child .tab-view-contents').click()
+        // document.querySelector('#add-tab-button').click()
+        // document.querySelector('.tabs :first-child .tab-view-contents .tab-icon-area i').click()
+        // document.querySelector('.tabs :first-child .tab-view-contents').click()
+        sessionRestore.save()
       }
     })
 
