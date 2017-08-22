@@ -85,9 +85,11 @@ function getTaskElement (task, taskIndex) {
   var input = document.createElement('input')
   input.classList.add('task-name')
 
-  input.placeholder = 'Task ' + (taskIndex + 1)
+  // input.placeholder = 'Task ' + (taskIndex + 1)
+  input.placeholder = '●●●'
 
-  input.value = task.name || 'Task ' + (taskIndex + 1)
+  // input.value = task.name || 'Task ' + (taskIndex + 1)
+  input.value = task.name || ''
 
   input.addEventListener('keyup', function (e) {
     if (e.keyCode === 13) {
@@ -188,6 +190,8 @@ var taskOverlay = {
     overlay.hidden = false
       taskSwitcherButton.classList.add('active')
       webviews.classList.add('active')
+
+    CT.events()
 
   },
   hide: function () {

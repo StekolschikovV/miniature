@@ -90,7 +90,7 @@ function createWindowWithBounds (bounds, shouldMaximize) {
             blinkFeatures: 'overlayScrollbars'
         }
     })
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
   mainWindow.setResizable(true)
 
   mainWindow.once('did-finish-load', () => {
