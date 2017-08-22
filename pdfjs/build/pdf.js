@@ -3169,6 +3169,7 @@ var InternalRenderTask = (function InternalRenderTaskClosure() {
       }
 
       if (this.stepper) {
+
         this.stepper.updateOperatorList(this.operatorList);
       }
 

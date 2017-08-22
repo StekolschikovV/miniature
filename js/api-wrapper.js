@@ -1,6 +1,9 @@
 /* common to webview, tabrenderer, etc */
 
 function navigate (tabId, newURL) {
+
+
+
   newURL = urlParser.parse(newURL)
 
   tabs.update(tabId, {
