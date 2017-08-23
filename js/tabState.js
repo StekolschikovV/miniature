@@ -54,7 +54,13 @@ var tabPrototype = {
       this[index][key] = data[key]
     }
 
-    CT.render()
+    setTimeout(function () {
+      try {
+        CT.render()
+
+      } catch (e){}
+    }, 100)
+
 
   },
   destroy: function (id) {

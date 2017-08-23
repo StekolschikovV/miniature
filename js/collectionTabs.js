@@ -283,7 +283,6 @@ CT = {
     // // CT.prevTabIndex.push(0)
     CT.loadTasks()
     CT.render()
-    CT.render()
     CT.events()
     // CT.clickOnFirstCollection()
   },

@@ -149,6 +149,10 @@ function getTaskElement (task, taskIndex) {
     if (tasks.get().length === 0) { // create a new task
       addTaskFromOverlay()
     }
+
+    sessionRestore.save()
+    CT.render()
+
   })
 
   taskActionContainer.appendChild(deleteButton)

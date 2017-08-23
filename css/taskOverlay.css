@@ -92,6 +92,9 @@
 	align-items: center;
 	padding-right: 1em;
 }
+.task-action-container i {
+	cursor: pointer;
+}
 @media all and (max-width: 600px) {
 	#task-overlay {
 		padding: 10% 5% 5em 5%;
