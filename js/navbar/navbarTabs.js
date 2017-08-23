@@ -183,6 +183,10 @@ function createTabElement (data) {
   tabEl.addEventListener('click', function (e) {
     sessionRestore.save()
     CT.render()
+    setTimeout(function () {
+      sessionRestore.save()
+      CT.render()
+    }, 100)
   })
 
   tabEl.addEventListener('mouseleave', function (e) {
