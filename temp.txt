@@ -1,3 +1,5 @@
+ e.target.dataset.id
+
 // console.log('--- --- --- Events --- --- ---')
 // app.on('ready', function () { console.log('1 ready')})
 // app.on('before-quit', function () { console.log('2 before-quit')})

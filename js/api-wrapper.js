@@ -61,6 +61,7 @@ function closeTab (tabId) {
 }
 
 function switchToTask (id) {
+  console.log('switchToTask ====================================== ', '!!!' + id + '!!!')
   tasks.setSelected(id)
 
   rerenderTabstrip()
@@ -82,6 +83,9 @@ function switchToTask (id) {
   } else {
     addTab()
   }
+
+
+
 }
 
 /* switches to a tab - update the webview, state, tabstrip, etc. */

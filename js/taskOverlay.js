@@ -11,13 +11,24 @@ var taskSwitcherButton = document.getElementById('switch-task-button')
 var addTaskButton = document.getElementById('add-task')
 var navbar = document.getElementById('task-overlay-navbar')
 
+
+// let taskActionContainer = document.querySelectorAll('.task-name')
+// console.log('#############################')
+// for (let i = 0; i < taskActionContainer.length; i++) {
+//   taskActionContainer[i].addEventListener('click', function (event) {
+//     console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+//   });
+// }
+
+
 taskSwitcherButton.addEventListener('click', function () {
   taskOverlay.toggle()
 })
 
 addTaskButton.addEventListener('click', function (e) {
   switchToTask(tasks.add())
-  collectionTabs().render()
+  CT.render()
+  // collectionTabs().render()
   // taskOverlay.hide()
 })
 
@@ -95,12 +106,24 @@ function getTaskElement (task, taskIndex) {
     if (e.keyCode === 13) {
       this.blur()
     }
-
     tasks.update(task.id, {name: this.value})
+  })
+
+  input.addEventListener('click', function (e) {
+    tabState.selectedTask = this.parentNode.parentNode.dataset.task
+    switchToTask( this.parentNode.parentNode.dataset.task )
+    sessionRestore.save()
+    CT.render()
   })
 
   input.addEventListener('focus', function () {
     this.select()
+    // console.log('1111111111111111111111111111111111111111', this.parentNode.parentNode)
+    // console.log('1111111111111111111111111111111111111111', '!!!' + this.parentNode.parentNode.dataset.task + '!!!')
+    // tabState.selectedTask = this.parentNode.parentNode.dataset.task
+    // switchToTask( this.parentNode.parentNode.dataset.task )
+    // sessionRestore.save()
+    // CT.render()
   })
 
   taskActionContainer.appendChild(input)

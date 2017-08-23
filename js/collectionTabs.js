@@ -275,12 +275,16 @@ CT = {
   start () {
     say.m('CT.start()')
 
+    CT.prevTabIndex = []
+    CT.taskId = tabState.selectedTask
     CT.add5()
-    tabState.selectedTask = tabState.tasks[0].id
-    // CT.prevTabIndex.push(0)
+    // tabState.selectedTask = tabState.tasks[0].id
+    // // CT.prevTabIndex.push(0)
     CT.loadTasks()
     CT.render()
-    CT.clickOnFirstCollection()
+    CT.render()
+    CT.events()
+    // CT.clickOnFirstCollection()
   },
   events () {
     say.m('CT.events()')
@@ -294,9 +298,9 @@ CT = {
       taskName[i].addEventListener('click', function (event) {
         CT.overviewTaskNameClickE(event)
       })
-      taskName[i].addEventListener('click', function (event) {
-        CT.overviewTaskNameClickE(event)
-      })
+      // taskName[i].addEventListener('click', function (event) {
+      //   CT.overviewTaskNameClickE(event)
+      // })
       taskName[i].addEventListener('keydown', function (e) {
         CT.overviewTaskNameClickEnterE(e)
       })
@@ -306,78 +310,107 @@ CT = {
 
   goToCollection (e) {
     say.m('CT.goToCollection(e):')
-    say.o(e)
+      say.o(e)
 
-    CT.getDataFromE(e)
+    // click on collection tabs
+    try {
+      if(e.target.parentNode.parentNode.id == 'collection-tabs'){
+        if(e.target.parentNode.className.indexOf("active-tab") == -1){
+          tabState.selectedTask = e.target.parentNode.dataset.taskId.trim()
+          switchToTask(e.target.parentNode.dataset.taskId.trim())
+          sessionRestore.save()
+          CT.render()
+        } else {
+          document.querySelector('.active-tab input').disabled = false
+          document.querySelector('.active-tab input').focus()
+        }
 
-    // let taskId = e.target.dataset.taskId;
-    // let taskIndex = e.target.dataset.index;
-    // let tabId = tabState.tasks[taskIndex].tabs[0].id;
-    // let tab = document.querySelector('[data-tab="' + tabId + '"]')
-    // let tabActive = document.querySelector('.active-tab.collection-tab')
+      }
+    } catch (e) {}
 
-    // DONE: сделать active-tab по нажатию на Input ИЗ tabState.tasks[CT.taskIndex].selectedTab
-    console.log('---', CT.taskIndex)
-    console.log('+++', CT.prevTabIndex)
-    console.log('+++', CT.prevTabIndex[CT.prevTabIndex.length - 1])
-    console.log('+++', CT.prevTabIndex[CT.prevTabIndex.length - 2])
-    // if(CT.tabActive)
-    //   CT.tabActive.classList.remove('active-tab')
-    // e.target.classList.add('active-tab')
-    if (CT.prevTabIndex[CT.prevTabIndex.length - 1] != CT.prevTabIndex[CT.prevTabIndex.length - 2]) {
-
-      // document.querySelector(`[data-index="${CT.prevTabIndex[CT.prevTabIndex.length - 2]}"]`).classList.remove('active-tab')
-      // document.querySelector(`[data-index="${CT.taskIndex}"]`).classList.add('active-tab')
-      CT.collectionTopAddBGSelected(CT.taskIndex)
-
-    }
-
-    // document.querySelector('.collection-tab [data-index="' + CT.prevTabIndex + '"]').classList.add('active-tab')
-
-    // tab.click()
-    // console.log(document.querySelector('[data-tab="' + CT.tabId + '"]'))
-    // console.log(CT.tabId)
-
-    // e.dispatchEvent(new Event("click"))
-    //
-    // console.log('---', CT.tabId)
-
-    // DONE: если коллекци та не делать переход
-    if (CT.prevTabIndex[CT.prevTabIndex.length - 1] != CT.prevTabIndex[CT.prevTabIndex.length - 2])
-      document.querySelector('[data-tab="' + CT.tabId + '"]').click()
-    else {
-      document.querySelector('.active-tab input').disabled = false
-      if (CT.prevTabIndex.length > 3)
-        document.querySelector('.active-tab input').focus()
-    }
-    document.querySelector('.active-tab input').addEventListener('focusout', function (e) {
-      document.querySelector('.active-tab input').disabled = true
-    })
-
-    // DONE: получить, сохранить, обновить инпут
+    // edit name collection tabs
     document.querySelector('.active-tab input').addEventListener('keydown', function (e) {
-      let eTarget = e.target
-      let eVal = e.target.value
       if (e.which == 13) {
-        console.log('Index: ', CT.taskIndex)
-        console.log('До клика: ', tabState.tasks[CT.taskIndex].name)
-
-        console.log(eVal)
-
-        tabState.tasks[CT.taskIndex].name = eVal
-
-        console.log('После клика: ', tabState.tasks[CT.taskIndex].name)
-
-        // DONE: нужно вызвать сохраниение в базу
-        // tabPrototype.update('25364096370747724', {lastActivity: 1503388921587})
-
-        // TODO: NEED HELP - We added the data to the tabState object. How to call saving from tabState in the database?
-        // document.querySelector('#add-tab-button').click()
-        // document.querySelector('.tabs :first-child .tab-view-contents .tab-icon-area i').click()
-        // document.querySelector('.tabs :first-child .tab-view-contents').click()
+        if(e.target.value != '') {
+          for(let i = 0; i < tabState.tasks.length; i++){
+            if(tabState.tasks[i].id == e.target.getAttribute('data-id')){
+              tabState.tasks[i].name = e.target.value
+            }
+          }
+        }
         sessionRestore.save()
+        CT.render()
       }
     })
+
+
+    //
+    // // input focusout - disabled = true
+    // document.querySelector('.active-tab input').addEventListener('focusout', function (e) {
+    //   document.querySelector('.active-tab input').disabled = true
+    // })
+    //
+    // // first click (1) - edit fild in first collacion tab
+    // // if(CT.prevTabIndex.length == 1){
+    // //   document.querySelector('.active-tab input').disabled = false
+    // // } else if( CT.prevTabIndex.length == 2){
+    // //   document.querySelector('.active-tab input').focus()
+    // // }
+    //
+    // // double click on tab collection - edit mod
+    // try{
+    //   console.log('/-----------------------------------------------------------------------------')
+    //   console.log( tabState.tasks[CT.prevTabIndex[CT.prevTabIndex.length - 2]].id )
+    //   console.log( tabState.selectedTask )
+    //   console.log( CT.prevTabIndex.length )
+    //   console.log( CT.prevTabIndex )
+    //   console.log( document.querySelector( '.active-tab' ) )
+    //   console.log( 'e.target ', e.target )
+    //   console.log( 'e.target.className ', e.target.className )
+    //   console.log( 'e.target.parentNode ', e.target.parentNode )
+    //   console.log( 'e.target.parentNode.className ', e.target.parentNode.className )
+    //   // let res = e.target.parentNode.className.className.indexOf("active-tab")
+    //   let res = e.target.parentNode.className.toString()
+    //   console.log( 'e.target.parentNode.className.className.indexOf("active-tab") ', res.indexOf("active-tab") )
+    //   console.log('-----------------------------------------------------------------------------/')
+    //
+    //
+    //   // if( tabState.tasks[CT.prevTabIndex[CT.prevTabIndex.length - 2]].id == tabState.selectedTask){
+    //   if( res.indexOf("active-tab") != -1){
+    //     document.querySelector('.active-tab input').disabled = false
+    //     document.querySelector('.active-tab input').focus()
+    //   }
+    //   // else {
+    //   //   switchToTask(CT.taskId.toString().trim())
+    //   // }
+    // }catch(err){
+    //   if(document.querySelector('[data-task-id="' + CT.taskId + '"]').className.indexOf("active-tab") > -1){
+    //     document.querySelector('.active-tab input').disabled = false
+    //     document.querySelector('.active-tab input').focus()
+    //   }
+    // }
+    //
+    // // press enter in edit mode
+    // document.querySelector('.active-tab input').addEventListener('keydown', function (e) {
+    //   let eVal = e.target.value
+    //   if (e.which == 13) {
+    //     tabState.tasks[CT.taskIndex].name = eVal
+    //     sessionRestore.save()
+    //     if(document.querySelector('#task-overlay').getAttribute('hidden') == null)
+    //       taskOverlay.show()
+    //     CT.render()
+    //   }
+    // })
+    //
+    // // add selection BG if click on new tab collection
+    // if (CT.prevTabIndex[CT.prevTabIndex.length - 1] != CT.prevTabIndex[CT.prevTabIndex.length - 2]) {
+    //   CT.collectionTopAddBGSelected(CT.taskIndex)
+    // }
+    //
+    //
+    // CT.getDataFromE(e)
+    //
+    // sessionRestore.save()
 
   },
   getDataFromE (e) {
@@ -391,11 +424,15 @@ CT = {
       CT.taskId = e.target.dataset.taskId
       CT.taskIndex = e.target.dataset.index
     }
+
     CT.tabId = tabState.tasks[CT.taskIndex].tabs[0].id
+
     CT.tab = document.querySelector('[data-tab="' + CT.taskIndex + '"]') // Это страница
     CT.tabActive = document.querySelector('.active-tab.collection-tab')
 
     CT.prevTabIndex.push(CT.taskIndex) // history tabs
+
+    tabState.selectedTask = tabState.tasks[CT.prevTabIndex[CT.prevTabIndex.length - 1]].id
 
     say.dd('taskId', CT.taskId)
     say.dd('taskIndex', CT.taskIndex)
@@ -419,7 +456,6 @@ CT = {
   add5 () {
     if (tabState.tasks.length < 5) {
       for (let i = tabState.tasks.length; i != 5; i++) {
-        // $('#add-task').click()
         switchToTask(tasks.add())
       }
     }
@@ -434,19 +470,9 @@ CT = {
       CT.render()
       for (let i = 0; i < tasks.get().length; i++){
         if(tasks.get()[i].id == id){
-          // // console.log(tasks.get()[i])
-
           if(i <= 5){
-            console.log(i, ' ------------------------------------------ ')
             document.querySelector(`[data-index="${i}"]`).click()
-
-            // document.querySelector(`[data-index="${i}"]`).focus()
-            // console.log(document.querySelector(`[data-task="${id}"] input`), ' ------------------------------------------ ')
-            // document.querySelector(`[data-task="${id}"] input`).focus()
           }
-
-          // else
-          //   alert()
         }
       }
     }
@@ -454,26 +480,13 @@ CT = {
   overviewTaskNameClickE(e){
     say.m('CT.overviewTaskNameClickE()')
 
-    // let eVal = e.target.value
     let id = e.target.parentElement.parentElement.getAttribute('data-task')
-    // document.querySelector(`[data-task-id="${id}"]`).click()
-    // console.log(id, document.querySelector(`[data-task-id="${id}"]`))
-    // console.log(e.target.parentElement.parentElement.getAttribute('data-task'))
     for (let i = 0; i < tasks.get().length; i++){
       if(tasks.get()[i].id == id){
-        // // console.log(tasks.get()[i])
-
         if(i <= 5){
-          // console.log(i, ' ------------------------------------------ ')
-          // document.querySelector(`[data-index="${i}"]`).click()
           CT.collectionTopClickOnCollectionTab(i)
-          // console.log(document.querySelector(`[data-task="${id}"] input`), ' ------------------------------------------ ')
-          // document.querySelector(`[data-task="${id}"] input`).focus()
           CT.collectionLeftFocusOnCollectionTabInput(id)
         }
-
-        // else
-        //   alert()
       }
     }
   },
@@ -481,15 +494,18 @@ CT = {
   collectionTopClickOnCollectionTab(index){
     document.querySelector(`[data-index="${index}"]`).click()
   },
-  collectionTopAddBGSelected(index){
-    // document.querySelector(`*`).classList.remove('active-tab')
-
+  collectionTopRemoveBGSelectedAll(){
     let elems = document.querySelectorAll(".active-tab");
-    for (var i = 0; i < elems .length; i++) {
+    for (var i = 0; i < elems .length; i++)
       elems[i].classList.remove('active-tab');
-    }
-
+  },
+  collectionTopAddBGSelected(index){
+    CT.collectionTopRemoveBGSelectedAll()
     document.querySelector(`[data-index="${index}"]`).classList.add('active-tab')
+  },
+  collectionTopAddBGSelectedById(id_){
+    CT.collectionTopRemoveBGSelectedAll()
+    document.querySelector(`[data-task-id="${id_} "]`).classList.add('active-tab')
   },
   collectionLeftFocusOnCollectionTabInput(id){
     document.querySelector(`[data-task="${id}"] input`).focus()
@@ -499,16 +515,19 @@ CT = {
     say.m('CT.render()')
 
     let collectionTabsHTML = []
-    tasks.get().forEach(function (task, i) {
-      console.log(task.name)
-      let val = task.name
+    for(let i = 0; i < tabState.tasks.length; i++){
+      let val = tabState.tasks[i].name
       if (val == null || val == 'null')
         val = ''
-      let title = `<input placeholder="&#9679;&#9679;&#9679;" type="text" class="collectionTabInput" data-id="${task.id}" value="${val}" disabled="true">` || `<input type="text" placeholder="&#9679;&#9679;&#9679;" class="collectionTabInput" data-id="${task.id}" value="${val}"  disabled="true"> <svg width="23.9px" height="5.6px">23.9 5.6 <use xlink:href="icons/svg/miniature-controls.svg#ellipsis-big"></use></svg>`
-      collectionTabsHTML.push('<div class="collection-tab ' + ( i == 0 ? 'active-tab' : '') + ' " data-task-id="' + task.id + ' " data-index="' + i + '">' + title + '</div>')
-    })
+      let title = `<input placeholder="&#9679;&#9679;&#9679;" type="text" class="collectionTabInput" data-id="${tabState.tasks[i].id}" value="${val}" disabled="true">` || `<input type="text" placeholder="&#9679;&#9679;&#9679;" class="collectionTabInput" data-id="${tabState.tasks[i].id}" value="${val}"  disabled="true"> <svg width="23.9px" height="5.6px">23.9 5.6 <use xlink:href="icons/svg/miniature-controls.svg#ellipsis-big"></use></svg>`
+      console.log('tabState.selectedTask', '!!!' + tabState.selectedTask + '!!!')
+
+      collectionTabsHTML.push('<div class="collection-tab ' + ( tabState.selectedTask == tabState.tasks[i].id ? 'active-tab' : '' ) + '" data-task-id="' + tabState.tasks[i].id + ' " data-index="' + i + '">' + title + '</div>')
+    }
     document.getElementById('collection-tabs').innerHTML = collectionTabsHTML.join('')
-    CT.events()
+
+    if(document.querySelector('#task-overlay').getAttribute('hidden') == null)
+      taskOverlay.show()
   },
 
 }
