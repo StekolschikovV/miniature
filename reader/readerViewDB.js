@@ -1,6 +1,6 @@
 function saveArticle(url, pageHTML, article, extraData) {
 	if (!url || !pageHTML) {
-		console.warn("no article found for db");
+		//console.warn("no article found for db");
 		return;
 	}
 

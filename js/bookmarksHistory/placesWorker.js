@@ -1,4 +1,4 @@
-console.log('worker started ', performance.now())
+// console.log('worker started ', performance.now())
 
 importScripts('../../node_modules/dexie/dist/dexie.min.js')
 importScripts('../../node_modules/string_score/string_score.min.js')
@@ -145,9 +145,9 @@ onmessage = function (e) {
           addToHistoryCache(item)
         }
       }).catch(function (err) {
-        console.warn('failed to update history.')
-        console.warn('page url was: ' + pageData.url)
-        console.error(err)
+        //console.warn('failed to update history.')
+        //console.warn('page url was: ' + pageData.url)
+        //console.error(err)
       })
     })
   }

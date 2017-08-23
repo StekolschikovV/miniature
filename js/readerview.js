@@ -31,7 +31,7 @@ var readerView = {
   updateButton: function (tabId) {
     // eventEmitter
     eventEmitter.emit('openPage')
-    console.warn("eventEmitter", "openPage")
+    //console.warn("eventEmitter", "openPage")
     // eventEmitter //
 
     var button = document.querySelector('.reader-button[data-tab="{id}"]'.replace('{id}', tabId))
@@ -153,7 +153,7 @@ registerSearchbarPlugin('readingList', {
 bindWebviewEvent('did-finish-load', function (e) {
   // eventEmitter
   eventEmitter.emit('loadFinish')
-  console.warn("eventEmitter", "loadFinish")
+  //console.warn("eventEmitter", "loadFinish")
   // eventEmitter //
   var tab = this.getAttribute('data-tab')
   var url = this.getAttribute('src')

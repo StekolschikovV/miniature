@@ -34,14 +34,3 @@ window.addEventListener('load', function (e) {
 
 })
 
-//
-// // // In renderer process (web page).
-// let {ipcRenderer} = require('electron')
-// // console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
-//
-// // setInterval(function () {
-//   ipcRenderer.send('asynchronous-message', 'ping')
-// // }, 1000)
-// ipcRenderer.on('asynchronous-reply', (event, arg) => {
-//   console.log('def') // prints "pong"
-// })

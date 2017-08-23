@@ -28,19 +28,10 @@ taskSwitcherButton.addEventListener('click', function () {
 addTaskButton.addEventListener('click', function (e) {
   switchToTask(tasks.add())
   CT.render()
-  // collectionTabs().render()
-  // taskOverlay.hide()
+
 })
 
-// navbar.addEventListener('click', function () {
-//   overlay.hide()
-// })
-
-
 var webviews = document.getElementById("webviews")
-// webviews.addEventListener('page-favicon-updated', function (e) {
-//   console.log("!!!", webviews)
-// })
 
 taskSwitcherButton.addEventListener('click', function () {
 
@@ -48,12 +39,11 @@ taskSwitcherButton.addEventListener('click', function () {
     overlay.style.opacity = "1"
   }
 
-
 })
 
 
 function getTaskOverlayTabElement (tab, task) {
-  console.log('getTaskOverlayTabElement')
+
   var item = createSearchbarItem({
     title: tab.title || 'New Tab',
     secondaryText: urlParser.removeProtocol(tab.url),
@@ -124,16 +114,6 @@ function getTaskElement (task, taskIndex) {
     sessionRestore.save()
     CT.render()
   })
-
-  // input.addEventListener('focus', function () {
-  //   this.select()
-  //   // console.log('1111111111111111111111111111111111111111', this.parentNode.parentNode)
-  //   // console.log('1111111111111111111111111111111111111111', '!!!' + this.parentNode.parentNode.dataset.task + '!!!')
-  //   // tabState.selectedTask = this.parentNode.parentNode.dataset.task
-  //   // switchToTask( this.parentNode.parentNode.dataset.task )
-  //   // sessionRestore.save()
-  //   // CT.render()
-  // })
 
   taskActionContainer.appendChild(input)
 

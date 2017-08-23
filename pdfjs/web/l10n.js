@@ -86,7 +86,7 @@ document.webL10n = (function(window, document, undefined) {
       try {
         args = JSON.parse(l10nArgs);
       } catch (e) {
-        console.warn('could not parse arguments for #' + l10nId);
+        // console.warn('could not parse arguments for #' + l10nId);
       }
     }
     return { id: l10nId, args: args };
@@ -102,7 +102,7 @@ document.webL10n = (function(window, document, undefined) {
   function xhrLoadText(url, onSuccess, onFailure) {
     onSuccess = onSuccess || function _onSuccess(data) {};
     onFailure = onFailure || function _onFailure() {
-      console.warn(url + ' not found.');
+      //console.warn(url + ' not found.');
     };
 
     var xhr = new XMLHttpRequest();
@@ -348,9 +348,9 @@ document.webL10n = (function(window, document, undefined) {
       // are synchronously called.
       this.load = function(lang, callback) {
         parseResource(href, lang, callback, function() {
-          console.warn(href + ' not found.');
+          //console.warn(href + ' not found.');
           // lang not found, used default resource instead
-          console.warn('"' + lang + '" resource not found');
+          //console.warn('"' + lang + '" resource not found');
           gLanguage = '';
           // Resource not loaded, but we still need to call the callback.
           callback();
@@ -779,7 +779,7 @@ document.webL10n = (function(window, document, undefined) {
     // return a function that gives the plural form name for a given integer
     var index = locales2rules[lang.replace(/-.*$/, '')];
     if (!(index in pluralRules)) {
-      console.warn('plural form unknown for [' + lang + ']');
+      //console.warn('plural form unknown for [' + lang + ']');
       return function() { return 'other'; };
     }
     return pluralRules[index];
@@ -826,7 +826,7 @@ document.webL10n = (function(window, document, undefined) {
   function getL10nData(key, args, fallback) {
     var data = gL10nData[key];
     if (!data) {
-      console.warn('#' + key + ' is undefined.');
+      //console.warn('#' + key + ' is undefined.');
       if (!fallback) {
         return null;
       }
@@ -898,7 +898,7 @@ document.webL10n = (function(window, document, undefined) {
     // get the related l10n object
     var data = getL10nData(l10n.id, l10n.args);
     if (!data) {
-      console.warn('#' + l10n.id + ' is undefined.');
+      //console.warn('#' + l10n.id + ' is undefined.');
       return;
     }
 

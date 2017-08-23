@@ -31,8 +31,6 @@ var sessionRestore = {
       return
     }
 
-    console.log(data)
-
     data = JSON.parse(data)
 
     localStorage.setItem('sessionrestoredata', '')

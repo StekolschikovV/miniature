@@ -36,7 +36,6 @@ var tabPrototype = {
   update: function (id, data) {
 
     eventEmitter.emit('updatePage')
-    console.warn("eventEmitter", "updatePage")
 
     if (!this.get(id)) {
       throw new ReferenceError('Attempted to update a tab that does not exist.')
@@ -177,9 +176,11 @@ var tasks = {
     return null
   },
   setSelected: function (id) {
-    tabState.selectedTask = id
-    window.currentTask = tasks.get(id)
-    window.tabs = currentTask.tabs
+    try {
+      tabState.selectedTask = id
+      window.currentTask = tasks.get(id)
+      window.tabs = currentTask.tabs
+    } catch (e) {}
   },
   destroy: function (id) {
     for (var i = 0; i < tabState.tasks.length; i++) {

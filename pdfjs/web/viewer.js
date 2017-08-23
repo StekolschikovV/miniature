@@ -633,7 +633,7 @@ Preferences._readFromStorage = function (prefObj) {
 	var print = window.print;
 	window.print = function print() {
 		if (canvases) {
-			console.warn('Ignored window.print() because of a pending print job.');
+			//console.warn('Ignored window.print() because of a pending print job.');
 			return;
 		}
 		try {
@@ -6762,7 +6762,7 @@ var PDFViewerApplication = {
 			if (self.supportsPrinting) {
 				pdfDocument.getJavaScript().then(function (javaScript) {
 					if (javaScript.length) {
-						console.warn('Warning: JavaScript is not supported');
+						//console.warn('Warning: JavaScript is not supported');
 						self.fallback(PDFJS.UNSUPPORTED_FEATURES.javaScript);
 					}
 					// Hack to support auto printing.
@@ -6858,7 +6858,7 @@ var PDFViewerApplication = {
 			}
 
 			if (info.IsAcroFormPresent) {
-				console.warn('Warning: AcroForm/XFA is not supported');
+				//console.warn('Warning: AcroForm/XFA is not supported');
 				self.fallback(PDFJS.UNSUPPORTED_FEATURES.forms);
 			}
 
@@ -7017,8 +7017,8 @@ var PDFViewerApplication = {
 		body.setAttribute('data-mozPrintCallback', true);
 
 		if (!this.hasEqualPageSizes) {
-			console.warn('Not all pages have the same size. The printed result ' +
-				'may be incorrect!');
+			//console.warn('Not all pages have the same size. The printed result ' +
+				//'may be incorrect!');
 		}
 
 		// Insert a @page + size rule to make sure that the page size is correctly

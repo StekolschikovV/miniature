@@ -143,7 +143,7 @@ fetch(url, {
 	})
 	.then(processArticle)
 	.catch(function (data) {
-		console.warn("request failed with error", data);
+		//console.warn("request failed with error", data);
 
 		getArticle(url, function (item) {
 			if (item) {

@@ -88,11 +88,11 @@ key - filtering
 value - {trackers: boolean, contentTypes: array} */
 
 db.open().then(function () {
-  console.log('database opened ', performance.now())
+  // console.log('database opened ', performance.now())
 })
 
 Dexie.Promise.on('error', function (error) {
-  console.warn('database error occured', error)
+  // console.warn('database error occured', error)
 })
 
 

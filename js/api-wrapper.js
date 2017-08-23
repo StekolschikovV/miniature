@@ -61,7 +61,6 @@ function closeTab (tabId) {
 }
 
 function switchToTask (id) {
-  console.log('switchToTask ====================================== ', '!!!' + id + '!!!')
   tasks.setSelected(id)
 
   rerenderTabstrip()
