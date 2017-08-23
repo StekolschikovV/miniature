@@ -84,7 +84,14 @@ function switchToTask (id) {
     addTab()
   }
 
-
+  // setTimeout(function () {
+  //   try {
+  //     // CT.render()
+  //     // if(document.querySelector('#task-overlay').getAttribute('hidden') == null)
+  //     //   taskOverlay.show()
+  //   } catch (e) {}
+  // }, 100)
+  //
 
 }
 

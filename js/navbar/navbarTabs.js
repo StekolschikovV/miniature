@@ -180,6 +180,11 @@ function createTabElement (data) {
     this.classList.add('jshover')
   })
 
+  tabEl.addEventListener('click', function (e) {
+    sessionRestore.save()
+    CT.render()
+  })
+
   tabEl.addEventListener('mouseleave', function (e) {
     this.classList.remove('jshover')
   })
@@ -213,6 +218,8 @@ function createTabElement (data) {
 
   closeTabButton.addEventListener('click', function (e) {
     closeTab(data.id)
+    sessionRestore.save()
+    CT.render()
 
     // prevent the searchbar from being opened
     e.stopPropagation()

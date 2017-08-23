@@ -314,17 +314,46 @@ CT = {
 
     // click on collection tabs
     try {
+      console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', e.target.value)
       if(e.target.parentNode.parentNode.id == 'collection-tabs'){
         if(e.target.parentNode.className.indexOf("active-tab") == -1){
+
           tabState.selectedTask = e.target.parentNode.dataset.taskId.trim()
           switchToTask(e.target.parentNode.dataset.taskId.trim())
           sessionRestore.save()
           CT.render()
+          console.log('00000000000000000000000000000000000000000000000000')
+          for(let i = 0; i < tabState.tasks.length; i++){
+            if(tabState.tasks[i].id == tabState.selectedTask){
+              console.log('2222222222222222222222222222222222222222', tabState.tasks[i].name == null)
+              if(tabState.tasks[i].name == null){
+                console.log('111111111111111111111111111111111111111111111111111111111111111111111111111')
+                document.querySelector('.active-tab input').disabled = false
+                document.querySelector('.active-tab input').focus()
+              }
+            }
+          }
+          // if( tabState.selectedTask == ''){
+          //   document.querySelector('.active-tab input').disabled = false
+          //   document.querySelector('.active-tab input').focus()
+          // }
+
         } else {
           document.querySelector('.active-tab input').disabled = false
           document.querySelector('.active-tab input').focus()
         }
 
+        // if(e.target.parentNode.className.indexOf("active-tab") > -1 || e.target.value != ''){
+        //     document.querySelector('.active-tab input').disabled = false
+        //     document.querySelector('.active-tab input').focus()
+        // } else
+
+        // if(e.target.parentNode.className.indexOf("active-tab") == -1){
+        //   tabState.selectedTask = e.target.parentNode.dataset.taskId.trim()
+        //   switchToTask(e.target.parentNode.dataset.taskId.trim())
+        //   sessionRestore.save()
+        //   CT.render()
+        // }
       }
     } catch (e) {}
 

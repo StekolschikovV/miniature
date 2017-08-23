@@ -214,6 +214,15 @@ var taskOverlay = {
       taskSwitcherButton.classList.add('active')
       webviews.classList.add('active')
 
+    let titles = document.querySelectorAll('.searchbar-item.task-tab-item')
+    for (let i = 0; i < titles.length; i++) {
+      titles[i].addEventListener('click', function (event) {
+        sessionRestore.save()
+        CT.render()
+        // alert()
+      })
+    }
+
     CT.events()
 
   },
@@ -261,7 +270,9 @@ tabContainer.addEventListener('mousewheel', function (e) {
     e.stopImmediatePropagation()
   }
 })
-
+// tabContainer.addEventListener('click', function (e) {
+//   alert()
+// })
 function getTaskContainer (id) {
   return document.querySelector('.task-container[data-task="{id}"]'.replace('{id}', id))
 }
