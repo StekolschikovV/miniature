@@ -116,15 +116,24 @@ function getTaskElement (task, taskIndex) {
     CT.render()
   })
 
-  input.addEventListener('focus', function () {
-    this.select()
-    // console.log('1111111111111111111111111111111111111111', this.parentNode.parentNode)
-    // console.log('1111111111111111111111111111111111111111', '!!!' + this.parentNode.parentNode.dataset.task + '!!!')
-    // tabState.selectedTask = this.parentNode.parentNode.dataset.task
-    // switchToTask( this.parentNode.parentNode.dataset.task )
-    // sessionRestore.save()
-    // CT.render()
+  input.addEventListener('focus', function (e) {
+    CT.inputFocus = true
   })
+  input.addEventListener('focusout', function (e) {
+    CT.inputFocus = false
+    sessionRestore.save()
+    CT.render()
+  })
+
+  // input.addEventListener('focus', function () {
+  //   this.select()
+  //   // console.log('1111111111111111111111111111111111111111', this.parentNode.parentNode)
+  //   // console.log('1111111111111111111111111111111111111111', '!!!' + this.parentNode.parentNode.dataset.task + '!!!')
+  //   // tabState.selectedTask = this.parentNode.parentNode.dataset.task
+  //   // switchToTask( this.parentNode.parentNode.dataset.task )
+  //   // sessionRestore.save()
+  //   // CT.render()
+  // })
 
   taskActionContainer.appendChild(input)
 

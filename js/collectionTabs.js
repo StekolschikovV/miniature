@@ -271,6 +271,7 @@ CT = {
   tab: '',
   tabActive: '',
   prevTabIndex: [],
+  inputFocus: false,
 
   start () {
     say.m('CT.start()')
@@ -298,9 +299,6 @@ CT = {
       taskName[i].addEventListener('click', function (event) {
         CT.overviewTaskNameClickE(event)
       })
-      // taskName[i].addEventListener('click', function (event) {
-      //   CT.overviewTaskNameClickE(event)
-      // })
       taskName[i].addEventListener('keydown', function (e) {
         CT.overviewTaskNameClickEnterE(e)
       })
@@ -314,20 +312,15 @@ CT = {
 
     // click on collection tabs
     try {
-      console.log('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee', e.target.value)
       if(e.target.parentNode.parentNode.id == 'collection-tabs'){
         if(e.target.parentNode.className.indexOf("active-tab") == -1){
-
           tabState.selectedTask = e.target.parentNode.dataset.taskId.trim()
           switchToTask(e.target.parentNode.dataset.taskId.trim())
           sessionRestore.save()
           CT.render()
-          console.log('00000000000000000000000000000000000000000000000000')
           for(let i = 0; i < tabState.tasks.length; i++){
             if(tabState.tasks[i].id == tabState.selectedTask){
-              console.log('2222222222222222222222222222222222222222', tabState.tasks[i].name == null)
               if(tabState.tasks[i].name == null){
-                console.log('111111111111111111111111111111111111111111111111111111111111111111111111111')
                 document.querySelector('.active-tab input').disabled = false
                 document.querySelector('.active-tab input').focus()
               }
@@ -543,20 +536,22 @@ CT = {
   render () {
     say.m('CT.render()')
 
-    let collectionTabsHTML = []
-    for(let i = 0; i < tabState.tasks.length; i++){
-      let val = tabState.tasks[i].name
-      if (val == null || val == 'null')
-        val = ''
-      let title = `<input placeholder="&#9679;&#9679;&#9679;" type="text" class="collectionTabInput" data-id="${tabState.tasks[i].id}" value="${val}" disabled="true">` || `<input type="text" placeholder="&#9679;&#9679;&#9679;" class="collectionTabInput" data-id="${tabState.tasks[i].id}" value="${val}"  disabled="true"> <svg width="23.9px" height="5.6px">23.9 5.6 <use xlink:href="icons/svg/miniature-controls.svg#ellipsis-big"></use></svg>`
-      console.log('tabState.selectedTask', '!!!' + tabState.selectedTask + '!!!')
+    if(CT.inputFocus == false){
+      let collectionTabsHTML = []
+      for(let i = 0; i < tabState.tasks.length; i++){
+        let val = tabState.tasks[i].name
+        if (val == null || val == 'null')
+          val = ''
+        let title = `<input placeholder="&#9679;&#9679;&#9679;" type="text" class="collectionTabInput" data-id="${tabState.tasks[i].id}" value="${val}" disabled="true">` || `<input type="text" placeholder="&#9679;&#9679;&#9679;" class="collectionTabInput" data-id="${tabState.tasks[i].id}" value="${val}"  disabled="true"> <svg width="23.9px" height="5.6px">23.9 5.6 <use xlink:href="icons/svg/miniature-controls.svg#ellipsis-big"></use></svg>`
+        console.log('tabState.selectedTask', '!!!' + tabState.selectedTask + '!!!')
 
-      collectionTabsHTML.push('<div class="collection-tab ' + ( tabState.selectedTask == tabState.tasks[i].id ? 'active-tab' : '' ) + '" data-task-id="' + tabState.tasks[i].id + ' " data-index="' + i + '">' + title + '</div>')
+        collectionTabsHTML.push('<div class="collection-tab ' + ( tabState.selectedTask == tabState.tasks[i].id ? 'active-tab' : '' ) + '" data-task-id="' + tabState.tasks[i].id + ' " data-index="' + i + '">' + title + '</div>')
+      }
+      document.getElementById('collection-tabs').innerHTML = collectionTabsHTML.join('')
+
+      if(document.querySelector('#task-overlay').getAttribute('hidden') == null)
+        taskOverlay.show()
     }
-    document.getElementById('collection-tabs').innerHTML = collectionTabsHTML.join('')
-
-    if(document.querySelector('#task-overlay').getAttribute('hidden') == null)
-      taskOverlay.show()
   },
 
 }
