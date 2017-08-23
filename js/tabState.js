@@ -53,6 +53,9 @@ var tabPrototype = {
       }
       this[index][key] = data[key]
     }
+
+    CT.render()
+
   },
   destroy: function (id) {
     for (var i = 0; i < this.length; i++) {
