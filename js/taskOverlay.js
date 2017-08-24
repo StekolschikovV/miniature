@@ -114,13 +114,13 @@ function getTaskElement (task, taskIndex) {
   deleteButton.className = 'fa fa-trash-o'
 
   deleteButton.addEventListener('click', function (e) {
-    destroyTask(task.id)
-    container.remove()
 
-    if (tasks.get().length === 0) { // create a new task
-      addTaskFromOverlay()
+    if( task.id == tabState.selectedTask ){
+      CT.goToCollectionID( tabState.selectedTask )
+      goTo = tabState.selectedTask
     }
 
+    destroyTask(task.id)
     CT.add5()
 
     sessionRestore.save()

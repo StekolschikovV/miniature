@@ -343,10 +343,6 @@ function createTabElement (data) {
 
 function addTab (tabId, options) {
 
-  console.log("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD")
-  console.log(  )
-
-
   /*
   options
 

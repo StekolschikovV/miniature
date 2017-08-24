@@ -105,6 +105,36 @@ CT = {
     })
 
   },
+  goToCollectionID(id) {
+    say.m('CT.goToCollectionID(id): ' + id )
+
+    let index = CT.getIndexFromIdTaskId(id)
+    console.log('index------------', index)
+    if( index == 0 ){
+      console.log('------------')
+      switchToTask( tabState.tasks[index].id )
+    } else {
+      console.log('------------')
+      switchToTask( tabState.tasks[index - 1].id )
+    }
+
+    CT.render()
+  },
+  getIndexFromIdTaskId(id){
+    say.m('CT.getIndexFromIdTaskId(id): ' + id )
+
+    let index = ''
+
+    for (let i = 0; i < tabState.tasks.length; i++){
+      console.log(tabState.tasks[i].id)
+      if( tabState.tasks[i].id == id ){
+        index = i
+      }
+    }
+
+    console.log('id: ' + id, 'index: ' + index)
+    return index
+  },
   getDataFromE (e) {
     say.m('CT.getDataFromE(e)' + e)
 
@@ -151,8 +181,9 @@ CT = {
   },
   add5 () {
     if (tabState.tasks.length < 5) {
+      let id = tabState.selectedTask
       for (let i = tabState.tasks.length; i != 5; i++) {
-        switchToTask(tasks.add())
+       tasks.add()
       }
     }
   },
