@@ -8,6 +8,8 @@ var webviewBase = document.getElementById('webviews')
 var webviewEvents = []
 var webviewIPC = []
 
+
+
 // this only affects newly created webviews, so all bindings should be done on startup
 
 function bindWebviewEvent (event, fn) {
@@ -69,6 +71,7 @@ bindWebviewIPC('pageData', function (webview, tabId, arguments) {
   if (tab.private === false && !isInternalPage) {
     bookmarks.updateHistory(tabId, data.extractedText, data.metadata)
   }
+
 })
 
 // set the permissionRequestHandler for non-private tabs
@@ -225,7 +228,11 @@ function addWebview (tabId) {
   // webviews are hidden when added - call switchToWebview to show it
   webview.classList.add('hidden')
 
+
+
   webviewBase.appendChild(webview)
+
+
 
   return webview
 }
@@ -234,8 +241,8 @@ function switchToWebview (id) {
   var webviews = document.getElementsByTagName('webview')
   for (var i = 0; i < webviews.length; i++) {
     webviews[i].hidden = true
-  }
 
+  }
   var wv = getWebview(id)
 
   if (!wv) {
@@ -248,6 +255,7 @@ function switchToWebview (id) {
 
 function updateWebview (id, url) {
   getWebview(id).setAttribute('src', urlParser.parse(url))
+
 }
 
 function destroyWebview (id) {
@@ -258,6 +266,16 @@ function destroyWebview (id) {
 }
 
 function getWebview (id) {
-  // console.log('-----------------------------------------')
-  return document.querySelector('webview[data-tab="{id}"]'.replace('{id}', id))
+  console.log('-----------------------------------------', document.querySelector('webview[data-tab="{id}"]'.replace('{id}', id)))
+
+  let el = document.querySelector('webview[data-tab="{id}"]'.replace('{id}', id))
+
+  if( el != null){
+    el.addEventListener('focus', function (e) {
+      CT.remoteClassEditing()
+    })
+  }
+
+
+  return el
 }

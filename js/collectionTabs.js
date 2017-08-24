@@ -45,6 +45,12 @@ CT = {
       CT.goToCollection(e)
     })
 
+
+    document.querySelector('.page-tabs').addEventListener('click', function (e) {
+      CT.remoteClassEditing()
+    })
+
+
     let taskName = document.querySelectorAll('.task-action-container .task-name')
     for (var i = 0; i < taskName.length; i++) {
       taskName[i].addEventListener('click', function (event) {
@@ -134,6 +140,11 @@ CT = {
 
     console.log('id: ' + id, 'index: ' + index)
     return index
+  },
+  remoteClassEditing(){
+    say.m('CT.remoteClassEditing()')
+
+    CT.render()
   },
   getDataFromE (e) {
     say.m('CT.getDataFromE(e)' + e)
