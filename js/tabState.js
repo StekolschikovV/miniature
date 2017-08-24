@@ -55,7 +55,7 @@ var tabPrototype = {
 
     setTimeout(function () {
       try {
-        CT.render()
+        CT.renderOverlay()
 
       } catch (e){}
     }, 100)

@@ -51,6 +51,7 @@ CT = {
         CT.overviewTaskNameClickEnterE(e)
       })
     }
+
   },
 
   goToCollection (e) {
@@ -71,6 +72,7 @@ CT = {
                 document.querySelector('.active-tab input').disabled = false
                 document.querySelector('.active-tab input').focus()
                 document.querySelector('.active-tab').className += ' editing'
+                // CT.inputFocus = true
               }
             }
           }
@@ -78,6 +80,7 @@ CT = {
           document.querySelector('.active-tab input').disabled = false
           document.querySelector('.active-tab input').focus()
           document.querySelector('.active-tab').className += ' editing'
+          // CT.inputFocus = true
         }
 
       }
@@ -196,7 +199,7 @@ CT = {
     document.querySelector(`[data-task="${id}"] input`).focus()
   },
 
-  render () {
+  render() {
     say.m('CT.render()')
 
     if(CT.inputFocus == false){
@@ -211,10 +214,17 @@ CT = {
       }
       document.getElementById('collection-tabs').innerHTML = collectionTabsHTML.join('')
 
-      if(document.querySelector('#task-overlay').getAttribute('hidden') == null)
-        taskOverlay.show()
+      CT.renderOverlay()
+
     }
   },
+  renderOverlay(){
+    say.m('CT.renderOverlay()')
+
+    if(document.querySelector('#task-overlay').getAttribute('hidden') == null)
+      taskOverlay.show()
+
+  }
 
 }
 CT.start()

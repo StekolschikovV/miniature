@@ -11,16 +11,6 @@ var taskSwitcherButton = document.getElementById('switch-task-button')
 var addTaskButton = document.getElementById('add-task')
 var navbar = document.getElementById('task-overlay-navbar')
 
-
-// let taskActionContainer = document.querySelectorAll('.task-name')
-// console.log('#############################')
-// for (let i = 0; i < taskActionContainer.length; i++) {
-//   taskActionContainer[i].addEventListener('click', function (event) {
-//     console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-//   });
-// }
-
-
 taskSwitcherButton.addEventListener('click', function () {
   taskOverlay.toggle()
 })
