@@ -29,6 +29,9 @@ CT = {
     say.m('CT.start()')
 
     CT.prevTabIndex = []
+
+    CT.selectFirstTabOnStart()
+
     CT.taskId = tabState.selectedTask
     CT.add5()
     CT.loadTasks()
@@ -131,6 +134,11 @@ CT = {
     say.o(CT.tabActive)
 
   },
+  selectFirstTabOnStart(){
+    tabState.selectedTask = tabState.tasks[0].id
+    switchToTask(tabState.selectedTask)
+    sessionRestore.save()
+  },
   loadTasks () {
     tasks.get().forEach(function (task, index) {
       var el = getTaskElement(task, index)
@@ -211,6 +219,7 @@ CT = {
         let title = `<input placeholder="&#9679;&#9679;&#9679;" type="text" class="collectionTabInput" data-id="${tabState.tasks[i].id}" value="${val}" disabled="true">` || `<input type="text" placeholder="&#9679;&#9679;&#9679;" class="collectionTabInput" data-id="${tabState.tasks[i].id}" value="${val}"  disabled="true"> <svg width="23.9px" height="5.6px">23.9 5.6 <use xlink:href="icons/svg/miniature-controls.svg#ellipsis-big"></use></svg>`
 
         collectionTabsHTML.push('<div class="collection-tab ' + ( tabState.selectedTask == tabState.tasks[i].id ? 'active-tab' : '' ) + '" data-task-id="' + tabState.tasks[i].id + ' " data-index="' + i + '">' + title + '</div>')
+        // collectionTabsHTML.push('<div class="collection-tab ' + ( tabState.selectedTask == tabState.tasks[i].id ? 'active-tab' : '' ) + '" data-task-id="' + tabState.tasks[i].id + ' " data-index="' + i + '">' + title + '</div>')
       }
       document.getElementById('collection-tabs').innerHTML = collectionTabsHTML.join('')
 
