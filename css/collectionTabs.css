@@ -77,11 +77,15 @@
     font-size: 12px;
     border: 0;
     cursor: pointer;
-    margin-top: -20px;
-    width: calc(100% - 40px);
-    padding: 10px 20px;
-    height: 48px;
+    width: calc(100% - 29px);
+    padding: 9px 0 7px 29px;
 }
+
+#collection-tabs > div.active-tab.editing {
+    background-color: hsla(219, 61%, 90%, 1);
+    box-shadow: inset 0px 1px 12px -3px rgb(146, 147, 150);
+}
+
 #collection-tabs > div input::placeholder { /* Firefox 18- */
     color: #c1ccd8;
     text-align: center;
