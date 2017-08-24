@@ -121,6 +121,8 @@ function getTaskElement (task, taskIndex) {
       addTaskFromOverlay()
     }
 
+    CT.add5()
+
     sessionRestore.save()
     CT.render()
 
