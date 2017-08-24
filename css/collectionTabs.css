@@ -39,7 +39,6 @@
     width: 100%;
     background-color: #dee7f7;
     /*-webkit-appearance: none;*/
-    -webkit-user-select: auto;
     /*-webkit-app-region: drag;*/
 }
 
@@ -47,9 +46,11 @@
     display: flex;
     width: 100%;
     height: 100%;
+
 }
 
 #collection-tabs > div  {
+
     flex: 0 0 20%;
     /*flex: 0 0 18.57%;*/
     /*-webkit-app-region: drag;*/
@@ -74,11 +75,18 @@
 #collection-tabs > div input{
     background: transparent;
     font-family: "PT Sans Caption", sans-serif;
-    font-size: 12px;
+    font-size: 11.4px;
     border: 0;
     cursor: pointer;
     width: calc(100% - 29px);
     padding: 9px 0 7px 29px;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#collection-tabs input::placeholder {
+    position: relative;
+    left: -15px;
 }
 
 #collection-tabs input:focus::placeholder {
@@ -94,6 +102,8 @@
     color: #c1ccd8;
     text-align: center;
     letter-spacing: 2px;
+    position: relative;
+    /*left: -14px;*/
 }
 #collection-tabs > div:nth-child(n + 6) {
     display: none;

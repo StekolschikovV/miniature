@@ -1,19 +1,19 @@
 ![Miniature](https://i.imgur.com/9Rshss4.png)
-![Miniature](https://i.imgur.com/FJYTweW.png)
 
-:sparkles: Miniature —
 
-:sparkles: a web browser
+Miniature —
 
-:sparkles: with improved UI
+a web browser
 
-:sparkles: that helps navigate faster
+with improved UI
 
-:sparkles: and organize pages better
+that helps navigate faster
 
-:sparkles: it solves information overload dilemma
+and organize pages better
 
-:sparkles: connecting you to the best knowledge on the web
+it solves information overload dilemma
+
+and connects with best knowledge on the web
 
 
 
@@ -28,6 +28,7 @@ Developers, Developers, Developers:
 * `npm install`.
 * Build: `grunt windowsBuild` `grunt linuxBuild`. Builds to miniature/dist.
 * Run: `/Path/To/Electron /Path/To/Miniature`.
-* Develop: `grunt watch`. F6 to reload browser chrome.
+* Develop: `grunt watch`.
+* F6 to reload browser chrome.
 
 If you are using OS X, install [Homebrew](http://brew.sh), then run `brew install fakeroot dpkg`.

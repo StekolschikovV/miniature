@@ -2,7 +2,7 @@
   "name": "miniature",
   "productName": "Miniature",
   "version": "0.1.0",
-  "electronVersion": "1.6.7",
+  "electronVersion": "1.7.5",
   "main": "main.build.js",
   "dependencies": {
     "dexie": "^1.2.0",

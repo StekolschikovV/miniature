@@ -7,7 +7,7 @@
 	right: 0;
 	position: absolute;
 	top: 66px;
-	transition: all .3s ease;
+	/*transition: all .3s ease;*/
 }
 #webviews.active{
 	/*width: calc(100%);*/
@@ -31,7 +31,7 @@
 	outline: none;
 	position: absolute;
 	display: flex;
-	transition: all .3s ease;
+	/*transition: all .3s ease;*/
 }
 #webviews.active webview {
 	/*right: 0;*/
