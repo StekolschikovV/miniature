@@ -69,6 +69,10 @@
 	color: inherit;
 	opacity: 0.8;
 }
+input.task-name:focus::placeholder {
+	color: transparent;
+}
+
 #add-task {
 	/*position: fixed;*/
 	/*top: 0;*/

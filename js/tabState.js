@@ -158,6 +158,34 @@ var tasks = {
       tabState.tasks.splice(index, 0, newTask)
     } else {
       tabState.tasks.push(newTask)
+      // tabState.tasks.unshift(newTask)
+    }
+
+    return newTask.id
+  },
+  addInStart: function (task, index) {
+    if (!task) {
+      task = {}
+    }
+
+    var newTask = {
+      name: task.name || null,
+      tabs: task.tabs || [],
+      selectedTab: task.selectedTab || null,
+      id: task.id || String(getRandomId())
+    }
+
+    // task.currentTask.tabs.__proto__ = tabPrototype
+
+    for (var key in tabPrototype) {
+      newTask.tabs.__proto__[key] = tabPrototype[key]
+    }
+
+    if (index) {
+      tabState.tasks.splice(index, 0, newTask)
+    } else {
+      // tabState.tasks.push(newTask)
+      tabState.tasks.unshift(newTask)
     }
 
     return newTask.id
