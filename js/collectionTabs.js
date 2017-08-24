@@ -73,10 +73,10 @@ CT = {
               }
             }
           }
-
         } else {
           document.querySelector('.active-tab input').disabled = false
           document.querySelector('.active-tab input').focus()
+          document.querySelector('.active-tab').className += ' editing'
         }
 
       }
