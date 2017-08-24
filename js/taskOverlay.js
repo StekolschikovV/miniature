@@ -115,6 +115,7 @@ function getTaskElement (task, taskIndex) {
 
   deleteButton.addEventListener('click', function (e) {
 
+
     if( task.id == tabState.selectedTask ){
       CT.goToCollectionID( tabState.selectedTask )
       goTo = tabState.selectedTask
@@ -169,7 +170,7 @@ var taskOverlay = {
       return
     }
 
-    leaveTabEditMode()
+    // leaveTabEditMode()
 
     taskOverlay.isShown = true
     taskSwitcherButton.classList.add('active')

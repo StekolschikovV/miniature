@@ -144,7 +144,10 @@ CT = {
   remoteClassEditing(){
     say.m('CT.remoteClassEditing()')
 
-    CT.render()
+    if( document.querySelector( '.active-tab ' ).className.indexOf( "editing" ) != -1 ){
+      document.querySelector( '.active-tab ' ).classList.remove( "editing" );
+      CT.remoteClassEditing()
+    }
   },
   getDataFromE (e) {
     say.m('CT.getDataFromE(e)' + e)
