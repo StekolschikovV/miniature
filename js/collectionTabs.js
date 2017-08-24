@@ -70,6 +70,7 @@ CT = {
               if(tabState.tasks[i].name == null){
                 document.querySelector('.active-tab input').disabled = false
                 document.querySelector('.active-tab input').focus()
+                document.querySelector('.active-tab').className += ' editing'
               }
             }
           }
