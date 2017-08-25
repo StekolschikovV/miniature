@@ -266,6 +266,8 @@ F = {
   setActiveFavicon( favUrl ){
     say.m('F.setActiveFavicon( url ): ' + favUrl)
 
+    document.querySelector( '.tab-item.active img' ).src = favUrl
+
 
     let host = new URL( favUrl , location ).host
     if( host.indexOf( "www." ) != -1 )
