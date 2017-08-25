@@ -259,6 +259,8 @@ CT = {
 
       CT.renderOverlay()
 
+      eventEmitter.emit('render')
+
     }
   },
   renderOverlay(){
@@ -268,6 +270,9 @@ CT = {
 
     if(document.querySelector('#task-overlay').getAttribute('hidden') == null)
       taskOverlay.show()
+
+
+    eventEmitter.emit('render')
 
   }
 

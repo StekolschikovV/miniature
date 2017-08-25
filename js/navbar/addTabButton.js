@@ -5,4 +5,5 @@ addTabButton.addEventListener('click', function (e) {
   addTab(newTab)
   sessionRestore.save()
   CT.render()
+
 })
