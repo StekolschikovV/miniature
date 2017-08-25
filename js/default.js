@@ -7,7 +7,8 @@ var fs = require("fs")
 var request = require('request').defaults({ encoding: null })
 
 var events = require('events')
-var eventEmitter = new events.EventEmitter() // openPage, loadFinish, back,  forward, updatePage
+var eventEmitter = new events.EventEmitter() // openPage, loadFinish, back,  forward, updatePage, goToCollection, renderOverlay
+
 
 
 // disable dragdrop, since it currently doesn't work
@@ -33,4 +34,20 @@ window.addEventListener('load', function (e) {
   }
 
 })
+
+say = {
+
+  m (text) {
+    console.log('%c ' + text, 'background:green;color:#fff;padding:2px 10px 2px 5px')
+  },
+  d (text) {
+    console.log('%c ' + text, 'background:#e4a530;color:#fff;margin-left:50px;padding:2px 20px')
+  },
+  dd (text, param) {
+    console.log('%c ' + text + ' ' + param, 'background:#e4a530;color:#fff;margin-left:50px;padding:2px 20px')
+  },
+  o (obj) {
+    console.log(obj)
+  }
+}
 

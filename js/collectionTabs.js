@@ -1,19 +1,5 @@
 
-say = {
 
-  m (text) {
-    console.log('%c ' + text, 'background:green;color:#fff;padding:2px 10px 2px 5px')
-  },
-  d (text) {
-    console.log('%c ' + text, 'background:#e4a530;color:#fff;margin-left:50px;padding:2px 20px')
-  },
-  dd (text, param) {
-    console.log('%c ' + text + ' ' + param, 'background:#e4a530;color:#fff;margin-left:50px;padding:2px 20px')
-  },
-  o (obj) {
-    console.log(obj)
-  }
-}
 
 CT = {
 
@@ -67,6 +53,7 @@ CT = {
     say.m('CT.goToCollection(e):')
       say.o(e)
 
+
     // click on collection tabs
     try {
       if(e.target.parentNode.parentNode.id == 'collection-tabs'){
@@ -109,6 +96,8 @@ CT = {
         CT.render()
       }
     })
+
+    eventEmitter.emit('goToCollection')
 
   },
   goToCollectionID(id) {
@@ -275,6 +264,8 @@ CT = {
   renderOverlay(){
     say.m('CT.renderOverlay()')
 
+    eventEmitter.emit('renderOverlay')
+
     if(document.querySelector('#task-overlay').getAttribute('hidden') == null)
       taskOverlay.show()
 
@@ -282,3 +273,5 @@ CT = {
 
 }
 CT.start()
+
+

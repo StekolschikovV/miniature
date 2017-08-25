@@ -90,6 +90,17 @@ function getWebviewDom (options) {
   w.setAttribute('blinkfeatures', 'OverlayScrollbars')
   w.setAttribute('data-tab', options.tabId)
 
+  w.addEventListener('page-favicon-updated', function(e) {
+    console.log('----------------------------------------')
+    say.m('getWebviewDom page-favicon-updated')
+
+    // console.log(e)
+    // tabEl.faviconElement.style.backgroundImage = `url(${e.favicons[0]})`
+    console.log(e)
+    // console.log(e.favicons[0])
+    F.setActiveFavicon( e.favicons[0] )
+    console.log('----------------------------------------')
+  })
   // if the tab is private, we want to partition it. See http://electron.atom.io/docs/v0.34.0/api/web-view-tag/#partition
   // since tab IDs are unique, we can use them as partition names
   if (tabs.get(options.tabId).private === true) {
@@ -266,7 +277,7 @@ function destroyWebview (id) {
 }
 
 function getWebview (id) {
-  console.log('-----------------------------------------', document.querySelector('webview[data-tab="{id}"]'.replace('{id}', id)))
+  say.m('getWebview(id):' + id)
 
   let el = document.querySelector('webview[data-tab="{id}"]'.replace('{id}', id))
 
@@ -276,6 +287,6 @@ function getWebview (id) {
     })
   }
 
-
+  say.o(el)
   return el
 }

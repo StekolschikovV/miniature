@@ -136,6 +136,7 @@ function getRandomId () {
 }
 
 var tasks = {
+
   add: function (task, index) {
     if (!task) {
       task = {}
@@ -247,6 +248,13 @@ var tasks = {
     }
 
     return lastActivity
+  },
+  getTabsFromIdCollection( id ){
+    for ( let i = 0; i < tabState.tasks.length; i++ ){
+      if( id == tabState.tasks[ i ].id ){
+        return tabState.tasks[ i ].tabs
+      }
+    }
   }
 }
 
