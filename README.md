@@ -1,5 +1,4 @@
 ![Miniature Mockup](https://i.imgur.com/9Rshss4.png)
-![Miniature](https://i.imgur.com/4GLKgBR.jpg)
 
 Miniature —
 
@@ -19,7 +18,7 @@ connecting with best knowledge on the web
 Developers:
 ------
 
-[Join](mailto:doreminiature@gmail.com) development.
+[Join development](mailto:doreminiature@gmail.com)
 
 * Download [Electron](https://github.com/electron/electron/releases).
 * Install [Node](https://nodejs.org) and [Grunt](http://gruntjs.com).
