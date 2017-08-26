@@ -18,8 +18,12 @@
         });
 
         document.getElementById("close-btn").addEventListener("click", function (e) {
+            eventEmitter.emit('windowClose')
+          setTimeout(function () {
             const window = remote.getCurrentWindow();
             window.close();
+          }, 300)
+
         });
     };
 

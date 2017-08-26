@@ -91,15 +91,18 @@ function getWebviewDom (options) {
   w.setAttribute('data-tab', options.tabId)
 
   w.addEventListener('page-favicon-updated', function(e) {
-    console.log('----------------------------------------')
+    // console.log('----------------------------------------')
     say.m('getWebviewDom page-favicon-updated')
+      // console.log( e )
+      // console.log( urlParser.parse(options.url) )
 
+    F.ADD( urlParser.parse(options.url), e.favicons[0] )
     // console.log(e)
     // tabEl.faviconElement.style.backgroundImage = `url(${e.favicons[0]})`
-    console.log(e)
+    // console.log(e)
     // console.log(e.favicons[0])
-    F.setActiveFavicon( e.favicons[0] )
-    console.log('----------------------------------------')
+    // F.setActiveFavicon( e.favicons[0] )
+    // console.log('----------------------------------------')
   })
   // if the tab is private, we want to partition it. See http://electron.atom.io/docs/v0.34.0/api/web-view-tag/#partition
   // since tab IDs are unique, we can use them as partition names
