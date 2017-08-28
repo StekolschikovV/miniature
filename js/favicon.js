@@ -10,9 +10,9 @@ F = {
   }, EVENT(){
     eventEmitter.on( 'goToCollection', () => {
       F.UPDATE()
-      // setTimeout(function () { F.UPDATE() }, 500)
-      // setTimeout(function () { F.UPDATE() }, 1000)
-      // setTimeout(function () { F.UPDATE() }, 1500)
+      setTimeout(function () { F.UPDATE() }, 500)
+      setTimeout(function () { F.UPDATE() }, 1000)
+      setTimeout(function () { F.UPDATE() }, 1500)
     });
     eventEmitter.on( 'updatePage', () => {
       F.UPDATE()
@@ -33,9 +33,7 @@ F = {
       // setTimeout(function () { F.UPDATE() }, 1500)
     });
     eventEmitter.on( 'addTab', () => {
-
       F.UPDATE()
-
       // setTimeout(function () { F.UPDATE() }, 500)
       // setTimeout(function () { F.UPDATE() }, 1000)
       // setTimeout(function () { F.UPDATE() }, 1500)
@@ -177,9 +175,7 @@ F = {
           isIbDB = true
         }
       }
-
       if( !isIbDB ){
-
         request.get(faviconUrl, function (error, response, body) {
           if (!error && response.statusCode == 200) {
             data = 'data:' + response.headers['content-type'] + ';base64,' + new Buffer(body).toString('base64')
@@ -188,13 +184,11 @@ F = {
                 'base64': data,
                 'url': urlHost
               })
-              eventEmitter.emit( 'updateFavicon' )
             }
           }
+          eventEmitter.emit( 'updateFavicon' )
         })
-
       }
-
     }
 
   },

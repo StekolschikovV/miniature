@@ -16,9 +16,12 @@ taskSwitcherButton.addEventListener('click', function () {
 })
 
 addTaskButton.addEventListener('click', function (e) {
-  // switchToTask(tasks.add())
-  switchToTask(tasks.addInStart())
-  CT.render()
+  if( tabState.tasks.length > 6 ){
+    switchToTask(tasks.add())
+    // switchToTask(tasks.addInStart())
+    CT.render()
+  }
+
 
 })
 
