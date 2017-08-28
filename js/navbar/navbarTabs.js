@@ -292,7 +292,16 @@ function addTab (tabId, options) {
 
   tabId = tabId || tabs.add()
 
+
+
+
   var tab = tabs.get(tabId)
+
+
+  console.log( '++++++++++++++++++++++++++++++++++++++++++++' )
+  console.log( tabId )
+  console.log( tab )
+  console.log( '++++++++++++++++++++++++++++++++++++++++++++' )
 
   // use the correct new tab colors
 
@@ -315,6 +324,11 @@ function addTab (tabId, options) {
   var tabEl = createTabElement(tab)
 
   tabGroup.insertBefore(tabEl, tabGroup.childNodes[0])
+
+  console.log( '-----------------------------------------------------' )
+  console.log( tabGroup )
+  console.log( tabGroup.childNodes[0] )
+  console.log( '-----------------------------------------------------' )
 
   addWebview(tabId)
 

@@ -7,7 +7,7 @@ var fs = require("fs")
 var request = require('request').defaults({ encoding: null })
 
 var events = require('events')
-var eventEmitter = new events.EventEmitter() // openPage, loadFinish, back,  forward, updatePage, goToCollection, renderOverlay, windowClose
+var eventEmitter = new events.EventEmitter() // addTab, openPage, loadFinish, back,  forward, updatePage, goToCollection, renderOverlay, windowClose
 
 
 

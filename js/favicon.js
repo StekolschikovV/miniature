@@ -32,6 +32,14 @@ F = {
       // setTimeout(function () { F.UPDATE() }, 1000)
       // setTimeout(function () { F.UPDATE() }, 1500)
     });
+    eventEmitter.on( 'addTab', () => {
+
+      F.UPDATE()
+
+      // setTimeout(function () { F.UPDATE() }, 500)
+      // setTimeout(function () { F.UPDATE() }, 1000)
+      // setTimeout(function () { F.UPDATE() }, 1500)
+    });
     eventEmitter.on( 'windowClose', () => {
       F.SET_DB()
     });
@@ -56,24 +64,38 @@ F = {
     let collectionNowTabIdSelected = ''
 
     // try {
-      for ( let i = 0; i < tabState.tasks.length - 1; i++ ) {
+      for ( let i = 0; i < tabState.tasks.length; i++ ) {
 
-      console.log(
-        'collectionNowId', collectionNowId,
-        'tabState.tasks[ i ].id', tabState.tasks[ i ].id,
-        'collectionNowId == tabState.tasks[ i ].id', collectionNowId == tabState.tasks[ i ].id
-      )
+      console.log( i, tabState.tasks[ i ].id, collectionNowId == tabState.tasks[ i ].id)
 
+      // console.log(
+      //   'collectionNowId', collectionNowId,
+      //   'tabState.tasks[ i ].id', tabState.tasks[ i ].id,
+      //   'collectionNowId == tabState.tasks[ i ].id', collectionNowId == tabState.tasks[ i ].id
+      // )
+      //
         if (collectionNowId == tabState.tasks[ i ].id) {
           collectionNowIndex = i
           collectionNowTabs = tabState.tasks[ i ].tabs
-        }
-        for( let j = 0; j < tabState.tasks[ i ].tabs.length - 1; i++ ){
-        // for( let j = 0; j < tabState.tasks[ i ].tabs.length; i++ ){
-          if( tabState.tasks[ i ].tabs[ j ].selected == true ){
-            collectionNowTabIdSelected = tabState.tasks[ i ].tabs[ j ].id
+
+          for( let j = 0; j < tabState.tasks[ i ].tabs.length; j++){
+            console.log( '      ', tabState.tasks[ i ].tabs[ j ].selected, tabState.tasks[ i ].tabs[ j ].id, tabState.tasks[ i ].tabs[ j ].title, tabState.tasks[ i ].tabs[ j ].url )
           }
+
         }
+      //
+      //   console.log(
+      //     'tabState.tasks[ i ].tabs.length - 1 ', tabState.tasks[ i ].tabs.length - 1,
+      //     'tabState.tasks[ i ].tabs ', tabState.tasks[ i ].tabs,
+      //     'i ', i
+      //   )
+      //
+      //   for( let j = 0; j < tabState.tasks[ i ].tabs.length - 1; i++ ){
+      //   // for( let j = 0; j < tabState.tasks[ i ].tabs.length; i++ ){
+      //     if( tabState.tasks[ i ].tabs[ j ].selected == true ){
+      //       collectionNowTabIdSelected = tabState.tasks[ i ].tabs[ j ].id
+      //     }
+      //   }
       }
     // } catch ( e ){
     //   console.log( e )
@@ -81,12 +103,12 @@ F = {
 
 
     // refresh and select tab
-    if ( collectionNowTabIdSelected != ''){
+    // if ( collectionNowTabIdSelected != ''){
       // try {
       //   rerenderTabstrip()
       //   setActiveTabElement( collectionNowTabIdSelected )
       // } catch (e){}
-    }
+    // }
 
     // clear
     let el = document.querySelectorAll('.tab-item img')
@@ -161,11 +183,13 @@ F = {
         request.get(faviconUrl, function (error, response, body) {
           if (!error && response.statusCode == 200) {
             data = 'data:' + response.headers['content-type'] + ';base64,' + new Buffer(body).toString('base64')
-            F.DB.push({
-              'base64': data,
-              'url': urlHost
-            })
-            eventEmitter.emit( 'updateFavicon' )
+            if( data.length > 1000 ){
+              F.DB.push({
+                'base64': data,
+                'url': urlHost
+              })
+              eventEmitter.emit( 'updateFavicon' )
+            }
           }
         })
 
