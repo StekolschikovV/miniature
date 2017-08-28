@@ -37,6 +37,7 @@ function setActiveTabElement (tabId) {
 }
 
 function leaveTabEditMode (options) {
+
   var selTab = document.querySelector('.tab-item.selected')
   if (selTab) {
     selTab.classList.remove('selected')
@@ -57,11 +58,6 @@ function enterEditMode (tabId) {
 
   var tabEl = getTabElement(tabId)
   var webview = getWebview(tabId)
-  // webview.addEventListener('page-favicon-updated', function (e) {
-  //   console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-  // })
-  //
-  // console.log("-----------------------------------------")
 
   var currentURL = tabs.get(tabId).url
 
@@ -119,15 +115,6 @@ function rerenderTabElement (tabId) {
 
   var secIcon = tabEl.getElementsByClassName('icon-tab-not-secure')[0]
 
-  // if (tabData.secure === false) {
-  //   if (!secIcon) {
-  //     var iconArea = tabEl.querySelector('.tab-icon-area')
-  //     iconArea.insertAdjacentHTML('beforeend', "<i class='fa fa-unlock icon-tab-not-secure tab-info-icon' title='Your connection to this website is not secure.'></i>")
-  //   }
-  // } else if (secIcon) {
-  //   secIcon.parentNode.removeChild(secIcon)
-  // }
-
   // update the star to reflect whether the page is bookmarked or not
   bookmarks.renderStar(tabId)
 }
@@ -135,42 +122,7 @@ function rerenderTabElement (tabId) {
 function createTabElement (data) {
 
   var url = urlParser.parse(data.url)
-  // w.addEventListener('page-favicon-updated', function (e) {
-  //   console.log("!!!", e)
-  // })
-//   w.addEventListener('page-favicon-updated', function (e) {
-//     var id = this.getAttribute('data-tab')
-//     getFavicon = function () {
-//       let favicon
-//       const nodeList = document.getElementsByTagName('link')
-//       for (var i = 0; i < nodeList.length; i++) {
-//         if ((nodeList[i].getAttribute('rel') === 'icon') || (nodeList[i].getAttribute('rel') === 'shortcut icon')) {
-//           favicon = nodeList[i].getAttribute('href')
-//         }
-//       }
-//       return favicon
-//     }
-//
-// // set favicon as a data url because chrome-extension urls don't work correctly
-//     if (getFavicon()) {
-//       let img = new window.Image()
-//       img.onload = function () {
-//         let canvas = document.createElement('CANVAS')
-//         const ctx = canvas.getContext('2d')
-//         canvas.height = this.height
-//         canvas.width = this.width
-//         ctx.drawImage(this, 0, 0)
-//         const dataURL = canvas.toDataURL()
-//         const docHead = document.getElementsByTagName('head')[0]
-//         const newLink = document.createElement('link')
-//         newLink.rel = 'shortcut icon'
-//         newLink.href = dataURL
-//         docHead.appendChild(newLink)
-//         canvas = null
-//       }
-//       img.src = 'img/favicon.ico'
-//     }
-//   })
+
   var tabEl = document.createElement('div')
   tabEl.className = 'tab-item'
   tabEl.setAttribute('data-tab', data.id)
@@ -317,25 +269,6 @@ function createTabElement (data) {
       enterEditMode(data.id)
     }
   })
-
-  // tabEl.addEventListener('mousewheel', function (e) {
-  //   if (e.deltaY > 65 && e.deltaX < 10 && Date.now() - lastTabDeletion > 650) { // swipe up to delete tabs
-  //     lastTabDeletion = Date.now()
-  //
-  //     /* tab deletion is disabled in focus mode */
-  //     if (isFocusMode) {
-  //       showFocusModeError()
-  //       return
-  //     }
-  //
-  //     var tab = this.getAttribute('data-tab')
-  //     this.style.transform = 'translateY(-100%)'
-  //
-  //     setTimeout(function () {
-  //       closeTab(tab)
-  //     }, 150) // wait until the animation has completed
-  //   }
-  // })
 
   return tabEl
 

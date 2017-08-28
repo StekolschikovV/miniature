@@ -49,7 +49,11 @@ var sessionRestore = {
 
     data.state.tasks.forEach(function (task) {
       // restore the task item
-      tasks.add(task)
+      // console.log( '########################################################' )
+      // console.log( task )
+      // console.log( '########################################################' )
+      // tasks.add(task)
+      tasks.addInStart(task)
     })
 
     // switch to the previously selected tasks

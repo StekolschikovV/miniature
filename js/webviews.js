@@ -95,8 +95,13 @@ function getWebviewDom (options) {
     say.m('getWebviewDom page-favicon-updated')
       // console.log( e )
       // console.log( urlParser.parse(options.url) )
-
-    F.ADD( urlParser.parse(options.url), e.favicons[0] )
+    // console.log('###################################################################3')
+    // console.log( e )
+    // console.log( e.path[ 0 ].attributes[ 1 ] )
+    // console.log( e.path[ 0 ].attributes.src.nodeValue )
+    // console.log('###################################################################3')
+    // F.ADD( urlParser.parse(options.url), e.favicons[0] ) // !!!!!!!!!!!!!!!!!!!
+    F.ADD( e.path[ 0 ].attributes.src.nodeValue, e.favicons[0] )
     // console.log(e)
     // tabEl.faviconElement.style.backgroundImage = `url(${e.favicons[0]})`
     // console.log(e)
