@@ -144,10 +144,6 @@ function getWebviewDom (options) {
   w.addEventListener('did-finish-load', onPageLoad)
   w.addEventListener('did-navigate-in-page', onPageLoad)
 
-  /* w.on("did-get-redirect-request", function (e) {
-  	console.log(e.originalEvent)
-  }); */
-
   // open links in new tabs
 
   w.addEventListener('new-window', function (e) {

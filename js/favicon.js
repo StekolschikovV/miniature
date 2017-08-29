@@ -47,52 +47,13 @@ F = {
     let collectionNowTabs = ''
     let collectionNowTabIdSelected = ''
 
-    // try {
+
       for ( let i = 0; i < tabState.tasks.length; i++ ) {
-
-      // console.log( i, tabState.tasks[ i ].id, collectionNowId == tabState.tasks[ i ].id)
-
-      // console.log(
-      //   'collectionNowId', collectionNowId,
-      //   'tabState.tasks[ i ].id', tabState.tasks[ i ].id,
-      //   'collectionNowId == tabState.tasks[ i ].id', collectionNowId == tabState.tasks[ i ].id
-      // )
-      //
         if (collectionNowId == tabState.tasks[ i ].id) {
           collectionNowIndex = i
           collectionNowTabs = tabState.tasks[ i ].tabs
-
-          for( let j = 0; j < tabState.tasks[ i ].tabs.length; j++){
-            // console.log( '      ', tabState.tasks[ i ].tabs[ j ].selected, tabState.tasks[ i ].tabs[ j ].id, tabState.tasks[ i ].tabs[ j ].title, tabState.tasks[ i ].tabs[ j ].url )
-          }
-
         }
-      //
-      //   console.log(
-      //     'tabState.tasks[ i ].tabs.length - 1 ', tabState.tasks[ i ].tabs.length - 1,
-      //     'tabState.tasks[ i ].tabs ', tabState.tasks[ i ].tabs,
-      //     'i ', i
-      //   )
-      //
-      //   for( let j = 0; j < tabState.tasks[ i ].tabs.length - 1; i++ ){
-      //   // for( let j = 0; j < tabState.tasks[ i ].tabs.length; i++ ){
-      //     if( tabState.tasks[ i ].tabs[ j ].selected == true ){
-      //       collectionNowTabIdSelected = tabState.tasks[ i ].tabs[ j ].id
-      //     }
-      //   }
       }
-    // } catch ( e ){
-    //   console.log( e )
-    // }
-
-
-    // refresh and select tab
-    // if ( collectionNowTabIdSelected != ''){
-      // try {
-      //   rerenderTabstrip()
-      //   setActiveTabElement( collectionNowTabIdSelected )
-      // } catch (e){}
-    // }
 
     // clear
     let el = document.querySelectorAll('.tab-item img')
@@ -102,12 +63,8 @@ F = {
     }
 
     // set
-    // console.log( 'collectionNowTabs.length', collectionNowTabs.length )
-    // try {
       for ( let s = 0; s < collectionNowTabs.length; s++ ) {
-      // console.log( '+', collectionNowTabs[s].selected)
         let hostTab = F._urlToHost( collectionNowTabs[s].url )
-        console.log( 'HOST: ', hostTab )
         if( hostTab != '' ){
           try{
             for (let j = 0; j <= F.DB.length; j++) {
@@ -115,31 +72,14 @@ F = {
                 document.querySelectorAll('.tab-item img')[ s ].src = F.DB[j].base64
               }
             }
-            // if( collectionNowTabs[s].selected && ){
-            //
-            // }
-          } catch (e){
-            // setTimeout(function () {
-            //   F.UPDATE()
-            // }, 500)
-          }
+          } catch (e){}
         }
       }
-    // } catch ( e ){
-    //   console.log( e )
-    // }
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 
     if( F.webviewIsLoading ){
       document.querySelector('.tab-item.active img.favicon').src = ''
       document.querySelector('.tab-item.active img.favicon').src = 'http://www.wallies.com/filebin/images/loading_apple.gif'
-
     }
-    // else{
-    //   // alert()
-    // }
-    console.log( ' F.webviewIsLoading',  F.webviewIsLoading )
 
   }, _urlToHost( url ){
     try {
@@ -159,16 +99,8 @@ F = {
       urlHost = ''
     }
 
-    // console.log( ' ----------------------------------------------------------------------- ' )
-    // console.log( 'urlHost ', urlHost)
-    // console.log( 'faviconUrl ', faviconUrl)
-    // console.log( ' ----------------------------------------------------------------------- ' )
-
-
     if( urlHost != '' ){
-
       let isIbDB = false
-
       for( let j = 0; j < F.DB.length; j++ ){
         if( F.DB[j].url == urlHost ){
           isIbDB = true
