@@ -80,9 +80,26 @@ remote.session.defaultSession.setPermissionRequestHandler(pagePermissionRequestH
 
 
 function getWebviewDom (options) {
+
   var w = document.createElement('webview')
+
   w.setAttribute('preload', 'dist/webview.min.js')
 
+  w.addEventListener('did-start-loading', ( e )=>{
+    F.webviewIsLoading = true
+    eventEmitter.emit( 'startLoadingPage' )
+  })
+
+  w.addEventListener('did-stop-loading', ( e )=>{
+    F.webviewIsLoading = false
+    eventEmitter.emit( 'stopLoadingPage' )
+  })
+
+  w.addEventListener('page-favicon-updated', function(e) {
+    say.m('getWebviewDom page-favicon-updated')
+    F.ADD( e.path[ 0 ].attributes.src.nodeValue, e.favicons[0] )
+    eventEmitter.emit( 'updateFavicon' )
+  })
 
   if (options.url) {
     w.setAttribute('src', urlParser.parse(options.url))
@@ -90,25 +107,7 @@ function getWebviewDom (options) {
   w.setAttribute('blinkfeatures', 'OverlayScrollbars')
   w.setAttribute('data-tab', options.tabId)
 
-  w.addEventListener('page-favicon-updated', function(e) {
-    // console.log('----------------------------------------')
-    say.m('getWebviewDom page-favicon-updated')
-      // console.log( e )
-      // console.log( urlParser.parse(options.url) )
-    // console.log('###################################################################3')
-    // console.log( e )
-    // console.log( e.path[ 0 ].attributes[ 1 ] )
-    // console.log( e.path[ 0 ].attributes.src.nodeValue )
-    // console.log('###################################################################3')
-    // F.ADD( urlParser.parse(options.url), e.favicons[0] ) // !!!!!!!!!!!!!!!!!!!
-    F.ADD( e.path[ 0 ].attributes.src.nodeValue, e.favicons[0] )
-    // console.log(e)
-    // tabEl.faviconElement.style.backgroundImage = `url(${e.favicons[0]})`
-    // console.log(e)
-    // console.log(e.favicons[0])
-    // F.setActiveFavicon( e.favicons[0] )
-    // console.log('----------------------------------------')
-  })
+
   // if the tab is private, we want to partition it. See http://electron.atom.io/docs/v0.34.0/api/web-view-tag/#partition
   // since tab IDs are unique, we can use them as partition names
   if (tabs.get(options.tabId).private === true) {

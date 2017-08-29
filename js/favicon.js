@@ -1,5 +1,6 @@
 F = {
 
+  webviewIsLoading: false,
   DB: [],
 
   START(){
@@ -8,36 +9,21 @@ F = {
     F.UPDATE()
     F.EVENT()
   }, EVENT(){
+    eventEmitter.on( 'startLoadingPage', () => { F.UPDATE() })
+    eventEmitter.on( 'stopLoadingPage', () => {
+      F.UPDATE()
+      setTimeout(function () { F.UPDATE() }, 1500)
+    })
     eventEmitter.on( 'goToCollection', () => {
       F.UPDATE()
-      setTimeout(function () { F.UPDATE() }, 500)
-      setTimeout(function () { F.UPDATE() }, 1000)
-      setTimeout(function () { F.UPDATE() }, 1500)
     });
-    eventEmitter.on( 'updatePage', () => {
-      F.UPDATE()
-      // setTimeout(function () { F.UPDATE() }, 500)
-      // setTimeout(function () { F.UPDATE() }, 1000)
-      // setTimeout(function () { F.UPDATE() }, 1500)
-    });
+    eventEmitter.on( 'updatePage', () => { F.UPDATE() });
     eventEmitter.on( 'updateFavicon', () => {
       F.UPDATE()
-      // setTimeout(function () { F.UPDATE() }, 500)
-      // setTimeout(function () { F.UPDATE() }, 1000)
-      // setTimeout(function () { F.UPDATE() }, 1500)
+      setTimeout(function () { F.UPDATE() }, 1500)
     });
-    eventEmitter.on( 'renderOverlay', () => {
-      F.UPDATE()
-      // setTimeout(function () { F.UPDATE() }, 500)
-      // setTimeout(function () { F.UPDATE() }, 1000)
-      // setTimeout(function () { F.UPDATE() }, 1500)
-    });
-    eventEmitter.on( 'addTab', () => {
-      F.UPDATE()
-      // setTimeout(function () { F.UPDATE() }, 500)
-      // setTimeout(function () { F.UPDATE() }, 1000)
-      // setTimeout(function () { F.UPDATE() }, 1500)
-    });
+    eventEmitter.on( 'renderOverlay', () => { F.UPDATE() });
+    eventEmitter.on( 'addTab', () => { F.UPDATE() });
     eventEmitter.on( 'windowClose', () => {
       F.SET_DB()
     });
@@ -64,7 +50,7 @@ F = {
     // try {
       for ( let i = 0; i < tabState.tasks.length; i++ ) {
 
-      console.log( i, tabState.tasks[ i ].id, collectionNowId == tabState.tasks[ i ].id)
+      // console.log( i, tabState.tasks[ i ].id, collectionNowId == tabState.tasks[ i ].id)
 
       // console.log(
       //   'collectionNowId', collectionNowId,
@@ -77,7 +63,7 @@ F = {
           collectionNowTabs = tabState.tasks[ i ].tabs
 
           for( let j = 0; j < tabState.tasks[ i ].tabs.length; j++){
-            console.log( '      ', tabState.tasks[ i ].tabs[ j ].selected, tabState.tasks[ i ].tabs[ j ].id, tabState.tasks[ i ].tabs[ j ].title, tabState.tasks[ i ].tabs[ j ].url )
+            // console.log( '      ', tabState.tasks[ i ].tabs[ j ].selected, tabState.tasks[ i ].tabs[ j ].id, tabState.tasks[ i ].tabs[ j ].title, tabState.tasks[ i ].tabs[ j ].url )
           }
 
         }
@@ -116,9 +102,10 @@ F = {
     }
 
     // set
-    console.log( 'collectionNowTabs.length', collectionNowTabs.length )
+    // console.log( 'collectionNowTabs.length', collectionNowTabs.length )
     // try {
       for ( let s = 0; s < collectionNowTabs.length; s++ ) {
+      // console.log( '+', collectionNowTabs[s].selected)
         let hostTab = F._urlToHost( collectionNowTabs[s].url )
         console.log( 'HOST: ', hostTab )
         if( hostTab != '' ){
@@ -128,6 +115,9 @@ F = {
                 document.querySelectorAll('.tab-item img')[ s ].src = F.DB[j].base64
               }
             }
+            // if( collectionNowTabs[s].selected && ){
+            //
+            // }
           } catch (e){
             // setTimeout(function () {
             //   F.UPDATE()
@@ -141,7 +131,15 @@ F = {
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
+    if( F.webviewIsLoading ){
+      document.querySelector('.tab-item.active img.favicon').src = ''
+      document.querySelector('.tab-item.active img.favicon').src = 'http://www.wallies.com/filebin/images/loading_apple.gif'
 
+    }
+    // else{
+    //   // alert()
+    // }
+    console.log( ' F.webviewIsLoading',  F.webviewIsLoading )
 
   }, _urlToHost( url ){
     try {
@@ -161,10 +159,11 @@ F = {
       urlHost = ''
     }
 
-    console.log( ' ----------------------------------------------------------------------- ' )
-    console.log( 'urlHost ', urlHost)
-    console.log( 'faviconUrl ', faviconUrl)
-    console.log( ' ----------------------------------------------------------------------- ' )
+    // console.log( ' ----------------------------------------------------------------------- ' )
+    // console.log( 'urlHost ', urlHost)
+    // console.log( 'faviconUrl ', faviconUrl)
+    // console.log( ' ----------------------------------------------------------------------- ' )
+
 
     if( urlHost != '' ){
 
@@ -182,6 +181,11 @@ F = {
             if( data.length > 1000 ){
               F.DB.push({
                 'base64': data,
+                'url': urlHost
+              })
+            } else {
+              F.DB.push({
+                'base64': F.___NO_FAVICON_ICON(),
                 'url': urlHost
               })
             }
@@ -205,6 +209,9 @@ F = {
     url = 'www.google.com.ua'
     base64 = 'data:image/ico;base64,AAABAAIAEBAAAAEAIABoBAAAJgAAACAgAAABACAAqBAAAI4EAAAoAAAAEAAAACAAAAABACAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///zD9/f2W/f392P39/fn9/f35/f391/39/ZT+/v4uAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/v7+Cf39/Zn///////////////////////////////////////////39/ZX///8IAAAAAAAAAAAAAAAA/v7+Cf39/cH/////+v35/7TZp/92ul3/WKs6/1iqOv9yuFn/rNWd//j79v///////f39v////wgAAAAAAAAAAP39/Zn/////7PXp/3G3WP9TqDT/U6g0/1OoNP9TqDT/U6g0/1OoNP+Or1j//vDo///////9/f2VAAAAAP///zD/////+vz5/3G3V/9TqDT/WKo6/6LQkf/U6cz/1urO/6rUm/+Zo0r/8IZB//adZ////v7///////7+/i79/f2Y/////4nWzf9Lqkj/Vqo4/9Xqzv///////////////////////ebY//SHRv/0hUL//NjD///////9/f2U/f392v////8sxPH/Ebzt/43RsP/////////////////////////////////4roL/9IVC//i1jf///////f391/39/fr/////Cr37/wW8+/+16/7/////////////////9IVC//SFQv/0hUL/9IVC//SFQv/3pnX///////39/fn9/f36/////wu++/8FvPv/tuz+//////////////////SFQv/0hUL/9IVC//SFQv/0hUL/96p7///////9/f35/f392/////81yfz/CrL5/2uk9v///////////////////////////////////////////////////////f392P39/Zn/////ks/7/zdS7P84Rur/0NT6///////////////////////9/f////////////////////////39/Zb+/v4y//////n5/v9WYu3/NUPq/ztJ6/+VnPT/z9L6/9HU+v+WnfT/Ul7t/+Hj/P////////////////////8wAAAAAP39/Z3/////6Or9/1hj7v81Q+r/NUPq/zVD6v81Q+r/NUPq/zVD6v9sdvD////////////9/f2YAAAAAAAAAAD///8K/f39w//////5+f7/paz2/11p7v88Suv/Okfq/1pm7v+iqfX/+fn+///////9/f3B/v7+CQAAAAAAAAAAAAAAAP///wr9/f2d///////////////////////////////////////////9/f2Z/v7+CQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7+/jL9/f2Z/f392/39/fr9/f36/f392v39/Zj///8wAAAAAAAAAAAAAAAAAAAAAPAPAADAAwAAgAEAAIABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAACAAQAAwAMAAPAPAAAoAAAAIAAAAEAAAAABACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7+/g3+/v5X/f39mf39/cj9/f3q/f39+f39/fn9/f3q/f39yP39/Zn+/v5W////DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7+/iT9/f2c/f399f/////////////////////////////////////////////////////9/f31/f39mv7+/iMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7+/gn9/f2K/f39+////////////////////////////////////////////////////////////////////////////f39+v39/Yf///8IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+/v4k/f390v////////////////////////////////////////////////////////////////////////////////////////////////39/dD///8iAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////MP39/er//////////////////////////+r05v+v16H/gsBs/2WxSf9Wqjj/Vqk3/2OwRv99vWX/pdKV/97u2P////////////////////////////39/ej+/v4vAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7+/iT9/f3q/////////////////////+v15/+Pxnv/VKk2/1OoNP9TqDT/U6g0/1OoNP9TqDT/U6g0/1OoNP9TqDT/U6g0/36+Z//d7tf///////////////////////39/ej///8iAAAAAAAAAAAAAAAAAAAAAAAAAAD///8K/f390//////////////////////E4bn/XKw+/1OoNP9TqDT/U6g0/1OoNP9TqDT/U6g0/1OoNP9TqDT/U6g0/1OoNP9TqDT/U6g0/1apN/+x0pv///////////////////////39/dD///8IAAAAAAAAAAAAAAAAAAAAAP39/Yv/////////////////////sdij/1OoNP9TqDT/U6g0/1OoNP9TqDT/U6g0/1OoNP9TqDT/U6g0/1OoNP9TqDT/U6g0/1OoNP9TqDT/YKU1/8qOPv/5wZ////////////////////////39/YcAAAAAAAAAAAAAAAD+/v4l/f39+////////////////8Lgt/9TqDT/U6g0/1OoNP9TqDT/U6g0/1OoNP9utlT/n86N/7faqv+426v/pdKV/3u8ZP9UqDX/U6g0/3egN//jiUH/9IVC//SFQv/82MP//////////////////f39+v7+/iMAAAAAAAAAAP39/Z3////////////////q9Ob/W6w+/1OoNP9TqDT/U6g0/1OoNP9nskz/zOXC/////////////////////////////////+Dv2v+osWP/8YVC//SFQv/0hUL/9IVC//WQVP/++fb//////////////////f39mgAAAAD+/v4O/f399v///////////////4LHj/9TqDT/U6g0/1OoNP9TqDT/dblc//L58P/////////////////////////////////////////////8+v/3p3f/9IVC//SFQv/0hUL/9IVC//rIqf/////////////////9/f31////DP7+/ln////////////////f9v7/Cbz2/zOwhv9TqDT/U6g0/2KwRv/v9+z///////////////////////////////////////////////////////738//1kFT/9IVC//SFQv/0hUL/9plg///////////////////////+/v5W/f39nP///////////////4jf/f8FvPv/Bbz7/yG1s/9QqDz/vN2w//////////////////////////////////////////////////////////////////rHqP/0hUL/9IVC//SFQv/0hUL//vDn//////////////////39/Zn9/f3L////////////////R878/wW8+/8FvPv/Bbz7/y7C5P/7/fr//////////////////////////////////////////////////////////////////ere//SFQv/0hUL/9IVC//SFQv/718H//////////////////f39yP39/ez///////////////8cwvv/Bbz7/wW8+/8FvPv/WNL8///////////////////////////////////////0hUL/9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/9IVC//rIqv/////////////////9/f3q/f39+v///////////////we9+/8FvPv/Bbz7/wW8+/993P3///////////////////////////////////////SFQv/0hUL/9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/+cGf//////////////////39/fn9/f36////////////////B737/wW8+/8FvPv/Bbz7/33c/f//////////////////////////////////////9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/9IVC//SFQv/6xaX//////////////////f39+f39/e3///////////////8cwvv/Bbz7/wW8+/8FvPv/WdP8///////////////////////////////////////0hUL/9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/9IVC//SFQv/0hUL/9IVC//vVv//////////////////9/f3q/f39y////////////////0bN/P8FvPv/Bbz7/wW8+/8hrvn/+/v///////////////////////////////////////////////////////////////////////////////////////////////////////////////////39/cj9/f2c////////////////ht/9/wW8+/8FvPv/FZP1/zRJ6/+zuPf//////////////////////////////////////////////////////////////////////////////////////////////////////////////////f39mf7+/lr////////////////d9v7/B7n7/yB38f81Q+r/NUPq/0hV7P/u8P3////////////////////////////////////////////////////////////////////////////////////////////////////////////+/v5X////D/39/ff///////////////9tkPT/NUPq/zVD6v81Q+r/NUPq/2Fs7//y8v7////////////////////////////////////////////09f7//////////////////////////////////////////////////f399f7+/g0AAAAA/f39n////////////////+Tm/P89Suv/NUPq/zVD6v81Q+r/NUPq/1Bc7f/IzPn/////////////////////////////////x8v5/0xY7P+MlPP////////////////////////////////////////////9/f2cAAAAAAAAAAD+/v4n/f39/P///////////////7W69/81Q+r/NUPq/zVD6v81Q+r/NUPq/zVD6v9ZZe7/k5v0/6609/+vtff/lJv0/1pm7v81Q+r/NUPq/zVD6v+GjvL//v7//////////////////////////////f39+/7+/iQAAAAAAAAAAAAAAAD9/f2N/////////////////////6Cn9f81Q+r/NUPq/zVD6v81Q+r/NUPq/zVD6v81Q+r/NUPq/zVD6v81Q+r/NUPq/zVD6v81Q+r/NUPq/zVD6v+BivL////////////////////////////9/f2KAAAAAAAAAAAAAAAAAAAAAP7+/gv9/f3V/////////////////////7W69/8+S+v/NUPq/zVD6v81Q+r/NUPq/zVD6v81Q+r/NUPq/zVD6v81Q+r/NUPq/zVD6v81Q+r/P0zr/7q/+P///////////////////////f390v7+/gkAAAAAAAAAAAAAAAAAAAAAAAAAAP7+/ib9/f3r/////////////////////+Xn/P94gfH/NkTq/zVD6v81Q+r/NUPq/zVD6v81Q+r/NUPq/zVD6v81Q+r/NkTq/3Z/8f/l5/z///////////////////////39/er+/v4kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7+/jL9/f3r///////////////////////////k5vz/nqX1/2p08P9IVez/OEbq/zdF6v9GU+z/aHLv/5qh9f/i5Pz////////////////////////////9/f3q////MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7+/ib9/f3V/////////////////////////////////////////////////////////////////////////////////////////////////f390v7+/iQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wr9/f2N/f39/P///////////////////////////////////////////////////////////////////////////f39+/39/Yv+/v4JAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+/v4n/f39n/39/ff//////////////////////////////////////////////////////f399v39/Z3+/v4lAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/v7+Dv7+/lr9/f2c/f39y/39/e39/f36/f39+v39/ez9/f3L/f39nP7+/ln+/v4OAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/AA///AAD//AAAP/gAAB/wAAAP4AAAB8AAAAPAAAADgAAAAYAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAABgAAAAcAAAAPAAAAD4AAAB/AAAA/4AAAf/AAAP/8AAP//wAP/'
     F.DB.push( { 'url': url, 'base64': base64 } )
+  },
+  ___NO_FAVICON_ICON(){
+    return 'data:image/png;base64,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\n'
   }
 }
 
