@@ -1,3 +1,5 @@
+Developer's branch for the [miniature project](https://github.com/doreminiature/miniature).
+
 ![Miniature Mockup](https://i.imgur.com/9Rshss4.png)
 
 Miniature —
