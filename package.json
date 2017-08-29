@@ -12,13 +12,13 @@
     "string_score": "^0.1.22"
   },
   "devDependencies": {
+    "electron-reload": "latest",
     "grunt": "^0.4.5",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-uglify": "^0.10.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-electron": "^4.0.0",
-    "standard": "^7.1.0",
-    "electron-livereload": "^0.0.2"
+    "standard": "^7.1.0"
   },
   "license": "Apache-2.0",
   "scripts": {
