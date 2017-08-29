@@ -93,6 +93,7 @@ function getWebviewDom (options) {
   w.addEventListener('did-stop-loading', ( e )=>{
     F.webviewIsLoading = false
     eventEmitter.emit( 'stopLoadingPage' )
+
   })
 
   w.addEventListener('page-favicon-updated', function(e) {
@@ -290,6 +291,5 @@ function getWebview (id) {
     })
   }
 
-  say.o(el)
   return el
 }
